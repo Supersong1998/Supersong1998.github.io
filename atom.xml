@@ -1,13 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://Supersong1998.github.io</id>
+    <id>https://www.sssdoctor.com</id>
     <title>大大大大宋</title>
-    <updated>2022-02-13T10:22:18.943Z</updated>
+    <updated>2022-02-13T12:45:05.149Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://Supersong1998.github.io"/>
-    <link rel="self" href="https://Supersong1998.github.io/atom.xml"/>
+    <link rel="alternate" href="https://www.sssdoctor.com"/>
+    <link rel="self" href="https://www.sssdoctor.com/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://Supersong1998.github.io/images/avatar.png</logo>
-    <icon>https://Supersong1998.github.io/favicon.ico</icon>
+    <logo>https://www.sssdoctor.com/images/avatar.png</logo>
+    <icon>https://www.sssdoctor.com/favicon.ico</icon>
     <rights>All rights reserved 2022, 大大大大宋</rights>
+    <entry>
+        <title type="html"><![CDATA[写给自己]]></title>
+        <id>https://www.sssdoctor.com/post/xie-gei-zi-ji/</id>
+        <link href="https://www.sssdoctor.com/post/xie-gei-zi-ji/">
+        </link>
+        <updated>2022-02-13T12:12:08.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://www.sssdoctor.com/post-images/1644756300407.jpg" alt="" loading="lazy"><br>
+转眼27年时光已过；<br>
+假定我能活到70岁，还剩43年时光；<br>
+如果60岁开始疾病缠身，那或许惬意的日子也就33年；<br>
+如果博士顺利毕业，我真正独立于这世间的时间正正好好余30年；<br>
+即今日起你可以给自己做一个倒计时；<br>
+2022.2.14~2055.2.14<br>
+剩余12053天</p>
+<p>请问你还有什么未完成的心愿？<br>
+希望博士毕业的时候，我的学识能够真正匹配学历，<br>
+至少要在我所研究的方向上有能力站的住，站得稳，<br>
+切勿再整日浑浑噩噩；<br>
+希望能够找一份满意的工作，<br>
+能够呆在父母、妻儿身边，<br>
+生活惬意，家人安康；<br>
+希望跟爱人去远方，<br>
+在年轻的日子里，<br>
+留下美好的记忆。</p>
+<p>剩下的以后再来<br>
+（未完待续）</p>
+]]></content>
+    </entry>
 </feed>
