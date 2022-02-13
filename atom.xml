@@ -1,85 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://www.sssdoctor.com</id>
+    <id>https://Supersong1998.github.io</id>
     <title>大大大大宋</title>
-    <updated>2022-02-13T10:06:20.317Z</updated>
+    <updated>2022-02-13T10:22:18.943Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://www.sssdoctor.com"/>
-    <link rel="self" href="https://www.sssdoctor.com/atom.xml"/>
+    <link rel="alternate" href="https://Supersong1998.github.io"/>
+    <link rel="self" href="https://Supersong1998.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://www.sssdoctor.com/images/avatar.png</logo>
-    <icon>https://www.sssdoctor.com/favicon.ico</icon>
+    <logo>https://Supersong1998.github.io/images/avatar.png</logo>
+    <icon>https://Supersong1998.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 大大大大宋</rights>
-    <entry>
-        <title type="html"><![CDATA[加内特]]></title>
-        <id>https://www.sssdoctor.com/post/jia-nei-te/</id>
-        <link href="https://www.sssdoctor.com/post/jia-nei-te/">
-        </link>
-        <updated>2022-02-12T16:00:52.000Z</updated>
-        <content type="html"><![CDATA[<p>a's'c'c'sasccs</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[杜兰特]]></title>
-        <id>https://www.sssdoctor.com/post/du-lan-te/</id>
-        <link href="https://www.sssdoctor.com/post/du-lan-te/">
-        </link>
-        <updated>2022-02-12T15:59:41.000Z</updated>
-        <content type="html"><![CDATA[<p>4</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[库里]]></title>
-        <id>https://www.sssdoctor.com/post/ku-li/</id>
-        <link href="https://www.sssdoctor.com/post/ku-li/">
-        </link>
-        <updated>2022-02-12T15:58:40.000Z</updated>
-        <content type="html"><![CDATA[<p>3</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[莱昂纳德]]></title>
-        <id>https://www.sssdoctor.com/post/lai-ang-na-de/</id>
-        <link href="https://www.sssdoctor.com/post/lai-ang-na-de/">
-        </link>
-        <updated>2022-02-12T15:57:26.000Z</updated>
-        <content type="html"><![CDATA[<p>2</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[麦迪]]></title>
-        <id>https://www.sssdoctor.com/post/mai-di/</id>
-        <link href="https://www.sssdoctor.com/post/mai-di/">
-        </link>
-        <updated>2022-02-12T15:55:43.000Z</updated>
-        <content type="html"><![CDATA[<p>2</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[乔丹]]></title>
-        <id>https://www.sssdoctor.com/post/qiao-dan/</id>
-        <link href="https://www.sssdoctor.com/post/qiao-dan/">
-        </link>
-        <updated>2022-02-12T15:55:20.000Z</updated>
-        <content type="html"><![CDATA[<p>1</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[科比]]></title>
-        <id>https://www.sssdoctor.com/post/shi-da-fa-fa/</id>
-        <link href="https://www.sssdoctor.com/post/shi-da-fa-fa/">
-        </link>
-        <updated>2022-02-12T15:13:13.000Z</updated>
-        <content type="html"><![CDATA[<p><img src="https://www.sssdoctor.com/post-images/1644680625143.png" alt="" loading="lazy">发</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[詹姆斯]]></title>
-        <id>https://www.sssdoctor.com/post/wrw-r/</id>
-        <link href="https://www.sssdoctor.com/post/wrw-r/">
-        </link>
-        <updated>2022-02-12T14:58:12.000Z</updated>
-        <content type="html"><![CDATA[<p>1</p>
-]]></content>
-    </entry>
 </feed>
