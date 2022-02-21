@@ -125,49 +125,107 @@
         <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
             <figure class="animate-box">
                 
-                    <img src="https://www.sssdoctor.com/post-images/xie-gei-zi-ji.jpg" alt="写给自己" class="img-responsive">
-                
             </figure>
             <span class="fh5co-meta animate-box">
                 
+                    <div class="tag-container">
+                        
+                            <a href="https://www.sssdoctor.com/tag/DKyI_fVGw/" class="tag">2022, </a>
+                        
+                            <a href="https://www.sssdoctor.com/tag/SVo_PC65w/" class="tag">ANSYS, </a>
+                        
+                    </div>
+                
             </span>
-            <h2 class="fh5co-article-title animate-box">写给自己</h2>
+            <h2 class="fh5co-article-title animate-box">N-S方程推导</h2>
             <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
-                <li>2022-02-13</li>
-                <li>224字</li>
-                <li>1 min read</li>
+                <li>2022-02-18</li>
+                <li>1108字</li>
+                <li>5 min read</li>
             </ol>
 
             <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
                 <div class="row">
                     <div class="col-md-12 animate-box post-content">
-                        <p> <p><img src="https://www.sssdoctor.com/post-images/1644756948675.jpg" alt="" loading="lazy"><br>
-转眼27年时光已过；<br>
-假定我能活到70岁，还剩43年时光；<br>
-如果60岁开始疾病缠身，那或许惬意的日子也就33年；<br>
-如果博士顺利毕业，我真正独立于这世间的时间正正好好余30年；</p>
-<!-- more -->
-<p>即今日起你可以给自己做一个倒计时；<br>
-2022.2.14~2055.2.14<br>
-剩余12053天</p>
-<p>请问你还有什么未完成的心愿？<br>
-希望博士毕业的时候，我的学识能够真正匹配学历，<br>
-至少要在我所研究的方向上有能力站的住，站得稳，<br>
-切勿再整日浑浑噩噩；<br>
-希望能够找一份满意的工作，<br>
-能够呆在父母、妻儿身边，<br>
-生活惬意，家人安康；<br>
-希望跟爱人去远方，<br>
-在年轻的日子里，<br>
-留下美好的记忆。</p>
-<p>剩下的以后再来<br>
-（未完待续）</p>
+                        <p> <p>这并不是我第一次接触N-S方程，认识它的时间竟然比我女友的时间还要提前，那是2018年的夏天。<br>
+可是每次推每次都忘，虽说遗忘不可避免，但也不至于每次都从头开始，劳资决定这次把它干挺！这次要搞懂一下几个问题：1.N-S方程的推导过程及各项的物理意义。2.有限体积法的基本原理。3.代数方程求解过程。<img src="https://www.sssdoctor.com/post-images/1645148308307.jfif" alt="" loading="lazy"><br>
+1.背景介绍<br>
+1.1定义<br>
+计算流体力学【简称：CFD(Computational Fluid Dynamics)】，利用计算机，通过数值计算的方法，求解流体控制方程，最终得到流场的离散数值解。<br>
+1.2优劣<br>
+研究流体力学的方法主要分为三种：理论、试验、数值计算。<br>
+2.方程推导<br>
+2.1连续介质假设<br>
+流体连续、充满整个空间不存在间断，才能保证各种物理量的连续性、模型的有效性、函数才能生效<br>
+ps:稀薄气体不属于连续介质假设<br>
+2.2随体导数<br>
+随体导数实际上是联系欧拉法与拉格朗日法的桥梁，比如从早上从北京出发去上海，中午到的一动车，监测车体室外温度，会发现温度的变化分为两个部分，第一部分由于空间位置发生改变引起的温度变化，第二部分是从早上到晚上时间变化引起的温度变化。<br>
+因此随体导数：<img src="https://www.sssdoctor.com/post-images/1645422967597.png" alt="" loading="lazy"><br>
+式中：右1表示当地项、右2表示对流项<br>
+2.3物质运动描述方法：<br>
+2.3.1欧拉法<br>
+控制体 对于流体大多数基于控制体 为什么流体基于控制体 其实也可以基于系统（粒子） 但是工程应用更多的是关注于场的概念，某一区域内的整体的变化，关注的程度大于某一粒子的重要性，当然这也不是绝对的。<br>
+用一生活中的例子来描述欧拉法就是摄像头，一般来讲摄像头位置固定，在摄像头的位置区域内，可以观测该点时间内的变化。<br>
+2.3.2拉格朗日坐法<br>
+系统  一群粒子的跟踪 实质上追踪的是流体微元及质点<br>
+警察跟踪就是典型的拉格朗日<br>
+2.4方程推导<br>
+守恒关系：质量守恒dm/dt=0 动量定理f=d(mv)/dt 能量守恒  d(e)/dt=w-q<br>
+如何建立以上关系？<br>
+2.4.1方法一：雷诺输运定理*（二次开发及写方程）<br>
+首先建立一个物质密度的概念：比如<br>
+<img src="https://www.sssdoctor.com/post-images/1645423254081.png" alt="" loading="lazy"><br>
+基于物质密度这个概念去推导欧拉及拉格朗日之间的转换关系<br>
+对于空间位置固定的控制体而言：遵循以下规律<br>
+总系统的能量变化-控制体内部的能量化=净流出量<br>
+<img src="https://www.sssdoctor.com/post-images/1645424187096.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1645424620211.png" alt="" loading="lazy"><br>
+以质量方程为例假设有限控制体空间位置固定且趋近于无穷小，则有下式：<br>
+<img src="https://www.sssdoctor.com/post-images/1645425390660.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1645425408675.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1645425416452.png" alt="" loading="lazy"><br>
+因此守恒型积分质量方程如上图所示<br>
+将物质密度替换为动量密度、能量密度、便可以推出守恒型积分动量方程、能量方程、<br>
+具体过程如下：<br>
+<img src="https://www.sssdoctor.com/post-images/1645426039597.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1645426413313.png" alt="" loading="lazy"><br>
+其实四种方程之间可相互转换<br>
+2.4.2方法二：<br>
+<img src="https://www.sssdoctor.com/post-images/1645427527701.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1645427956288.png" alt="" loading="lazy"><br>
+CFD使用守恒型微分方程<br>
+守恒：欧拉<br>
+微分：流场内任一点的物理量<br>
+2.4.2方法二：李新亮的推导<br>
+2.4.3方程的封闭性<br>
+未知数：m (u v w) T P方程得得个数有6个未知数     但是只有5方程  所以需要有补充翻方程 即状态方程 因此方程可简化<br>
+2.4.4粘性<br>
+可压缩 粘性是温度的函数<br>
+不可压缩： 粘性是常数<br>
+2.5计算流体力学常用方程<br>
+2.5.1不可压方程<br>
+2.5.2无粘方程（欧拉）<br>
+2.5.3thin layer n-s(薄膜方程) 交叉导数项拿掉<br>
+2.5.4DNS:直接数值模拟：拿N-S方程来计算<br>
+2.5.5雷诺平均方程 由DNS演化而来加上了人工粘性项<br>
+2.5.6PNS方程 将N-S方程抛物化<br>
+2.5.7边界层方程<br>
+2.5.8扰动、小扰动、线化N-S流动方程</p>
  </p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-12 animate-box">
+                        
+                            <div class="next-post">
+                                <div class="next">下一篇</div>
+                                <a href="https://www.sssdoctor.com/post/xie-gei-zi-ji/">
+                                    <h3 class="post-title">
+                                        写给自己
+                                    </h3>
+                                </a>
+                            </div>
                         
                     </div>
                 </div>
