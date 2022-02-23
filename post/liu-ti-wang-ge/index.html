@@ -35,7 +35,7 @@
 
 </head>
 <body>
-<div id="fh5co-offcanvas">
+    <div id="fh5co-offcanvas">
     <a href="#!" class="fh5co-close-offcanvas js-fh5co-close-offcanvas">
         <span><i class="icon-cross3"></i> <span>Close</span></span>
     </a>
@@ -115,73 +115,92 @@
 </header>
 
 
-<div class="container-fluid">
-    <div class="row fh5co-post-entry single-entry">
-        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0 animate-box">
+    <!--  <a href="#" class="fh5co-post-prev"><span>👈 Prev</span></a>-->
+    <!--  <a href="#" class="fh5co-post-next"><span>Next 👉</span></a>-->
 
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-12 col-xs-offset-0 text-center content-article">
+    <!-- 等gridea出自定义页面功能再优化一下 -->
+    
+        <div class="container-fluid">
+    <div class="row fh5co-post-entry single-entry">
+        <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+            <figure class="animate-box">
+                
+            </figure>
+            <span class="fh5co-meta animate-box">
+                
+            </span>
+            <h2 class="fh5co-article-title animate-box">流体网格</h2>
+            <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
+                <li>2022-02-22</li>
+                <li>238字</li>
+                <li>1 min read</li>
+            </ol>
+
+            <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
+                <div class="row">
+                    <div class="col-md-12 animate-box post-content">
+                        <p> <p>1.流体网格基础概念<br>
+1.1术语<br>
+网格：grid/cell/mesh<br>
+节点：node(固体常用/vertices流体计算软件常用）<br>
+控制体：control volume</p>
+<p>1.2网格形状<br>
+1.2.1 2D<br>
+三角形、四边形<br>
+<img src="https://www.sssdoctor.com/post-images/1645516312010.png" alt="" loading="lazy"><br>
+1.2.2 3D<br>
+四面体、六面体<br>
+<img src="https://www.sssdoctor.com/post-images/1645516326375.png" alt="" loading="lazy"><br>
+棱柱、金字塔、多面体（目前ANSYS前处理软件不能生成，但是FLUENT可将四面体或者金字塔转换成多面体、目前能生成多面体网格的前处理软件包括STAR-CCM+/CFD-GEOM。转化为多面体网格后能够大幅度减少网格数量。<br>
+<img src="https://www.sssdoctor.com/post-images/1645516353074.png" alt="" loading="lazy"></p>
+<p>1.3结构网格域非结构网格<br>
+可以粗略的认为四边形及六面体网格属于结构网格、其余属非结构网格，需要注意的是这种定义并不严谨。（跟拓扑相关，后面来加深理解）<br>
+1.4网格数量<br>
+节点+面或者体<br>
+1.5网格质量<br>
+决定计算精度</p>
+ </p>
+                    </div>
+                </div>
 
                 <div class="row">
-
-                    
-                    <h2 class="text-center archives-title">
-                        <i class="fa fa-archive"></i> 文章归档
-                    </h2>
-
-                    
-                    <div class="row post-group">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-offset-0 text-center post-year tag-title">
-                            <h3>2022</h3>
-                        </div>
-
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-offset-0 text-left">
-                            <ul class="post-list">
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://www.sssdoctor.com/post/dm-jin-xing-liu-ti-yu-de-chuang-jian/" target="_blank">
-                                        <span class="post-title">DM进行流体域的创建</span>
-                                        <span class="post-day">2022-02-22</span>
-                                    </a>
-                                </li>
-                                
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://www.sssdoctor.com/post/n-s-fang-cheng-tui-dao-ji-qi-wu-li-yi-yi/" target="_blank">
-                                        <span class="post-title">N-S方程推导</span>
-                                        <span class="post-day">2022-02-18</span>
-                                    </a>
-                                </li>
-                                
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://www.sssdoctor.com/post/xie-gei-zi-ji/" target="_blank">
-                                        <span class="post-title">写给自己</span>
-                                        <span class="post-day">2022-02-13</span>
-                                    </a>
-                                </li>
-                                
-                            
-                            </ul>
-                        </div>
+                    <div class="col-md-12 animate-box">
+                        
                     </div>
-                    
-
                 </div>
-            </div>
-        </div>
+
+                <div class="row">
+    <div class="col-md-12 animate-box">
+        
     </div>
 </div>
 
+            </div>
 
+        </article>
+    </div>
+</div>
+
+    
+
+    <!-- 返回顶部 -->
+    <div class="back-to-top">
+    
+    <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
+</div>
+
+<div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
+    
+</div>
+
+
+    
 <footer id="fh5co-footer">
   <p></p>
 </footer>
 
 
-<!-- jQuery -->
+    <!-- jQuery -->
 <script src="https://www.sssdoctor.com/media/scripts/jquery.min.js"></script>
 <!-- img lazy load -->
 <script src="https://www.sssdoctor.com/media/scripts/jquery.lazyload.min.js"></script>
