@@ -1,156 +1,90 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+    <meta charset="utf-8" >
 
-<title>大大大大宋</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>N-S方程推导 | 大大大大宋</title>
 
-<meta name="description" content="温故而知新"/>
-<meta name="keywords" content="温故而知新"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="https://supersong1998.github.io//favicon.ico">
-
-<link rel="stylesheet" href="https://supersong1998.github.io//styles/main.css">
-
-<!-- Modernizr JS -->
-<script src="https://supersong1998.github.io//media/scripts/modernizr-2.6.2.min.js"></script>
-<!-- FOR IE9 below -->
-<!--[if lt IE 9]>
-<scripts src="https://supersong1998.github.io//media/scripts/respond.min.js"></scripts>
-<![endif]-->
-
-<!-- Comment -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://www.sssdoctor.com/favicon.ico?v=1645600519480">
+<link rel="stylesheet" href="https://www.sssdoctor.com/styles/main.css">
 
 
 
-<!-- katex -->
-<!--<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet">-->
-
-<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
 
-</head>
-<body>
-    <div id="fh5co-offcanvas">
-    <a href="#!" class="fh5co-close-offcanvas js-fh5co-close-offcanvas">
-        <span><i class="icon-cross3"></i> <span>Close</span></span>
-    </a>
-    <div class="fh5co-bio">
-        <figure>
-            <img src="https://supersong1998.github.io//images/avatar.png" alt="大大大大宋"
-                 class="img-responsive">
-        </figure>
-        <a href="https://supersong1998.github.io//post/about/"><h3 class="heading">ABOUT ME</h3></a>
-        <h2>大大大大宋</h2>
-        <p>温故而知新</p>
-        <ul class="fh5co-social">
-            
-                <li>
-                    
-                </li>
-            
-                <li>
-                    
-                </li>
-            
-                <li>
-                    
-                </li>
-            
-                <li>
-                    
-                </li>
-            
-                <li>
-                    
-                </li>
-            
-        </ul>
+    <meta name="description" content="这并不是我第一次接触N-S方程，认识它的时间竟然比我女友的时间还要提前，那是2018年的夏天。
+
+可是每次推每次都忘，虽说遗忘不可避免，但也不至于每次都从头开始，劳资决定这次把它干挺！这次要搞懂一下几个问题：1.N-S方程的推导过程及各项的..." />
+    <meta name="keywords" content="2022,ANSYS" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://www.sssdoctor.com">
+        <img src="https://www.sssdoctor.com/images/avatar.png?v=1645600519480" class="site-logo">
+        <h1 class="site-title">大大大大宋</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-
-    <div class="fh5co-menu">
-
-        <!-- 标签 -->
-        <div class="fh5co-box">
-            <a href="https://supersong1998.github.io//tags/"><h3 class="heading">👉标签</h3></a>
-            <ul>
-                
-                    <li><a href="https://supersong1998.github.io/tag/DKyI_fVGw/">2022</a></li>
-                
-                    <li><a href="https://supersong1998.github.io/tag/SVo_PC65w/">ANSYS</a></li>
-                
-            </ul>
-        </div>
+    <div>
+      
+        
+          <a href="https://Supersong1998.github.io/tags" class="site-nav" target="_blank">
+            分类
+          </a>
+        
+      
     </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://www.sssdoctor.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
 </div>
 
-<header id="fh5co-header">
-    <div class="container-fluid">
-        <div class="row">
-            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-            <ul class="fh5co-social">
-                
-                    <li>
-                        <a href="https://Supersong1998.github.io/tags"
-                        
-                           target="_blank"
-                                
-                        >
-                            分类
-                        </a>
-                    </li>
-                
-            </ul>
-            <div class="col-lg-12 col-md-12 text-center">
-                <h1 id="fh5co-logo">
-                    <a href="https://supersong1998.github.io/">大大大大宋 </a>
-                </h1>
-            </div>
-        </div>
-    </div>
-</header>
 
-
-    <!--  <a href="#" class="fh5co-post-prev"><span>👈 Prev</span></a>-->
-    <!--  <a href="#" class="fh5co-post-next"><span>Next 👉</span></a>-->
-
-    <!-- 等gridea出自定义页面功能再优化一下 -->
-    
-        <div class="container-fluid">
-    <div class="row fh5co-post-entry single-entry">
-        <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
-            <figure class="animate-box">
-                
-                    <img src="https://supersong1998.github.io//post-images/n-s-fang-cheng-tui-dao-ji-qi-wu-li-yi-yi.jfif" alt="N-S方程推导" class="img-responsive">
-                
-            </figure>
-            <span class="fh5co-meta animate-box">
-                
-                    <div class="tag-container">
-                        
-                            <a href="https://supersong1998.github.io/tag/DKyI_fVGw/" class="tag">2022, </a>
-                        
-                            <a href="https://supersong1998.github.io/tag/SVo_PC65w/" class="tag">ANSYS, </a>
-                        
-                    </div>
-                
-            </span>
-            <h2 class="fh5co-article-title animate-box">N-S方程推导</h2>
-            <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
-                <li>2022-02-18</li>
-                <li>1108字</li>
-                <li>5 min read</li>
-            </ol>
-
-            <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
-                <div class="row">
-                    <div class="col-md-12 animate-box post-content">
-                        <p> <p>这并不是我第一次接触N-S方程，认识它的时间竟然比我女友的时间还要提前，那是2018年的夏天。<br>
-可是每次推每次都忘，虽说遗忘不可避免，但也不至于每次都从头开始，劳资决定这次把它干挺！这次要搞懂一下几个问题：1.N-S方程的推导过程及各项的物理意义。2.有限体积法的基本原理。3.代数方程求解过程。<img src="https://supersong1998.github.io//post-images/1645148308307.jfif" alt="" loading="lazy"><br>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">N-S方程推导</h2>
+            <div class="post-date">2022-02-18</div>
+            
+              <div class="feature-container" style="background-image: url('https://www.sssdoctor.com/post-images/n-s-fang-cheng-tui-dao-ji-qi-wu-li-yi-yi.jfif')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>这并不是我第一次接触N-S方程，认识它的时间竟然比我女友的时间还要提前，那是2018年的夏天。</p>
+<!-- more -->
+<p>可是每次推每次都忘，虽说遗忘不可避免，但也不至于每次都从头开始，劳资决定这次把它干挺！这次要搞懂一下几个问题：1.N-S方程的推导过程及各项的物理意义。2.有限体积法的基本原理。3.代数方程求解过程。<br>
+<img src="https://www.sssdoctor.com/post-images/1645148308307.jfif" alt="" loading="lazy"><br>
 1.背景介绍<br>
 1.1定义<br>
 计算流体力学【简称：CFD(Computational Fluid Dynamics)】，利用计算机，通过数值计算的方法，求解流体控制方程，最终得到流场的离散数值解。<br>
@@ -162,7 +96,7 @@
 ps:稀薄气体不属于连续介质假设<br>
 2.2随体导数<br>
 随体导数实际上是联系欧拉法与拉格朗日法的桥梁，比如从早上从北京出发去上海，中午到的一动车，监测车体室外温度，会发现温度的变化分为两个部分，第一部分由于空间位置发生改变引起的温度变化，第二部分是从早上到晚上时间变化引起的温度变化。<br>
-因此随体导数：<img src="https://supersong1998.github.io//post-images/1645422967597.png" alt="" loading="lazy"><br>
+因此随体导数：<img src="https://www.sssdoctor.com/post-images/1645422967597.png" alt="" loading="lazy"><br>
 式中：右1表示当地项、右2表示对流项<br>
 2.3物质运动描述方法：<br>
 2.3.1欧拉法<br>
@@ -176,25 +110,25 @@ ps:稀薄气体不属于连续介质假设<br>
 如何建立以上关系？<br>
 2.4.1方法一：雷诺输运定理*（二次开发及写方程）<br>
 首先建立一个物质密度的概念：比如<br>
-<img src="https://supersong1998.github.io//post-images/1645423254081.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1645423254081.png" alt="" loading="lazy"><br>
 基于物质密度这个概念去推导欧拉及拉格朗日之间的转换关系<br>
 对于空间位置固定的控制体而言：遵循以下规律<br>
 总系统的能量变化-控制体内部的能量化=净流出量<br>
-<img src="https://supersong1998.github.io//post-images/1645424187096.png" alt="" loading="lazy"><br>
-<img src="https://supersong1998.github.io//post-images/1645424620211.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1645424187096.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1645424620211.png" alt="" loading="lazy"><br>
 以质量方程为例假设有限控制体空间位置固定且趋近于无穷小，则有下式：<br>
-<img src="https://supersong1998.github.io//post-images/1645425390660.png" alt="" loading="lazy"><br>
-<img src="https://supersong1998.github.io//post-images/1645425408675.png" alt="" loading="lazy"><br>
-<img src="https://supersong1998.github.io//post-images/1645425416452.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1645425390660.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1645425408675.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1645425416452.png" alt="" loading="lazy"><br>
 因此守恒型积分质量方程如上图所示<br>
 将物质密度替换为动量密度、能量密度、便可以推出守恒型积分动量方程、能量方程、<br>
 具体过程如下：<br>
-<img src="https://supersong1998.github.io//post-images/1645426039597.png" alt="" loading="lazy"><br>
-<img src="https://supersong1998.github.io//post-images/1645426413313.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1645426039597.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1645426413313.png" alt="" loading="lazy"><br>
 其实四种方程之间可相互转换<br>
 2.4.2方法二：<br>
-<img src="https://supersong1998.github.io//post-images/1645427527701.png" alt="" loading="lazy"><br>
-<img src="https://supersong1998.github.io//post-images/1645427956288.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1645427527701.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1645427956288.png" alt="" loading="lazy"><br>
 CFD使用守恒型微分方程<br>
 守恒：欧拉<br>
 微分：流场内任一点的物理量<br>
@@ -213,108 +147,49 @@ CFD使用守恒型微分方程<br>
 2.5.6PNS方程 将N-S方程抛物化<br>
 2.5.7边界层方程<br>
 2.5.8扰动、小扰动、线化N-S流动方程</p>
- </p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12 animate-box">
-                        
-                            <div class="next-post">
-                                <div class="next">下一篇</div>
-                                <a href="https://supersong1998.github.io/post/xie-gei-zi-ji/">
-                                    <h3 class="post-title">
-                                        写给自己
-                                    </h3>
-                                </a>
-                            </div>
-                        
-                    </div>
-                </div>
-
-                <div class="row">
-    <div class="col-md-12 animate-box">
-        
-    </div>
-</div>
 
             </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://www.sssdoctor.com/tag/DKyI_fVGw/" class="tag">
+                    2022
+                  </a>
+                
+                  <a href="https://www.sssdoctor.com/tag/SVo_PC65w/" class="tag">
+                    ANSYS
+                  </a>
+                
+              </div>
+            
+            
 
-        </article>
+            
+
+          </div>
+
+        </div>
+      </div>
     </div>
-</div>
 
-    
-
-    <!-- 返回顶部 -->
-    <div class="back-to-top">
-    
-    <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
-</div>
-
-<div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
-    
-</div>
-
-
-    
-<footer id="fh5co-footer">
-  <p></p>
-</footer>
-
-
-    <!-- jQuery -->
-<script src="https://supersong1998.github.io//media/scripts/jquery.min.js"></script>
-<!-- img lazy load -->
-<script src="https://supersong1998.github.io//media/scripts/jquery.lazyload.min.js"></script>
-<!-- jQuery Easing -->
-<script src="https://supersong1998.github.io//media/scripts/jquery.easing.1.3.js"></script>
-<!-- Bootstrap -->
-<script src="https://supersong1998.github.io//media/scripts/bootstrap.min.js"></script>
-<!-- Waypoints -->
-<script src="https://supersong1998.github.io//media/scripts/jquery.waypoints.min.js"></script>
-<!-- Main JS -->
-<script src="https://supersong1998.github.io//media/scripts/main.js"></script>
-<!-- Md5 Min JS -->
-<script src="https://supersong1998.github.io//media/scripts/md5.min.js"></script>
-<!-- katex -->
-<!--<script src="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.js"></script>-->
-<!-- highlight -->
-<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
-
-
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script type="application/javascript">
-    // 代码高亮
-    hljs.initHighlightingOnLoad();
 
-    // img 懒加载
-    $(function () {
-        $("img.lazy").lazyload({
-            effect: "fadeIn",  // 懒加载动画
-            threshold: 180  // 在图片距离屏幕180px时提前载入
-        });
-        // tooltip
-        $('[data-toggle="tooltip"]').tooltip();
+AOS.init();
 
-        // 目录
-        $('#tool-toc').click(function () {
-            $('.post-toc').toggle();
-        });
-    });
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
-    
-        var allImg = $("img");
-        allImg.on("contextmenu", function () {
-            return false;
-        });
-        allImg.on("dragstart", function () {
-            return false;
-        });
-    
 </script>
 
 
 
 
-</body>
+
+
+  </body>
 </html>
