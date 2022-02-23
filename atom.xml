@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sssdoctor.com</id>
     <title>大大大大宋</title>
-    <updated>2022-02-23T07:15:20.929Z</updated>
+    <updated>2022-02-23T09:26:48.766Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.sssdoctor.com"/>
     <link rel="self" href="https://www.sssdoctor.com/atom.xml"/>
@@ -10,6 +10,71 @@
     <logo>https://www.sssdoctor.com/images/avatar.png</logo>
     <icon>https://www.sssdoctor.com/favicon.ico</icon>
     <rights>All rights reserved 2022, 大大大大宋</rights>
+    <entry>
+        <title type="html"><![CDATA[ICEM CFD几何拓扑、修复]]></title>
+        <id>https://www.sssdoctor.com/post/icem-cfd-ji-he-tuo-bu-xiu-fu/</id>
+        <link href="https://www.sssdoctor.com/post/icem-cfd-ji-he-tuo-bu-xiu-fu/">
+        </link>
+        <updated>2022-02-23T07:30:04.000Z</updated>
+        <summary type="html"><![CDATA[<p>geometry操作界面<br>
+从左至右：创建点、线、面、体、网格面、几何修复、几何变换、恢复主导对象、删除点、删除线、删除面、删除body、删除任意对象</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>geometry操作界面<br>
+从左至右：创建点、线、面、体、网格面、几何修复、几何变换、恢复主导对象、删除点、删除线、删除面、删除body、删除任意对象</p>
+<!-- more -->
+<figure data-type="image" tabindex="1"><img src="https://www.sssdoctor.com/post-images/1645607081296.png" alt="" loading="lazy"></figure>
+<p>1.geometry-point创建点的方式总体来说由10种 1.1-1.3为创建点常用方式1.4-1.10属于辅助创建</p>
+<p>1.1直接创建：点击图中区域创建 对应1<br>
+1.2选定点的方式创建：给定点的坐标、或者创建函数、对应2<br>
+1.3偏移创建：根据已知某点坐标，给定偏移距离 对应3<br>
+1.4利用三个点创建三点共圆的圆心点 对应4<br>
+1.5利用已知两点的位置，给定距离第一点的距离比例，来确定新创建的点在直线上的位置（已知两点确   定一条直线） 对应图5<br>
+1.6已知某一直线，创建其起点及终点 对应6<br>
+1.7线交点 对应7<br>
+1.8 图中5的变形 原理一致 对应8<br>
+1.9点在线上的投影来创建对应点 对应9<br>
+1.10点在面上的投影来创建对应点 对应10<br>
+<img src="https://www.sssdoctor.com/post-images/1645604458011.png" alt="" loading="lazy"></p>
+<p>2.geometry-line 创建线的方式共有12种</p>
+<p>2.1由点成线、两点呈直线、多点成曲线  对应1<br>
+2.2创建圆弧 三点共弧或者呀 圆心及两点共弧 对应2<br>
+2.3创建圆 对应3<br>
+2.4等值线 对应4<br>
+2.5面交线 对应5<br>
+2.6创建某一曲线在另一面上的投影线 对应6<br>
+2.7分割线将一线分割共有五种方式：点、曲线线、面、连接线、角度 对应7<br>
+2.8合并线 对应7的反操作<br>
+2.8给定某一曲面上的边界线、类似于点操作种给定一直线给出起始点 对应8<br>
+2.9修改曲线 对应9<br>
+2.10创建中间线、类似于点操作种 给定两点的位置 创建中间点 对应10<br>
+2.11截面线<br>
+<img src="https://www.sssdoctor.com/post-images/1645604240348.png" alt="" loading="lazy"></p>
+<p>3.geometry-surface</p>
+<p>3.1四点成面注意顺序逆时针或者顺时针、线成面、对应1<br>
+3.2类似于扫描 需要由扫描面以及引导线 对应2<br>
+3.3与3.2功能一致、对应3<br>
+3.4旋转 对应4<br>
+3.5放样面 对应5<br>
+3.6面投影 对应6<br>
+3.7两面之间取中面 对应7<br>
+3.8 分割面 对应8<br>
+3.9 合并面 对应9<br>
+3.10 还原分割面 对应10<br>
+3.11线到面的投影过程成面 对应11<br>
+3.12延申面 对应12<br>
+3.13几何简化 对应13<br>
+3.14标准几何 对应14<br>
+<img src="https://www.sssdoctor.com/post-images/1645604690436.png" alt="" loading="lazy"></p>
+<p>4.Body创建主要为了计算域、主要用于非结构网格</p>
+<p>5.几何修补<br>
+其余软件导入到ICEM中时为确保导入模型在两软件交接过程中数据的缺失及几何结构的损坏，所以要进行几何修复、这里面包括，拓扑创建、几何检测、封闭孔动、去除孔洞、分割面、调整厚度、修改面法向、螺为空检测、突起检测、倒角检测等。<br>
+<img src="https://www.sssdoctor.com/post-images/1645607481902.png" alt="" loading="lazy"></p>
+<p>6.创建Part<br>
+此处的目的在于明确计算域，确定计算域具体几何参数同时消除不必要的几何特征等、</p>
+<p>attention：<br>
+icem这个软件本身存在很多 bug 而且也需要极度细心才能操作顺利 所以很容易出问题 要保持足够的耐心</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[DM进行流体域的创建]]></title>
         <id>https://www.sssdoctor.com/post/dm-jin-xing-liu-ti-yu-de-chuang-jian/</id>
