@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://www.sssdoctor.com</id>
+    <id>https://supersong1998.github.io/</id>
     <title>大大大大宋</title>
-    <updated>2022-02-23T06:54:42.685Z</updated>
+    <updated>2022-02-23T07:05:43.423Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://www.sssdoctor.com"/>
-    <link rel="self" href="https://www.sssdoctor.com/atom.xml"/>
+    <link rel="alternate" href="https://supersong1998.github.io/"/>
+    <link rel="self" href="https://supersong1998.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://www.sssdoctor.com/images/avatar.png</logo>
-    <icon>https://www.sssdoctor.com/favicon.ico</icon>
+    <logo>https://supersong1998.github.io/images/avatar.png</logo>
+    <icon>https://supersong1998.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 大大大大宋</rights>
     <entry>
         <title type="html"><![CDATA[DM进行流体域的创建]]></title>
-        <id>https://www.sssdoctor.com/post/dm-jin-xing-liu-ti-yu-de-chuang-jian/</id>
-        <link href="https://www.sssdoctor.com/post/dm-jin-xing-liu-ti-yu-de-chuang-jian/">
+        <id>https://supersong1998.github.io/post/dm-jin-xing-liu-ti-yu-de-chuang-jian/</id>
+        <link href="https://supersong1998.github.io/post/dm-jin-xing-liu-ti-yu-de-chuang-jian/">
         </link>
         <updated>2022-02-22T06:03:54.000Z</updated>
         <content type="html"><![CDATA[<p>直接计算流体域创建、内流计算流体域创建、外流计算创建 混合流体域的创建<br>
 1.计算域创建<br>
 即将流体域的几何模型直接画出<br>
-<img src="https://www.sssdoctor.com/post-images/1645513042982.png" alt="" loading="lazy"><br>
+<img src="https://supersong1998.github.io//post-images/1645513042982.png" alt="" loading="lazy"><br>
 2.内流计算流体域的创建<br>
 Tool--fill---cavity/caps(不封闭、封闭)--twist ?(画弹簧可用)--通过几何模型将流体域抽离出来，内流场即在几何体内部流动，比如管道流等<br>
-<img src="https://www.sssdoctor.com/post-images/1645513396197.png" alt="" loading="lazy"><br>
+<img src="https://supersong1998.github.io//post-images/1645513396197.png" alt="" loading="lazy"><br>
 3.外流体域创建<br>
 Tool--enclossure(外壳命令)—box/cylinder/sphere<br>
 外流畅创建几何体外流场，比如导弹、飞机的外流场等、<br>
-<img src="https://www.sssdoctor.com/post-images/1645513029802.png" alt="" loading="lazy"><br>
+<img src="https://supersong1998.github.io//post-images/1645513029802.png" alt="" loading="lazy"><br>
 4.混合流体域的创建<br>
 方法一利用布尔运算 画出外流场模型然后利用SUB操作去除原有几何体，进而实现内流场及外流场几何模型创建。<br>
-<img src="https://www.sssdoctor.com/post-images/1645515392642.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1645515397947.png" alt="" loading="lazy"><br>
+<img src="https://supersong1998.github.io//post-images/1645515392642.png" alt="" loading="lazy"><br>
+<img src="https://supersong1998.github.io//post-images/1645515397947.png" alt="" loading="lazy"><br>
 方法二：利用enclosure操作，首先建立包围几何体的流场，此处关节点在于选择冻结，不然新建后会使得新旧几何体合并，然后利用enclosure操作，选择用户自定义的模型（后面建立的这个） 然后选择选定几何体 选择原来的几何 从而实现流体域的划分，而且不会删除原有几何体，布尔操作会！</p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[N-S方程推导]]></title>
-        <id>https://www.sssdoctor.com/post/n-s-fang-cheng-tui-dao-ji-qi-wu-li-yi-yi/</id>
-        <link href="https://www.sssdoctor.com/post/n-s-fang-cheng-tui-dao-ji-qi-wu-li-yi-yi/">
+        <id>https://supersong1998.github.io/post/n-s-fang-cheng-tui-dao-ji-qi-wu-li-yi-yi/</id>
+        <link href="https://supersong1998.github.io/post/n-s-fang-cheng-tui-dao-ji-qi-wu-li-yi-yi/">
         </link>
         <updated>2022-02-18T01:28:18.000Z</updated>
         <content type="html"><![CDATA[<p>这并不是我第一次接触N-S方程，认识它的时间竟然比我女友的时间还要提前，那是2018年的夏天。<br>
-可是每次推每次都忘，虽说遗忘不可避免，但也不至于每次都从头开始，劳资决定这次把它干挺！这次要搞懂一下几个问题：1.N-S方程的推导过程及各项的物理意义。2.有限体积法的基本原理。3.代数方程求解过程。<img src="https://www.sssdoctor.com/post-images/1645148308307.jfif" alt="" loading="lazy"><br>
+可是每次推每次都忘，虽说遗忘不可避免，但也不至于每次都从头开始，劳资决定这次把它干挺！这次要搞懂一下几个问题：1.N-S方程的推导过程及各项的物理意义。2.有限体积法的基本原理。3.代数方程求解过程。<img src="https://supersong1998.github.io//post-images/1645148308307.jfif" alt="" loading="lazy"><br>
 1.背景介绍<br>
 1.1定义<br>
 计算流体力学【简称：CFD(Computational Fluid Dynamics)】，利用计算机，通过数值计算的方法，求解流体控制方程，最终得到流场的离散数值解。<br>
@@ -53,7 +53,7 @@ Tool--enclossure(外壳命令)—box/cylinder/sphere<br>
 ps:稀薄气体不属于连续介质假设<br>
 2.2随体导数<br>
 随体导数实际上是联系欧拉法与拉格朗日法的桥梁，比如从早上从北京出发去上海，中午到的一动车，监测车体室外温度，会发现温度的变化分为两个部分，第一部分由于空间位置发生改变引起的温度变化，第二部分是从早上到晚上时间变化引起的温度变化。<br>
-因此随体导数：<img src="https://www.sssdoctor.com/post-images/1645422967597.png" alt="" loading="lazy"><br>
+因此随体导数：<img src="https://supersong1998.github.io//post-images/1645422967597.png" alt="" loading="lazy"><br>
 式中：右1表示当地项、右2表示对流项<br>
 2.3物质运动描述方法：<br>
 2.3.1欧拉法<br>
@@ -67,25 +67,25 @@ ps:稀薄气体不属于连续介质假设<br>
 如何建立以上关系？<br>
 2.4.1方法一：雷诺输运定理*（二次开发及写方程）<br>
 首先建立一个物质密度的概念：比如<br>
-<img src="https://www.sssdoctor.com/post-images/1645423254081.png" alt="" loading="lazy"><br>
+<img src="https://supersong1998.github.io//post-images/1645423254081.png" alt="" loading="lazy"><br>
 基于物质密度这个概念去推导欧拉及拉格朗日之间的转换关系<br>
 对于空间位置固定的控制体而言：遵循以下规律<br>
 总系统的能量变化-控制体内部的能量化=净流出量<br>
-<img src="https://www.sssdoctor.com/post-images/1645424187096.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1645424620211.png" alt="" loading="lazy"><br>
+<img src="https://supersong1998.github.io//post-images/1645424187096.png" alt="" loading="lazy"><br>
+<img src="https://supersong1998.github.io//post-images/1645424620211.png" alt="" loading="lazy"><br>
 以质量方程为例假设有限控制体空间位置固定且趋近于无穷小，则有下式：<br>
-<img src="https://www.sssdoctor.com/post-images/1645425390660.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1645425408675.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1645425416452.png" alt="" loading="lazy"><br>
+<img src="https://supersong1998.github.io//post-images/1645425390660.png" alt="" loading="lazy"><br>
+<img src="https://supersong1998.github.io//post-images/1645425408675.png" alt="" loading="lazy"><br>
+<img src="https://supersong1998.github.io//post-images/1645425416452.png" alt="" loading="lazy"><br>
 因此守恒型积分质量方程如上图所示<br>
 将物质密度替换为动量密度、能量密度、便可以推出守恒型积分动量方程、能量方程、<br>
 具体过程如下：<br>
-<img src="https://www.sssdoctor.com/post-images/1645426039597.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1645426413313.png" alt="" loading="lazy"><br>
+<img src="https://supersong1998.github.io//post-images/1645426039597.png" alt="" loading="lazy"><br>
+<img src="https://supersong1998.github.io//post-images/1645426413313.png" alt="" loading="lazy"><br>
 其实四种方程之间可相互转换<br>
 2.4.2方法二：<br>
-<img src="https://www.sssdoctor.com/post-images/1645427527701.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1645427956288.png" alt="" loading="lazy"><br>
+<img src="https://supersong1998.github.io//post-images/1645427527701.png" alt="" loading="lazy"><br>
+<img src="https://supersong1998.github.io//post-images/1645427956288.png" alt="" loading="lazy"><br>
 CFD使用守恒型微分方程<br>
 守恒：欧拉<br>
 微分：流场内任一点的物理量<br>
@@ -108,8 +108,8 @@ CFD使用守恒型微分方程<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[写给自己]]></title>
-        <id>https://www.sssdoctor.com/post/xie-gei-zi-ji/</id>
-        <link href="https://www.sssdoctor.com/post/xie-gei-zi-ji/">
+        <id>https://supersong1998.github.io/post/xie-gei-zi-ji/</id>
+        <link href="https://supersong1998.github.io/post/xie-gei-zi-ji/">
         </link>
         <updated>2022-02-13T12:12:08.000Z</updated>
         <summary type="html"><![CDATA[<p><img src="https://www.sssdoctor.com/post-images/1644756948675.jpg" alt="" loading="lazy"><br>
@@ -118,7 +118,7 @@ CFD使用守恒型微分方程<br>
 如果60岁开始疾病缠身，那或许惬意的日子也就33年；<br>
 如果博士顺利毕业，我真正独立于这世间的时间正正好好余30年；</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p><img src="https://www.sssdoctor.com/post-images/1644756948675.jpg" alt="" loading="lazy"><br>
+        <content type="html"><![CDATA[<p><img src="https://supersong1998.github.io//post-images/1644756948675.jpg" alt="" loading="lazy"><br>
 转眼27年时光已过；<br>
 假定我能活到70岁，还剩43年时光；<br>
 如果60岁开始疾病缠身，那或许惬意的日子也就33年；<br>
