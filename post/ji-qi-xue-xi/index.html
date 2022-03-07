@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>机器学习概述 | 大大大大宋</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://www.sssdoctor.com/favicon.ico?v=1646632985726">
+<link rel="stylesheet" href="https://www.sssdoctor.com/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="有关机器学习的背景、应用、基本问题以及数据预处理中的均值移除、范围缩放
+
+一、
+人工智能
+机器学习
+深度学习
+人工智能领域：computer vision/natural language processing/recommender sy..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://www.sssdoctor.com">
+        <img src="https://www.sssdoctor.com/images/avatar.png?v=1646632985726" class="site-logo">
+        <h1 class="site-title">大大大大宋</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://Supersong1998.github.io/tags" class="site-nav" target="_blank">
+            分类
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://www.sssdoctor.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">机器学习概述</h2>
+            <div class="post-date">2022-03-01</div>
+            
+              <div class="feature-container" style="background-image: url('https://www.sssdoctor.com/post-images/ji-qi-xue-xi.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>有关机器学习的背景、应用、基本问题以及数据预处理中的均值移除、范围缩放</p>
+<!-- more -->
+<p>一、<br>
+人工智能<br>
+机器学习<br>
+深度学习</p>
+<p>人工智能领域：computer vision/natural language processing/recommender system) cv/nlp/rc</p>
+<p>基础：高等数学（求偏导）、线性代数（会矩阵运算）、概率论与数理统计（随机变量）</p>
+<p>二、机器学习的一般过程<br>
+<img src="https://www.sssdoctor.com/post-images/1646632942621.jpg" alt="" loading="lazy"><br>
+2.1数据处理<br>
+2.2机器学习<br>
+2.3业务运维</p>
+<p>三、应用<br>
+股价预测、推荐引擎、人脸识别、语音识别、自然语言识别、图像识别</p>
+<p>四、基本问题<br>
+4.1回归问题<br>
+根据已知的输入输出寻得某一模型，将未知输入带入模型，得到连续的输出<br>
+4.2分类问题<br>
+根据已知的输入输出寻得某一模型，将未知输入带入模型，得到离散的输出<br>
+4.3聚类问题<br>
+根据输入的相似程度，将其划分为不同的群落<br>
+4.4降维问题<br>
+在尽量不影响性能的情况下，降低数据的复杂程度</p>
+<p>五、数据预处理<br>
+1.输入数据-模型-输出数据<br>
+2.一行一样本、一列一特征<br>
+3.均值移除（标准化）、范围缩放、归一化、二值化、独热编码、标签编码、<br>
+3.1均值移除（标准化）<br>
+3.1.1均值为0 标准差为1 可以避免不同特征值的差异对于最后模型性能的影响<br>
+此处应该有图<br>
+3.1.2标准差能反映数据的离散程度。<br>
+import numpy as np #引入numpy库<br>
+import sklearn.preprocessing as sp#引入sp库<br>
+raw_samples#变量名#=np.array#数组#([<br>
+[17,90,4000],<br>
+[20,80,5000],<br>
+[23,75,5500]])<br>
+result=sp.scale(raw_samples)#scale比例模型<br>
+print(result)<br>
+print(result.mean(axis=0))#mean平均的<br>
+print(result.std(axis=0)<br>
+)<br>
+输出结果为：<br>
+[[-1.22474487  1.33630621 -1.33630621]<br>
+[ 0.         -0.26726124  0.26726124]<br>
+[ 1.22474487 -1.06904497  1.06904497]]<br>
+[ 0.00000000e+00 -8.14163551e-16  5.18104078e-16]<br>
+[1. 1. 1.]<br>
+<img src="https://www.sssdoctor.com/post-images/1646632521860.png" alt="" loading="lazy"></p>
+<p>3.2范围缩放<br>
+3.2.1将样本矩阵中的每一列最小最大值设为相同的区间，统一各列特征值的范围。一般情况下会把特征值缩放到【0，1】<br>
+3.2.2<br>
+每个数减去数组中的最小数 结果再除以上一步结果中的最大值<br>
+3.2.3<br>
+<img src="https://www.sssdoctor.com/post-images/1646630918053.png" alt="" loading="lazy"><br>
+import numpy as np<br>
+import sklearn.preprocessing as sp</p>
+<p>raw_samples=np.array([<br>
+[17,90,4000],<br>
+[20,80,5000],<br>
+[23,75,5500]])<br>
+mms=sp.MinMaxScaler(feature_range=(0,1))#MinMaxScaler范围缩放命令（+参数指定）<br>
+result=mms.fit_transform(raw_samples)<br>
+print(result)<br>
+输出结果为：<br>
+[[0.         1.         0.        ]<br>
+[0.5        0.33333333 0.66666667]<br>
+[1.         0.         1.        ]]<br>
+<img src="https://www.sssdoctor.com/post-images/1646632838188.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646632844467.png" alt="" loading="lazy"></p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://www.sssdoctor.com/post/icem-cfd-ji-he-tuo-bu-xiu-fu/">
+                  <h3 class="post-title">
+                    ICEM CFD几何拓扑、修复
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
