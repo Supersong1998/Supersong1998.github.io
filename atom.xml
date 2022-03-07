@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sssdoctor.com</id>
     <title>大大大大宋</title>
-    <updated>2022-03-07T06:03:08.336Z</updated>
+    <updated>2022-03-07T08:27:19.932Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.sssdoctor.com"/>
     <link rel="self" href="https://www.sssdoctor.com/atom.xml"/>
@@ -10,6 +10,107 @@
     <logo>https://www.sssdoctor.com/images/avatar.png</logo>
     <icon>https://www.sssdoctor.com/favicon.ico</icon>
     <rights>All rights reserved 2022, 大大大大宋</rights>
+    <entry>
+        <title type="html"><![CDATA[python—01—学习路径及数据类型]]></title>
+        <id>https://www.sssdoctor.com/post/1/</id>
+        <link href="https://www.sssdoctor.com/post/1/">
+        </link>
+        <updated>2022-03-07T06:23:05.000Z</updated>
+        <summary type="html"><![CDATA[<p>1.计算机三大件之间的相互关系<br>
+cpu负责计算、 内存暂时存储、 硬盘存储，内存相当于中间商，加快cpu需要的数据的输送，硬盘输送数据太慢。<br>
+2.变量与内存之间的关系<br>
+内存：仓库<br>
+变量：仓库内的容器 既然是容器就得有名字、地址、以及空间</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>1.计算机三大件之间的相互关系<br>
+cpu负责计算、 内存暂时存储、 硬盘存储，内存相当于中间商，加快cpu需要的数据的输送，硬盘输送数据太慢。<br>
+2.变量与内存之间的关系<br>
+内存：仓库<br>
+变量：仓库内的容器 既然是容器就得有名字、地址、以及空间</p>
+<!-- more -->
+<p>3.常量<br>
+python里面没有常量、约定俗成是全部大写，但是依然可以修改<br>
+<img src="https://www.sssdoctor.com/post-images/1646639742651.png" alt="" loading="lazy"><br>
+4.数据类型<br>
+4.1引言：<br>
+为了计算机方便处理不同的类型<br>
+举例:10、中国、#人可以区别 计算机如何区分？<br>
+4.2常见类型：<br>
+数字类型：int /long/float/<br>
+字符串：str存储文字<br>
+列表：list<br>
+布尔：bool逻辑判断<br>
+集合set两组数据之间的关系<br>
+字典：dict<br>
+字节bytes<br>
+4.2.1数字<br>
+<img src="https://www.sssdoctor.com/post-images/1646634927872.png" alt="" loading="lazy"></p>
+<p>代码：type(变量名)#查看变量类型<br>
+python 2.2以后自动将long 转换为Int<br>
+4.2.2字符串<br>
+只要是引号就可以，但必须保证一致性，三引号表示多行字符串<br>
+<img src="https://www.sssdoctor.com/post-images/1646636358317.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646635523316.png" alt="" loading="lazy"><br>
+特性一：不可修改<br>
+如下图所示，虽然name的显示内容发生改变 但是id地址也发生了改变，原先的id依然存在<br>
+<img src="https://www.sssdoctor.com/post-images/1646635631392.png" alt="" loading="lazy"><br>
+特性二：有索引，可切片（具有编号）<br>
+但是切片是顾头不顾尾，首位为0<br>
+<img src="https://www.sssdoctor.com/post-images/1646636119050.png" alt="" loading="lazy"><br>
+字符串的格式修改、拼接等操作仍需要扩展！<br>
+字符串引用外部变量%s %占位符<br>
+注意%d 后面要求是数字<br>
+%f后面要求后面是小数<br>
+示例：<br>
+#方法一</p>
+<h2 id="msg-s-info-namesageshobbys">msg='''-------------%s info---------<br>
+name:%s<br>
+age:%s<br>
+hobby:%s</h2>
+<p>'''%(name,name,age,hobby)<br>
+print(msg)</p>
+<h2 id="方法二mdgf-name-info-namenameageagehobbyhobby">#方法二<br>
+mdg=f'''-------------{name} info---------<br>
+name:{name}<br>
+age:{age}<br>
+hobby:{hobby}</h2>
+<h2 id="printmdg输出-wentao-info-namewentaoage27hobbyswim">'''<br>
+print(mdg)<br>
+输出：<br>
+-------------wentao info---------<br>
+name:wentao<br>
+age:27<br>
+hobby:swim</h2>
+<h2 id="-wentao-info-namewentaoage27hobbyswim">-------------wentao info---------<br>
+name:wentao<br>
+age:27<br>
+hobby:swim</h2>
+<p>4.2.3bool运算<br>
+<img src="https://www.sssdoctor.com/post-images/1646638011085.png" alt="" loading="lazy"><br>
+true or false<br>
+代码示例：<br>
+goal=500<br>
+a=600<br>
+if goal&gt;=a:<br>
+print(&quot;niubi&quot;)<br>
+else:<br>
+print(&quot;laji&quot;)<br>
+输出结果<br>
+laji<br>
+4.2.4list<br>
+可支持多个同等类型字符串并列，以及修改<br>
+示例代码：<br>
+girl_names=[&quot;xiaobian&quot;,&quot;xiaoyun&quot;,&quot;xiaohei&quot;]</p>
+<p>girl_names[1]<br>
+print(girl_names[1])<br>
+girl_names[0]='hhhh'<br>
+print(girl_names)</p>
+<p>列表的操作：增、删、改、查<br>
+<img src="https://www.sssdoctor.com/post-images/1646639542840.png" alt="" loading="lazy"><br>
+示例：<br>
+<img src="https://www.sssdoctor.com/post-images/1646641423818.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[机器学习概述]]></title>
         <id>https://www.sssdoctor.com/post/ji-qi-xue-xi/</id>
