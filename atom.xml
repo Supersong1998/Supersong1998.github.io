@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sssdoctor.com</id>
     <title>大大大大宋</title>
-    <updated>2022-03-07T08:27:19.932Z</updated>
+    <updated>2022-03-08T07:15:04.145Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.sssdoctor.com"/>
     <link rel="self" href="https://www.sssdoctor.com/atom.xml"/>
@@ -193,6 +193,76 @@ print(result)<br>
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[ICEM CFD六面体网格划分-01]]></title>
+        <id>https://www.sssdoctor.com/post/icem-cfd-liu-mian-ti-wang-ge-hua-fen/</id>
+        <link href="https://www.sssdoctor.com/post/icem-cfd-liu-mian-ti-wang-ge-hua-fen/">
+        </link>
+        <updated>2022-02-24T01:43:33.000Z</updated>
+        <summary type="html"><![CDATA[<p>1.Block基本概念<br>
+2.Bolock层次结构<br>
+点、线、面、块<br>
+3.Block创建(creat)以及分割（split)<br>
+3.1自上而下<br>
+即先对几何体切块，然后细分，最终实现精细化控制。自上而下实际上是一种拓扑意义上的顺序。常见类型包括：3D、2DSurface、2DPlan</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>1.Block基本概念<br>
+2.Bolock层次结构<br>
+点、线、面、块<br>
+3.Block创建(creat)以及分割（split)<br>
+3.1自上而下<br>
+即先对几何体切块，然后细分，最终实现精细化控制。自上而下实际上是一种拓扑意义上的顺序。常见类型包括：3D、2DSurface、2DPlan</p>
+<!-- more -->
+<p><img src="https://www.sssdoctor.com/post-images/1646649258121.png" alt="" loading="lazy"><br>
+3.2自下而上<br>
+先建立块的面，然后拉伸块，让块的贴近于几何结构。面块生成以后，自下而上生成块的四个命令才能急活.<br>
+总结：关于3d块的关联务必是重点关注的地方，不然软件默认的关联方式会给你带来极大的麻烦。2022.3.08日关于弹簧的网格划分 耗时四五个小时。总结到的最重要的经验就是关联的严谨性<br>
+<img src="https://www.sssdoctor.com/post-images/1646649431777.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646723099367.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646723103787.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646723111014.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646723146090.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646723155739.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646723159756.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646723164017.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646723168034.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646723172660.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646723176213.png" alt="" loading="lazy"><br>
+3.3普通分割<br>
+包括线分割以及点分割，其余切割方式还未接触过。<br>
+<img src="https://www.sssdoctor.com/post-images/1646649815800.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646649885776.png" alt="" loading="lazy"><br>
+3.4 O型切分的骚操作<br>
+适用于圆弧形、比如：圆形、圆柱、球等。O型切分的实质是为映射的实现，提供几何基础，提升映射结构网格的质量。<br>
+选择块、面(2d不激活）、边（与边相关的block/face都会被选中，因此L/C切分虽然选择了边，实际上选择了被删除的块）、点。可实现全O型网格、L型、C型网格切分，以及O型外网格切分便于快速创建边界层。<br>
+<img src="https://www.sssdoctor.com/post-images/1646652584235.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646653383957.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646653391132.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646653398724.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646653407040.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646653420117.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646653427942.png" alt="" loading="lazy"><br>
+3.5Y型切分<br>
+3.5.1平面Y型切分<br>
+平面三角形的Y切分实际上是四边形的Y切分，因为生成的块是四边形，具体也可参考上部分内容<br>
+<img src="https://www.sssdoctor.com/post-images/1646660247248.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646660250473.png" alt="" loading="lazy"><br>
+3.5.2 3DY型切分<br>
+具体过程：<br>
+1.生成块<br>
+2.利用合并顶点操作，注意此处要把program去掉勾选（平面三角形不可以用合并点的操作，是因为合并顶点之后块变成三角形，三棱柱则不会，因为还存在四边形）<br>
+3.关联边，使得块映射网格能够反映到几何体上<br>
+4.移动点，选定相应的约束<br>
+5.选择edit block<br>
+6.找到对应切面进行Y切分<br>
+<img src="https://www.sssdoctor.com/post-images/1646661672859.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646661677674.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646661686488.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646661692169.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646661697459.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646661702753.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[ICEM CFD几何拓扑、修复]]></title>
         <id>https://www.sssdoctor.com/post/icem-cfd-ji-he-tuo-bu-xiu-fu/</id>
         <link href="https://www.sssdoctor.com/post/icem-cfd-ji-he-tuo-bu-xiu-fu/">
@@ -263,11 +333,18 @@ icem这个软件本身存在很多 bug 而且也需要极度细心才能操作�
         <link href="https://www.sssdoctor.com/post/liu-ti-wang-ge/">
         </link>
         <updated>2022-02-22T07:41:55.000Z</updated>
+        <summary type="html"><![CDATA[<p>1.流体网格基础概念<br>
+1.1术语<br>
+网格：grid/cell/mesh<br>
+节点：node(固体常用/vertices流体计算软件常用）<br>
+控制体：control volume</p>
+]]></summary>
         <content type="html"><![CDATA[<p>1.流体网格基础概念<br>
 1.1术语<br>
 网格：grid/cell/mesh<br>
 节点：node(固体常用/vertices流体计算软件常用）<br>
 控制体：control volume</p>
+<!-- more -->
 <p>1.2网格形状<br>
 1.2.1 2D<br>
 三角形、四边形<br>
