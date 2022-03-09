@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>机器学习数据预处理02 | 大大大大宋</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://www.sssdoctor.com/favicon.ico?v=1646830978495">
+<link rel="stylesheet" href="https://www.sssdoctor.com/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="手动范围缩放、归一化、独热编码、标签编码
+
+1.手动范围缩放
+主要利用一个for循环 （for in遍历转置矩阵，确定最小最大值，根据最大最小值，利用np.linagl.solve(a,b)求解未知数，也就是k,b、然后将求的结果添加到某一..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://www.sssdoctor.com">
+        <img src="https://www.sssdoctor.com/images/avatar.png?v=1646830978495" class="site-logo">
+        <h1 class="site-title">大大大大宋</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://Supersong1998.github.io/tags" class="site-nav" target="_blank">
+            分类
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://www.sssdoctor.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">机器学习数据预处理02</h2>
+            <div class="post-date">2022-03-09</div>
+            
+              <div class="feature-container" style="background-image: url('https://www.sssdoctor.com/post-images/ji-qi-xue-xi-shu-ju-yu-chu-li-02.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>手动范围缩放、归一化、独热编码、标签编码</p>
+<!-- more -->
+<p>1.手动范围缩放<br>
+主要利用一个for循环 （for in遍历转置矩阵，确定最小最大值，根据最大最小值，利用np.linagl.solve(a,b)求解未知数，也就是k,b、然后将求的结果添加到某一空矩阵，继续循环。<br>
+<img src="https://www.sssdoctor.com/post-images/1646829755177.png" alt="" loading="lazy"><br>
+2.归一化（比例占比100%+1）sp.normalize   norm范数<br>
+情景：特征值具体的值不重要、但是每个样本特征值的占比更加重要。示例：不同人对于某一类型的电影与个人观看总体类型的观看比例，可推测偏好相似程度。个人认为数据预处理的方式，跟数据要处理的问题具体相关。<br>
+<img src="https://www.sssdoctor.com/post-images/1646829768358.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646829774788.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646829780437.png" alt="" loading="lazy"><br>
+3.二值化<br>
+有些业务并不需要分析矩阵，完整的数据。比如图像边缘识别只需要检测边缘即可可以根据事先给定的阈值，用0与1表示高不高于阈值。二值化的数组中的每个元素非0即1，需要设置一个阈值器，相当于过滤器，将这一过滤器应用于某一数据组。sp.binarizer(threshold=阈值)然后fit_transform<br>
+<img src="https://www.sssdoctor.com/post-images/1646829793035.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646829803227.png" alt="" loading="lazy"><br>
+4.独热编码<br>
+特征变多，数值的复杂度降低（例如文字）sp.onehotencoder 然后fit_transform<br>
+<img src="https://www.sssdoctor.com/post-images/1646829818099.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646829823098.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646829827781.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646829831957.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646829836265.png" alt="" loading="lazy"><br>
+5.标签编码<br>
+对于某些字符串，利用自带的编码器可以简单编码，但是以后对于自己研究的东西，需要自己写编码的程序<br>
+sp.labelencoder()然后fit_transform<br>
+<img src="https://www.sssdoctor.com/post-images/1646829856722.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646829862530.png" alt="" loading="lazy"></p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://www.sssdoctor.com/post/icem-wang-ge-hua-fen-lian-xi-1/">
+                  <h3 class="post-title">
+                    iCEM 网格划分 练习1
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
