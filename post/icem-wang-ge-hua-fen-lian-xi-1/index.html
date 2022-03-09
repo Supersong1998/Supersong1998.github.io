@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>DM进行流体域的创建 | 大大大大宋</title>
+<title>iCEM 网格划分 练习1 | 大大大大宋</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,14 +18,8 @@
 
 
 
-    <meta name="description" content="直接计算流体域创建、内流计算流体域创建、外流计算创建 混合流体域的创建
-
-1.计算域创建
-即将流体域的几何模型直接画出
-
-2.内流计算流体域的创建
-Tool--fill---cavity/caps(不封闭、封闭)--twist ?(画弹簧可..." />
-    <meta name="keywords" content="" />
+    <meta name="description" content="流场几何形状为45度弯头，内部有一竖直空心管道通过。空心管道与流场接触的壁面对于流体产生阻碍作用。划分的基本操作：1.生成3d块，利用切割功能实现块整体结构与几何的相似。2.关联：快网格能够映射到几何上。3.空心管道进行o型切分，同时删除多..." />
+    <meta name="keywords" content="ANYSY,ICEM" />
   </head>
   <body>
     <div id="app" class="main">
@@ -78,39 +72,42 @@ Tool--fill---cavity/caps(不封闭、封闭)--twist ?(画弹簧可..." />
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">DM进行流体域的创建</h2>
-            <div class="post-date">2022-02-22</div>
+            <h2 class="post-title">iCEM 网格划分 练习1</h2>
+            <div class="post-date">2022-03-09</div>
             
-              <div class="feature-container" style="background-image: url('https://www.sssdoctor.com/post-images/dm-jin-xing-liu-ti-yu-de-chuang-jian.jpg')">
+              <div class="feature-container" style="background-image: url('https://www.sssdoctor.com/post-images/icem-wang-ge-hua-fen-lian-xi-1.png')">
               </div>
             
             <div class="post-content" v-pre>
-              <p>直接计算流体域创建、内流计算流体域创建、外流计算创建 混合流体域的创建</p>
+              <p>流场几何形状为45度弯头，内部有一竖直空心管道通过。空心管道与流场接触的壁面对于流体产生阻碍作用。划分的基本操作：1.生成3d块，利用切割功能实现块整体结构与几何的相似。2.关联：快网格能够映射到几何上。3.空心管道进行o型切分，同时删除多余的块。4.进行空心块的关联，包括：边关联以及面关联。5.进行整体结构O型切分。6.划分网格并开始调整。</p>
 <!-- more -->
-<p>1.计算域创建<br>
-即将流体域的几何模型直接画出<br>
-<img src="https://www.sssdoctor.com/post-images/1645513042982.png" alt="" loading="lazy"><br>
-2.内流计算流体域的创建<br>
-Tool--fill---cavity/caps(不封闭、封闭)--twist ?(画弹簧可用)--通过几何模型将流体域抽离出来，内流场即在几何体内部流动，比如管道流等<br>
-<img src="https://www.sssdoctor.com/post-images/1645513396197.png" alt="" loading="lazy"><br>
-3.外流体域创建<br>
-Tool--enclossure(外壳命令)—box/cylinder/sphere<br>
-外流畅创建几何体外流场，比如导弹、飞机的外流场等、<br>
-<img src="https://www.sssdoctor.com/post-images/1645513029802.png" alt="" loading="lazy"><br>
-4.混合流体域的创建<br>
-方法一利用布尔运算 画出外流场模型然后利用SUB操作去除原有几何体，进而实现内流场及外流场几何模型创建。<br>
-<img src="https://www.sssdoctor.com/post-images/1645515392642.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1645515397947.png" alt="" loading="lazy"><br>
-方法二：利用enclosure操作，首先建立包围几何体的流场，此处关节点在于选择冻结，不然新建后会使得新旧几何体合并，然后利用enclosure操作，选择用户自定义的模型（后面建立的这个） 然后选择选定几何体 选择原来的几何 从而实现流体域的划分，而且不会删除原有几何体，布尔操作会！</p>
+<p><img src="https://www.sssdoctor.com/post-images/1646789517196.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646789525342.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646789530500.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646789534144.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646789538438.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646789553961.png" alt="" loading="lazy"></p>
 
             </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://www.sssdoctor.com/tag/n9lswKYj_/" class="tag">
+                    ANYSY
+                  </a>
+                
+                  <a href="https://www.sssdoctor.com/tag/ydMm69bD1y/" class="tag">
+                    ICEM
+                  </a>
+                
+              </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://www.sssdoctor.com/post/n-s-fang-cheng-tui-dao-ji-qi-wu-li-yi-yi/">
+                <a href="https://www.sssdoctor.com/post/1/">
                   <h3 class="post-title">
-                    N-S方程推导
+                    python—01—学习路径及数据类型
                   </h3>
                 </a>
               </div>

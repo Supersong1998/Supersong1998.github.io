@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sssdoctor.com</id>
     <title>大大大大宋</title>
-    <updated>2022-03-08T07:15:04.145Z</updated>
+    <updated>2022-03-09T01:34:23.756Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.sssdoctor.com"/>
     <link rel="self" href="https://www.sssdoctor.com/atom.xml"/>
@@ -10,6 +10,24 @@
     <logo>https://www.sssdoctor.com/images/avatar.png</logo>
     <icon>https://www.sssdoctor.com/favicon.ico</icon>
     <rights>All rights reserved 2022, 大大大大宋</rights>
+    <entry>
+        <title type="html"><![CDATA[iCEM 网格划分 练习1]]></title>
+        <id>https://www.sssdoctor.com/post/icem-wang-ge-hua-fen-lian-xi-1/</id>
+        <link href="https://www.sssdoctor.com/post/icem-wang-ge-hua-fen-lian-xi-1/">
+        </link>
+        <updated>2022-03-09T01:25:46.000Z</updated>
+        <summary type="html"><![CDATA[<p>流场几何形状为45度弯头，内部有一竖直空心管道通过。空心管道与流场接触的壁面对于流体产生阻碍作用。划分的基本操作：1.生成3d块，利用切割功能实现块整体结构与几何的相似。2.关联：快网格能够映射到几何上。3.空心管道进行o型切分，同时删除多余的块。4.进行空心块的关联，包括：边关联以及面关联。5.进行整体结构O型切分。6.划分网格并开始调整。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>流场几何形状为45度弯头，内部有一竖直空心管道通过。空心管道与流场接触的壁面对于流体产生阻碍作用。划分的基本操作：1.生成3d块，利用切割功能实现块整体结构与几何的相似。2.关联：快网格能够映射到几何上。3.空心管道进行o型切分，同时删除多余的块。4.进行空心块的关联，包括：边关联以及面关联。5.进行整体结构O型切分。6.划分网格并开始调整。</p>
+<!-- more -->
+<p><img src="https://www.sssdoctor.com/post-images/1646789517196.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646789525342.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646789530500.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646789534144.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646789538438.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1646789553961.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[python—01—学习路径及数据类型]]></title>
         <id>https://www.sssdoctor.com/post/1/</id>
