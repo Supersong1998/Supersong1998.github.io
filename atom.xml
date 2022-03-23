@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sssdoctor.com</id>
     <title>大大大大宋</title>
-    <updated>2022-03-14T05:51:54.193Z</updated>
+    <updated>2022-03-23T01:13:16.356Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.sssdoctor.com"/>
     <link rel="self" href="https://www.sssdoctor.com/atom.xml"/>
@@ -10,6 +10,75 @@
     <logo>https://www.sssdoctor.com/images/avatar.png</logo>
     <icon>https://www.sssdoctor.com/favicon.ico</icon>
     <rights>All rights reserved 2022, 大大大大宋</rights>
+    <entry>
+        <title type="html"><![CDATA[Python中array数组维度]]></title>
+        <id>https://www.sssdoctor.com/post/python-zhong-array-shu-zu-wei-du/</id>
+        <link href="https://www.sssdoctor.com/post/python-zhong-array-shu-zu-wei-du/">
+        </link>
+        <updated>2022-03-21T13:16:21.000Z</updated>
+        <summary type="html"><![CDATA[<p>X[m,n]<br>
+m,n可以看作是行m与列n</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>X[m,n]<br>
+m,n可以看作是行m与列n</p>
+<!-- more -->
+<p>X[:,0]表示所有行的第一列的元素，X[:,1]表示所有行的第二列元素，X[:,:,0]表示三维数组中第一层（用词可能不当，但是列是二维数组中的），X[:,:,1]表示三维数组中的第二层。需要注意的是X[m,n]表示取值m行中的某一列，然后作为行输出。维度相当于一维。<br>
+X[:,m:n]需要单独说一下，表示输出所有行中的某一列到另外N-1列，维度属于二维，有两个【【】】，X[:,:,m:n]同理某一层到另外一层是三维的。<br>
+<img src="https://www.sssdoctor.com/post-images/1647871045079.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1647871050707.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1647871055181.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1647871058904.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[决策树]]></title>
+        <id>https://www.sssdoctor.com/post/jue-ce-shu/</id>
+        <link href="https://www.sssdoctor.com/post/jue-ce-shu/">
+        </link>
+        <updated>2022-03-18T01:51:09.000Z</updated>
+        <content type="html"><![CDATA[<p>1.核心算法：相似的输入产生相似的输出<br>
+2.决策树本身就应用了分类的思想，将连续数据离散化。可以提升运算速度。<br>
+3.信息熵（混乱程度）。<br>
+决策树：sklearn.tree.decidiontreeregressor然后 fit 最后predict<br>
+<img src="https://www.sssdoctor.com/post-images/1647912674345.png" alt="" loading="lazy"><br>
+4.工程优化：没必要用尽所有特征。可以混杂 最后一级可能数量太少，太片面。优先选择使信息熵减少量最大的特征作为区分的依据。<br>
+5.集合算法（算法融合）：根据不同模型给出的预测结果，利用平均（回归）或者分类的方法得出最后的结果。<br>
+特征重要性：<br>
+6.正向激励（adaboost增强型学习法)：带有权重的树，有点类似于迭代的过程（自适应增强决策树模型），反复构建带有不同权重的树，带有修正（因为有测试集对比）直到达到允许范围内.<br>
+正向激励：sklearn.ensemble.adaboostregressor<br>
+<img src="https://www.sssdoctor.com/post-images/1647913232195.png" alt="" loading="lazy"><br>
+7.自助聚合：有放回随机抽样的方式，行成多颗决策树，提高模型的泛化特性。<br>
+8.随机森林：在自助聚合的基础上，对于特征也进行又放回的抽样，行成不同的树，规避不同特征对于模型的影响。<br>
+sklearn.ensemble.randomforestregresso<br>
+9.特征重要性：feature.importance计算不同特征的信息熵减少量，然后利用柱状图的形式来展现。<br>
+<img src="https://www.sssdoctor.com/post-images/1647997113693.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1647997118795.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1647997122746.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[机器学习03—回归]]></title>
+        <id>https://www.sssdoctor.com/post/ji-qi-xue-xi-03-xian-xing-hui-gui/</id>
+        <link href="https://www.sssdoctor.com/post/ji-qi-xue-xi-03-xian-xing-hui-gui/">
+        </link>
+        <updated>2022-03-12T00:32:59.000Z</updated>
+        <summary type="html"><![CDATA[<p>线性回归：根据已知输入和输出，求解二者之间的线性模型参数，得到连续输入和输出。线性回归的算法种类很多，包括：普通线性回归、岭回归、多项式回归、贝叶斯回归、logistic回归等.</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>线性回归：根据已知输入和输出，求解二者之间的线性模型参数，得到连续输入和输出。线性回归的算法种类很多，包括：普通线性回归、岭回归、多项式回归、贝叶斯回归、logistic回归等.</p>
+<!-- more -->
+<p>鉴于目前处于初期学段暂时不做深入探究，暂时介绍三种算法：主要基于sklearn.linear_model.linearrgression、sklearn.linear_model.ridge、sklearn.preprocessing.ploynomia<br>
+1.sklearn.linear_model.linearregression<br>
+<img src="https://www.sssdoctor.com/post-images/1647873509929.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1647872977323.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1647872996139.png" alt="" loading="lazy"><br>
+2.sklearn.linear_model.ridge<br>
+<img src="https://www.sssdoctor.com/post-images/1647907809001.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1647907814972.png" alt="" loading="lazy"><br>
+3.多项式回归是多元线性回归的一个特例<br>
+所以其本质是一个求解多元线性方程组的问题：f(https://www.sssdoctor.com/post-images/1647909151289.png)<br>
+左边是关于x的矩阵，右边是关于w系数的矩阵，每一个系数w都对应x中的一列。而PolynomialFeatures就是用来生成关于x的矩阵的。然后再用LinearRegression学习，获得相应的w。需要用到管道和复合估算器pipeline其实就是流水线的意思。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[机器学习数据预处理02]]></title>
         <id>https://www.sssdoctor.com/post/ji-qi-xue-xi-shu-ju-yu-chu-li-02/</id>

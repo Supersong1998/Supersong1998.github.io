@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>机器学习03—回归 | 大大大大宋</title>
+<title>决策树 | 大大大大宋</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,9 +18,10 @@
 
 
 
-    <meta name="description" content="线性回归：根据已知输入和输出，求解二者之间的线性模型参数，得到连续输入和输出。线性回归的算法种类很多，包括：普通线性回归、岭回归、多项式回归、贝叶斯回归、logistic回归等.
-
-鉴于目前处于初期学段暂时不做深入探究，暂时介绍三种算法：主..." />
+    <meta name="description" content="1.核心算法：相似的输入产生相似的输出
+2.决策树本身就应用了分类的思想，将连续数据离散化。可以提升运算速度。
+3.信息熵（混乱程度）。
+决策树：sklearn.tree.decidiontreeregressor然后 fit 最后pred..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -74,35 +75,40 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">机器学习03—回归</h2>
-            <div class="post-date">2022-03-12</div>
+            <h2 class="post-title">决策树</h2>
+            <div class="post-date">2022-03-18</div>
             
-              <div class="feature-container" style="background-image: url('https://www.sssdoctor.com/post-images/ji-qi-xue-xi-03-xian-xing-hui-gui.png')">
+              <div class="feature-container" style="background-image: url('https://www.sssdoctor.com/post-images/jue-ce-shu.png')">
               </div>
             
             <div class="post-content" v-pre>
-              <p>线性回归：根据已知输入和输出，求解二者之间的线性模型参数，得到连续输入和输出。线性回归的算法种类很多，包括：普通线性回归、岭回归、多项式回归、贝叶斯回归、logistic回归等.</p>
-<!-- more -->
-<p>鉴于目前处于初期学段暂时不做深入探究，暂时介绍三种算法：主要基于sklearn.linear_model.linearrgression、sklearn.linear_model.ridge、sklearn.preprocessing.ploynomia<br>
-1.sklearn.linear_model.linearregression<br>
-<img src="https://www.sssdoctor.com/post-images/1647873509929.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1647872977323.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1647872996139.png" alt="" loading="lazy"><br>
-2.sklearn.linear_model.ridge<br>
-<img src="https://www.sssdoctor.com/post-images/1647907809001.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1647907814972.png" alt="" loading="lazy"><br>
-3.多项式回归是多元线性回归的一个特例<br>
-所以其本质是一个求解多元线性方程组的问题：f(https://www.sssdoctor.com/post-images/1647909151289.png)<br>
-左边是关于x的矩阵，右边是关于w系数的矩阵，每一个系数w都对应x中的一列。而PolynomialFeatures就是用来生成关于x的矩阵的。然后再用LinearRegression学习，获得相应的w。需要用到管道和复合估算器pipeline其实就是流水线的意思。</p>
+              <p>1.核心算法：相似的输入产生相似的输出<br>
+2.决策树本身就应用了分类的思想，将连续数据离散化。可以提升运算速度。<br>
+3.信息熵（混乱程度）。<br>
+决策树：sklearn.tree.decidiontreeregressor然后 fit 最后predict<br>
+<img src="https://www.sssdoctor.com/post-images/1647912674345.png" alt="" loading="lazy"><br>
+4.工程优化：没必要用尽所有特征。可以混杂 最后一级可能数量太少，太片面。优先选择使信息熵减少量最大的特征作为区分的依据。<br>
+5.集合算法（算法融合）：根据不同模型给出的预测结果，利用平均（回归）或者分类的方法得出最后的结果。<br>
+特征重要性：<br>
+6.正向激励（adaboost增强型学习法)：带有权重的树，有点类似于迭代的过程（自适应增强决策树模型），反复构建带有不同权重的树，带有修正（因为有测试集对比）直到达到允许范围内.<br>
+正向激励：sklearn.ensemble.adaboostregressor<br>
+<img src="https://www.sssdoctor.com/post-images/1647913232195.png" alt="" loading="lazy"><br>
+7.自助聚合：有放回随机抽样的方式，行成多颗决策树，提高模型的泛化特性。<br>
+8.随机森林：在自助聚合的基础上，对于特征也进行又放回的抽样，行成不同的树，规避不同特征对于模型的影响。<br>
+sklearn.ensemble.randomforestregresso<br>
+9.特征重要性：feature.importance计算不同特征的信息熵减少量，然后利用柱状图的形式来展现。<br>
+<img src="https://www.sssdoctor.com/post-images/1647997113693.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1647997118795.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1647997122746.png" alt="" loading="lazy"></p>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://www.sssdoctor.com/post/ji-qi-xue-xi-shu-ju-yu-chu-li-02/">
+                <a href="https://www.sssdoctor.com/post/ji-qi-xue-xi-03-xian-xing-hui-gui/">
                   <h3 class="post-title">
-                    机器学习数据预处理02
+                    机器学习03—回归
                   </h3>
                 </a>
               </div>
