@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>机器学习03—回归 | 大大大大宋</title>
+<title>样本类别均衡化及置信概率 | 大大大大宋</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,9 +18,8 @@
 
 
 
-    <meta name="description" content="线性回归：根据已知输入和输出，求解二者之间的线性模型参数，得到连续输入和输出。线性回归的算法种类很多，包括：普通线性回归、岭回归、多项式回归、贝叶斯回归、logistic回归等.
-
-鉴于目前处于初期学段暂时不做深入探究，暂时介绍三种算法：主..." />
+    <meta name="description" content="1.通过类别权重的均衡化，使得占比小的样本权重较高，占比大的样本权重较小，假设100图片，90狗，10猫然后训练出的模型会得出狗的结果，因为这样准确率也能得到90%以上。
+API：model=svm.SVC(kernel='linear',..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -74,35 +73,40 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">机器学习03—回归</h2>
-            <div class="post-date">2022-03-12</div>
+            <h2 class="post-title">样本类别均衡化及置信概率</h2>
+            <div class="post-date">2022-03-23</div>
             
-              <div class="feature-container" style="background-image: url('https://www.sssdoctor.com/post-images/ji-qi-xue-xi-03-xian-xing-hui-gui.png')">
+              <div class="feature-container" style="background-image: url('https://www.sssdoctor.com/post-images/yang-ben-lei-bie-jun-heng-hua-ji-zhi-xin-gai-lu.png')">
               </div>
             
             <div class="post-content" v-pre>
-              <p>线性回归：根据已知输入和输出，求解二者之间的线性模型参数，得到连续输入和输出。线性回归的算法种类很多，包括：普通线性回归、岭回归、多项式回归、贝叶斯回归、logistic回归等.</p>
+              <p>1.通过类别权重的均衡化，使得占比小的样本权重较高，占比大的样本权重较小，假设100图片，90狗，10猫然后训练出的模型会得出狗的结果，因为这样准确率也能得到90%以上。<br>
+API：model=svm.SVC(kernel='linear',calss_weight='balanced')<br>
+model.fit(trainx,trainy)</p>
 <!-- more -->
-<p>鉴于目前处于初期学段暂时不做深入探究，暂时介绍三种算法：主要基于sklearn.linear_model.linearrgression、sklearn.linear_model.ridge、sklearn.preprocessing.ploynomia<br>
-1.sklearn.linear_model.linearregression<br>
-<img src="https://www.sssdoctor.com/post-images/1647873509929.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1647872977323.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1647872996139.png" alt="" loading="lazy"><br>
-2.sklearn.linear_model.ridge<br>
-<img src="https://www.sssdoctor.com/post-images/1647907809001.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1647907814972.png" alt="" loading="lazy"><br>
-3.多项式回归是多元线性回归的一个特例<br>
-所以其本质是一个求解多元线性方程组的问题：f(https://www.sssdoctor.com/post-images/1647909151289.png)<br>
-左边是关于x的矩阵，右边是关于w系数的矩阵，每一个系数w都对应x中的一列。而PolynomialFeatures就是用来生成关于x的矩阵的。然后再用LinearRegression学习，获得相应的w。需要用到管道和复合估算器pipeline其实就是流水线的意思。</p>
+<p>1.1样本类别不均衡解决方案：上采样、下采样。样本数量2000 类别1 1800   类别2 200<br>
+下采样：以数少的为准，减少类别1的数量.<br>
+上采样：扩充类别2的数量。</p>
+<p>2.置信概率：根据样本与分类边界的距离远近，对其预测类别的可信程度进行量化，离边界越近的样本，置信概率越低，反之，离边界越远的样本，置信概率高。<br>
+#API:model=svm.SVC(kernel='rbf',c=600,gamma=0.01,probability=true)#给出超参数：probability=true<br>
+#调用model.predict_proba(样本矩阵)<br>
+可以获取每个样本的置信概率矩阵</p>
+<p>3.网格搜索：获取一个最优超参数的方式可以绘制验证曲线，但是验证曲线只能每次获取一个最优超参数。如果多个超参数有很多排列组合的话们就可以使用网格搜索寻求最优超参数组合。<br>
+#API:Model=sklearn.model_selection.GridSearchCV(模型，超参数组合列表，cv=折叠次数)<br>
+#model.fit(输入、输出)<br>
+#获取网格搜索每个参数组合<br>
+#model.cv_results_['params']<br>
+#获取网格搜索每个参数组合的平均测试分数<br>
+#model.cv_results_['mean_test_score']</p>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://www.sssdoctor.com/post/ji-qi-xue-xi-shu-ju-yu-chu-li-02/">
+                <a href="https://www.sssdoctor.com/post/python-zhong-array-shu-zu-wei-du/">
                   <h3 class="post-title">
-                    机器学习数据预处理02
+                    Python中array数组维度
                   </h3>
                 </a>
               </div>
