@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>tensorflow_data | 大大大大宋</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://www.sssdoctor.com/favicon.ico?v=1649248313189">
+<link rel="stylesheet" href="https://www.sssdoctor.com/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="import tensorflow as tf
+import pathlib
+#检查tensorflow版本
+print(tf.version)
+#获取当前路径
+data_root=pathlib.Path.cwd()
+print(data..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://www.sssdoctor.com">
+        <img src="https://www.sssdoctor.com/images/avatar.png?v=1649248313189" class="site-logo">
+        <h1 class="site-title">大大大大宋</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://Supersong1998.github.io/tags" class="site-nav" target="_blank">
+            分类
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://www.sssdoctor.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">tensorflow_data</h2>
+            <div class="post-date">2022-04-06</div>
+            
+            <div class="post-content" v-pre>
+              <p>import tensorflow as tf<br>
+import pathlib</p>
+<p>#检查tensorflow版本<br>
+print(tf.version)</p>
+<p>#获取当前路径<br>
+data_root=pathlib.Path.cwd()<br>
+print(data_root)</p>
+<p>#获取所有图片样本文件的路径并输出：<br>
+all_imagine_paths = list(data_root.glob('<em>/</em>/*'))<br>
+print(type(all_imagine_paths[0]))</p>
+<p>#将对象转换成字符串<br>
+all_imagine_paths=[str(path) for path in all_imagine_paths]<br>
+print(all_imagine_paths[2])<br>
+print(data_root)</p>
+<p>#获取图片样本类别的名称，即存放样本的五个文件夹的名称 sorted排序、<br>
+label_names=sorted(item.name for item in data_root.glob('<em>/</em>/') if item.is_dir())</p>
+<p>#将类别名称转换成为数值型的类标 dict字典 enumerate枚举<br>
+label_to_index=dict((name,index) for index,name in enumerate(label_names))</p>
+<p>#获取所有图片的类别<br>
+all_image_labels = [label_to_index[pathlib.Path(path).parent.name]<br>
+for path in all_imagine_paths]<br>
+print(label_to_index)</p>
+<p>#加载和预处理图片数据<br>
+def load_and_preprocessing_image(path):<br>
+#读取图片<br>
+image=tf.io.read_file(path)<br>
+#将jpeg格式的图片解码，得到一个张量（三维的矩阵）<br>
+image=tf.image.decode_jpeg(image,channels=3)<br>
+#由于数据集中每个图片大小不一样，所以所以将其统一调整为192*192<br>
+image=tf.image.resize(image, [192,192])<br>
+#对每个像素点的RGB值做归一化处理<br>
+image /=255.0</p>
+<pre><code>return image
+</code></pre>
+<p>#构建图片路径的数据集<br>
+path_ds=tf.data.Dataset.from_tensor_slices(all_imagine_paths)<br>
+#使用autotune自动调节管道参数<br>
+AUTOTUNE=tf.data.experimental.AUTOTUNE<br>
+#构建图片数据的数据集<br>
+image_ds=path_ds.map(load_and_preprocessing_image,num_parallel_calls=AUTOTUNE)<br>
+#构建类标的数据集<br>
+label_ds=tf.data.Dataset.from_tensor_slices(tf.cast(all_image_labels,tf.int64))<br>
+#将图片和类标压缩为（图片，类标）对<br>
+image_label_ds=tf.data.Dataset.zip((image_ds,label_ds))<br>
+print(image_ds)<br>
+print(label_ds)<br>
+print(image_label_ds)</p>
+<p>#数据集中部分可视化<br>
+import matplotlib.pyplot as plt<br>
+plt.figure(figsize=(8,8))<br>
+for n,image_label in enumerate(image_label_ds.take(4)):<br>
+plt.subplot(2,2,n+1)<br>
+plt.imshow(image_label[0])<br>
+plt.grid(False)<br>
+plt.xticks([])<br>
+plt.yticks([])<br>
+plt.show()</p>
+<h1 id="下载的模型在用户根目录下~kerasmodelsmobilenet_v2_weights_tf_dim_ordering_tf_kernels_10_192_no_toph5">下载的模型在用户根目录下“~/.keras/models/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_1.0_192_no_top.h5”</h1>
+<p>mobile_net = tf.keras.applications.MobileNetV2(input_shape=(192, 192, 3),include_top=False)<br>
+mobile_net.trainable = False</p>
+<h1 id="使用dataset类的shuffle方法打乱数据集">使用Dataset类的shuffle方法打乱数据集</h1>
+<p>image_count = len(all_imagine_paths)<br>
+ds = image_label_ds.shuffle(buffer_size=image_count)</p>
+<h1 id="让数据集重复多次">让数据集重复多次</h1>
+<p>ds = ds.repeat()</p>
+<h1 id="设置每个batch的大小">设置每个batch的大小</h1>
+<p>BATCH_SIZE = 32<br>
+ds = ds.batch(BATCH_SIZE)</p>
+<h1 id="通过prefetch方法让模型的训练和每个batch数据集的加载并行">通过“prefetch”方法让模型的训练和每个batch数据集的加载并行</h1>
+<p>ds = ds.prefetch(buffer_size=AUTOTUNE)</p>
+<h1 id="定义一个函数用来将范围在01之间的数据映射到-11之间">定义一个函数用来将范围在[0,1]之间的数据映射到[-1,1]之间</h1>
+<p>def change_range(image,label):<br>
+return 2*image-1, label</p>
+<!-- more -->
+<p>keras_ds = ds.map(change_range)<br>
+model = tf.keras.Sequential([<br>
+mobile_net,<br>
+tf.keras.layers.GlobalAveragePooling2D(),<br>
+tf.keras.layers.Dense(len(label_names))])</p>
+<p>model.compile(optimizer=tf.keras.optimizers.Adam(),<br>
+loss='sparse_categorical_crossentropy',<br>
+metrics=[&quot;accuracy&quot;])<br>
+model.summary()</p>
+<p>model.fit(ds, epochs=10, steps_per_epoch=500)</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://www.sssdoctor.com/post/yang-ben-lei-bie-jun-heng-hua-ji-zhi-xin-gai-lu/">
+                  <h3 class="post-title">
+                    样本类别均衡化及置信概率
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

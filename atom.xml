@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sssdoctor.com</id>
     <title>大大大大宋</title>
-    <updated>2022-04-01T01:44:34.940Z</updated>
+    <updated>2022-04-06T12:32:02.437Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.sssdoctor.com"/>
     <link rel="self" href="https://www.sssdoctor.com/atom.xml"/>
@@ -10,6 +10,172 @@
     <logo>https://www.sssdoctor.com/images/avatar.png</logo>
     <icon>https://www.sssdoctor.com/favicon.ico</icon>
     <rights>All rights reserved 2022, 大大大大宋</rights>
+    <entry>
+        <title type="html"><![CDATA[tensorflow_data]]></title>
+        <id>https://www.sssdoctor.com/post/tensorflow_data/</id>
+        <link href="https://www.sssdoctor.com/post/tensorflow_data/">
+        </link>
+        <updated>2022-04-06T12:31:19.000Z</updated>
+        <summary type="html"><![CDATA[<p>import tensorflow as tf<br>
+import pathlib</p>
+<p>#检查tensorflow版本<br>
+print(tf.version)</p>
+<p>#获取当前路径<br>
+data_root=pathlib.Path.cwd()<br>
+print(data_root)</p>
+<p>#获取所有图片样本文件的路径并输出：<br>
+all_imagine_paths = list(data_root.glob('<em>/</em>/*'))<br>
+print(type(all_imagine_paths[0]))</p>
+<p>#将对象转换成字符串<br>
+all_imagine_paths=[str(path) for path in all_imagine_paths]<br>
+print(all_imagine_paths[2])<br>
+print(data_root)</p>
+<p>#获取图片样本类别的名称，即存放样本的五个文件夹的名称 sorted排序、<br>
+label_names=sorted(item.name for item in data_root.glob('<em>/</em>/') if item.is_dir())</p>
+<p>#将类别名称转换成为数值型的类标 dict字典 enumerate枚举<br>
+label_to_index=dict((name,index) for index,name in enumerate(label_names))</p>
+<p>#获取所有图片的类别<br>
+all_image_labels = [label_to_index[pathlib.Path(path).parent.name]<br>
+for path in all_imagine_paths]<br>
+print(label_to_index)</p>
+<p>#加载和预处理图片数据<br>
+def load_and_preprocessing_image(path):<br>
+#读取图片<br>
+image=tf.io.read_file(path)<br>
+#将jpeg格式的图片解码，得到一个张量（三维的矩阵）<br>
+image=tf.image.decode_jpeg(image,channels=3)<br>
+#由于数据集中每个图片大小不一样，所以所以将其统一调整为192*192<br>
+image=tf.image.resize(image, [192,192])<br>
+#对每个像素点的RGB值做归一化处理<br>
+image /=255.0</p>
+<pre><code>return image
+</code></pre>
+<p>#构建图片路径的数据集<br>
+path_ds=tf.data.Dataset.from_tensor_slices(all_imagine_paths)<br>
+#使用autotune自动调节管道参数<br>
+AUTOTUNE=tf.data.experimental.AUTOTUNE<br>
+#构建图片数据的数据集<br>
+image_ds=path_ds.map(load_and_preprocessing_image,num_parallel_calls=AUTOTUNE)<br>
+#构建类标的数据集<br>
+label_ds=tf.data.Dataset.from_tensor_slices(tf.cast(all_image_labels,tf.int64))<br>
+#将图片和类标压缩为（图片，类标）对<br>
+image_label_ds=tf.data.Dataset.zip((image_ds,label_ds))<br>
+print(image_ds)<br>
+print(label_ds)<br>
+print(image_label_ds)</p>
+<p>#数据集中部分可视化<br>
+import matplotlib.pyplot as plt<br>
+plt.figure(figsize=(8,8))<br>
+for n,image_label in enumerate(image_label_ds.take(4)):<br>
+plt.subplot(2,2,n+1)<br>
+plt.imshow(image_label[0])<br>
+plt.grid(False)<br>
+plt.xticks([])<br>
+plt.yticks([])<br>
+plt.show()</p>
+<h1 id="下载的模型在用户根目录下~kerasmodelsmobilenet_v2_weights_tf_dim_ordering_tf_kernels_10_192_no_toph5">下载的模型在用户根目录下“~/.keras/models/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_1.0_192_no_top.h5”</h1>
+<p>mobile_net = tf.keras.applications.MobileNetV2(input_shape=(192, 192, 3),include_top=False)<br>
+mobile_net.trainable = False</p>
+<h1 id="使用dataset类的shuffle方法打乱数据集">使用Dataset类的shuffle方法打乱数据集</h1>
+<p>image_count = len(all_imagine_paths)<br>
+ds = image_label_ds.shuffle(buffer_size=image_count)</p>
+<h1 id="让数据集重复多次">让数据集重复多次</h1>
+<p>ds = ds.repeat()</p>
+<h1 id="设置每个batch的大小">设置每个batch的大小</h1>
+<p>BATCH_SIZE = 32<br>
+ds = ds.batch(BATCH_SIZE)</p>
+<h1 id="通过prefetch方法让模型的训练和每个batch数据集的加载并行">通过“prefetch”方法让模型的训练和每个batch数据集的加载并行</h1>
+<p>ds = ds.prefetch(buffer_size=AUTOTUNE)</p>
+<h1 id="定义一个函数用来将范围在01之间的数据映射到-11之间">定义一个函数用来将范围在[0,1]之间的数据映射到[-1,1]之间</h1>
+<p>def change_range(image,label):<br>
+return 2*image-1, label</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>import tensorflow as tf<br>
+import pathlib</p>
+<p>#检查tensorflow版本<br>
+print(tf.version)</p>
+<p>#获取当前路径<br>
+data_root=pathlib.Path.cwd()<br>
+print(data_root)</p>
+<p>#获取所有图片样本文件的路径并输出：<br>
+all_imagine_paths = list(data_root.glob('<em>/</em>/*'))<br>
+print(type(all_imagine_paths[0]))</p>
+<p>#将对象转换成字符串<br>
+all_imagine_paths=[str(path) for path in all_imagine_paths]<br>
+print(all_imagine_paths[2])<br>
+print(data_root)</p>
+<p>#获取图片样本类别的名称，即存放样本的五个文件夹的名称 sorted排序、<br>
+label_names=sorted(item.name for item in data_root.glob('<em>/</em>/') if item.is_dir())</p>
+<p>#将类别名称转换成为数值型的类标 dict字典 enumerate枚举<br>
+label_to_index=dict((name,index) for index,name in enumerate(label_names))</p>
+<p>#获取所有图片的类别<br>
+all_image_labels = [label_to_index[pathlib.Path(path).parent.name]<br>
+for path in all_imagine_paths]<br>
+print(label_to_index)</p>
+<p>#加载和预处理图片数据<br>
+def load_and_preprocessing_image(path):<br>
+#读取图片<br>
+image=tf.io.read_file(path)<br>
+#将jpeg格式的图片解码，得到一个张量（三维的矩阵）<br>
+image=tf.image.decode_jpeg(image,channels=3)<br>
+#由于数据集中每个图片大小不一样，所以所以将其统一调整为192*192<br>
+image=tf.image.resize(image, [192,192])<br>
+#对每个像素点的RGB值做归一化处理<br>
+image /=255.0</p>
+<pre><code>return image
+</code></pre>
+<p>#构建图片路径的数据集<br>
+path_ds=tf.data.Dataset.from_tensor_slices(all_imagine_paths)<br>
+#使用autotune自动调节管道参数<br>
+AUTOTUNE=tf.data.experimental.AUTOTUNE<br>
+#构建图片数据的数据集<br>
+image_ds=path_ds.map(load_and_preprocessing_image,num_parallel_calls=AUTOTUNE)<br>
+#构建类标的数据集<br>
+label_ds=tf.data.Dataset.from_tensor_slices(tf.cast(all_image_labels,tf.int64))<br>
+#将图片和类标压缩为（图片，类标）对<br>
+image_label_ds=tf.data.Dataset.zip((image_ds,label_ds))<br>
+print(image_ds)<br>
+print(label_ds)<br>
+print(image_label_ds)</p>
+<p>#数据集中部分可视化<br>
+import matplotlib.pyplot as plt<br>
+plt.figure(figsize=(8,8))<br>
+for n,image_label in enumerate(image_label_ds.take(4)):<br>
+plt.subplot(2,2,n+1)<br>
+plt.imshow(image_label[0])<br>
+plt.grid(False)<br>
+plt.xticks([])<br>
+plt.yticks([])<br>
+plt.show()</p>
+<h1 id="下载的模型在用户根目录下~kerasmodelsmobilenet_v2_weights_tf_dim_ordering_tf_kernels_10_192_no_toph5">下载的模型在用户根目录下“~/.keras/models/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_1.0_192_no_top.h5”</h1>
+<p>mobile_net = tf.keras.applications.MobileNetV2(input_shape=(192, 192, 3),include_top=False)<br>
+mobile_net.trainable = False</p>
+<h1 id="使用dataset类的shuffle方法打乱数据集">使用Dataset类的shuffle方法打乱数据集</h1>
+<p>image_count = len(all_imagine_paths)<br>
+ds = image_label_ds.shuffle(buffer_size=image_count)</p>
+<h1 id="让数据集重复多次">让数据集重复多次</h1>
+<p>ds = ds.repeat()</p>
+<h1 id="设置每个batch的大小">设置每个batch的大小</h1>
+<p>BATCH_SIZE = 32<br>
+ds = ds.batch(BATCH_SIZE)</p>
+<h1 id="通过prefetch方法让模型的训练和每个batch数据集的加载并行">通过“prefetch”方法让模型的训练和每个batch数据集的加载并行</h1>
+<p>ds = ds.prefetch(buffer_size=AUTOTUNE)</p>
+<h1 id="定义一个函数用来将范围在01之间的数据映射到-11之间">定义一个函数用来将范围在[0,1]之间的数据映射到[-1,1]之间</h1>
+<p>def change_range(image,label):<br>
+return 2*image-1, label</p>
+<!-- more -->
+<p>keras_ds = ds.map(change_range)<br>
+model = tf.keras.Sequential([<br>
+mobile_net,<br>
+tf.keras.layers.GlobalAveragePooling2D(),<br>
+tf.keras.layers.Dense(len(label_names))])</p>
+<p>model.compile(optimizer=tf.keras.optimizers.Adam(),<br>
+loss='sparse_categorical_crossentropy',<br>
+metrics=[&quot;accuracy&quot;])<br>
+model.summary()</p>
+<p>model.fit(ds, epochs=10, steps_per_epoch=500)</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[样本类别均衡化及置信概率]]></title>
         <id>https://www.sssdoctor.com/post/yang-ben-lei-bie-jun-heng-hua-ji-zhi-xin-gai-lu/</id>
@@ -513,33 +679,6 @@ icem这个软件本身存在很多 bug 而且也需要极度细心才能操作�
 节点+面或者体<br>
 1.5网格质量<br>
 决定计算精度</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[DM进行流体域的创建]]></title>
-        <id>https://www.sssdoctor.com/post/dm-jin-xing-liu-ti-yu-de-chuang-jian/</id>
-        <link href="https://www.sssdoctor.com/post/dm-jin-xing-liu-ti-yu-de-chuang-jian/">
-        </link>
-        <updated>2022-02-22T06:03:54.000Z</updated>
-        <summary type="html"><![CDATA[<p>直接计算流体域创建、内流计算流体域创建、外流计算创建 混合流体域的创建</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>直接计算流体域创建、内流计算流体域创建、外流计算创建 混合流体域的创建</p>
-<!-- more -->
-<p>1.计算域创建<br>
-即将流体域的几何模型直接画出<br>
-<img src="https://www.sssdoctor.com/post-images/1645513042982.png" alt="" loading="lazy"><br>
-2.内流计算流体域的创建<br>
-Tool--fill---cavity/caps(不封闭、封闭)--twist ?(画弹簧可用)--通过几何模型将流体域抽离出来，内流场即在几何体内部流动，比如管道流等<br>
-<img src="https://www.sssdoctor.com/post-images/1645513396197.png" alt="" loading="lazy"><br>
-3.外流体域创建<br>
-Tool--enclossure(外壳命令)—box/cylinder/sphere<br>
-外流畅创建几何体外流场，比如导弹、飞机的外流场等、<br>
-<img src="https://www.sssdoctor.com/post-images/1645513029802.png" alt="" loading="lazy"><br>
-4.混合流体域的创建<br>
-方法一利用布尔运算 画出外流场模型然后利用SUB操作去除原有几何体，进而实现内流场及外流场几何模型创建。<br>
-<img src="https://www.sssdoctor.com/post-images/1645515392642.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1645515397947.png" alt="" loading="lazy"><br>
-方法二：利用enclosure操作，首先建立包围几何体的流场，此处关节点在于选择冻结，不然新建后会使得新旧几何体合并，然后利用enclosure操作，选择用户自定义的模型（后面建立的这个） 然后选择选定几何体 选择原来的几何 从而实现流体域的划分，而且不会删除原有几何体，布尔操作会！</p>
 ]]></content>
     </entry>
 </feed>
