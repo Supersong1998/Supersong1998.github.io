@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://www.sssdoctor.com/favicon.ico?v=1649252867415">
+<link rel="shortcut icon" href="https://www.sssdoctor.com/favicon.ico?v=1649298472062">
 <link rel="stylesheet" href="https://www.sssdoctor.com/styles/main.css">
 
 
@@ -28,7 +28,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://www.sssdoctor.com">
-        <img src="https://www.sssdoctor.com/images/avatar.png?v=1649252867415" class="site-logo">
+        <img src="https://www.sssdoctor.com/images/avatar.png?v=1649298472062" class="site-logo">
         <h1 class="site-title">大大大大宋</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -74,6 +74,37 @@
           
             <article class="post-item">
               <div class="left">
+                <a href="https://www.sssdoctor.com/post/tensorflow_keras/">
+                  <h2 class="post-title">tensorflow_keras</h2>
+                </a>
+                <div class="post-date">
+                  2022-04-07
+                </div>
+                <div class="post-abstract">
+                  <p>import tensorflow as tf<br>
+from keras import layers<br>
+model=tf.keras.Sequential()<br>
+#添加一个64个单元的全连接层，&quot;input_shape&quot;为该层接受输入的数据的维度<br>
+##'activation'指定该层用的激活函数<br>
+#第一层，输入层<br>
+model.add(layers.Dense(64,activation='relu',input_shape=(32,)))<br>
+#第二层，隐藏层<br>
+model.add(layers.Dense(64,activation='relu'))<br>
+#添加一个softmax层作为输出层<br>
+model.add(layers.Dense(10,activation='softmax'))</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://www.sssdoctor.com/post/tensorflow_keras/">
+                  <div class="feature-container" style="background-image: url('https://www.sssdoctor.com/post-images/tensorflow_keras.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
                 <a href="https://www.sssdoctor.com/post/tensorflow_data/">
                   <h2 class="post-title">tensorflow_data</h2>
                 </a>
@@ -91,6 +122,42 @@ print(data_root)</p>
 
                 </div>
               </div>
+              
+                <a class="right" href="https://www.sssdoctor.com/post/tensorflow_data/">
+                  <div class="feature-container" style="background-image: url('https://www.sssdoctor.com/post-images/tensorflow_data.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://www.sssdoctor.com/post/shen-jing-wang-luo-nn/">
+                  <h2 class="post-title">神经网络NN</h2>
+                </a>
+                <div class="post-date">
+                  2022-04-01
+                </div>
+                <div class="post-abstract">
+                  <p>import tensorflow as tf<br>
+from keras import layers<br>
+#单独的一个输入层<br>
+inputs=tf.keras.Input(shape=(32,))<br>
+#网络层可以像函数一样被调用<br>
+x=layers.Dense(64,activation='relu')(inputs)<br>
+x=layers.Dense(64,activation='relu')(x)<br>
+#输出层<br>
+prediction=layers.Dense(10,activation='softmax')(x)<br>
+#创建模型<br>
+model=tf.keras.Model(inputs=inputs,outputs=prediction)</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://www.sssdoctor.com/post/shen-jing-wang-luo-nn/">
+                  <div class="feature-container" style="background-image: url('https://www.sssdoctor.com/post-images/shen-jing-wang-luo-nn.jpg')">
+                  </div>
+                </a>
               
             </article>
           

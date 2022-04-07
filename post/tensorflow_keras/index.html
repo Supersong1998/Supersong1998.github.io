@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>晶体管 | 大大大大宋</title>
+<title>tensorflow_keras | 大大大大宋</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,8 +18,10 @@
 
 
 
-    <meta name="description" content="二极管、三极管、场效应管/
-" />
+    <meta name="description" content="import tensorflow as tf
+from keras import layers
+model=tf.keras.Sequential()
+#添加一个64个单元的全连接层，&quot;input_shape&quot;为该层接..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -73,14 +75,51 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">晶体管</h2>
-            <div class="post-date">2022-02-21</div>
+            <h2 class="post-title">tensorflow_keras</h2>
+            <div class="post-date">2022-04-07</div>
+            
+              <div class="feature-container" style="background-image: url('https://www.sssdoctor.com/post-images/tensorflow_keras.png')">
+              </div>
             
             <div class="post-content" v-pre>
-              <p>二极管、三极管、场效应管/</p>
+              <p>import tensorflow as tf<br>
+from keras import layers<br>
+model=tf.keras.Sequential()<br>
+#添加一个64个单元的全连接层，&quot;input_shape&quot;为该层接受输入的数据的维度<br>
+##'activation'指定该层用的激活函数<br>
+#第一层，输入层<br>
+model.add(layers.Dense(64,activation='relu',input_shape=(32,)))<br>
+#第二层，隐藏层<br>
+model.add(layers.Dense(64,activation='relu'))<br>
+#添加一个softmax层作为输出层<br>
+model.add(layers.Dense(10,activation='softmax'))</p>
+<!-- more -->
+<p>#编译模型，参数包括指定的优化器，学习率，损失函数loss，metics模型的评价函数  其中adam,sgd都是优化器<br>
+model.compile(optimizer=tf.keras.optimizers.Adam(0.001),<br>
+loss='categorical_crossentropy',<br>
+metrics=['accuracy'])<br>
+#使用numpy生成随机数作为训练数据<br>
+import numpy as np<br>
+data=np.random.random((1000,32))#1000行32列<br>
+labels=np.random.random((1000,10))<br>
+print(data[0])<br>
+print(labels[0])</p>
+<p>#验证集使用numpy随机生成<br>
+val_data=np.random.random((1000,32))<br>
+val_labels=np.random.random((1000,10))</p>
+<p>model.fit(data,labels,epochs=10,batch_size=50,validation_data=(val_data,val_labels))</p>
 
             </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://www.sssdoctor.com/post/tensorflow_data/">
+                  <h3 class="post-title">
+                    tensorflow_data
+                  </h3>
+                </a>
+              </div>
             
 
             
