@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://www.sssdoctor.com/favicon.ico?v=1649298472062">
+<link rel="shortcut icon" href="https://www.sssdoctor.com/favicon.ico?v=1649298611042">
 <link rel="stylesheet" href="https://www.sssdoctor.com/styles/main.css">
 
 
@@ -23,7 +23,8 @@ from keras import layers
 #单独的一个输入层
 inputs=tf.keras.Input(shape=(32,))
 #网络层可以像函数一样被调用
-x=layers.De..." />
+
+x=layers.D..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -33,7 +34,7 @@ x=layers.De..." />
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://www.sssdoctor.com">
-        <img src="https://www.sssdoctor.com/images/avatar.png?v=1649298472062" class="site-logo">
+        <img src="https://www.sssdoctor.com/images/avatar.png?v=1649298611042" class="site-logo">
         <h1 class="site-title">大大大大宋</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -88,15 +89,15 @@ x=layers.De..." />
 from keras import layers<br>
 #单独的一个输入层<br>
 inputs=tf.keras.Input(shape=(32,))<br>
-#网络层可以像函数一样被调用<br>
-x=layers.Dense(64,activation='relu')(inputs)<br>
+#网络层可以像函数一样被调用</p>
+<!-- more -->
+<p>x=layers.Dense(64,activation='relu')(inputs)<br>
 x=layers.Dense(64,activation='relu')(x)<br>
 #输出层<br>
 prediction=layers.Dense(10,activation='softmax')(x)<br>
 #创建模型<br>
-model=tf.keras.Model(inputs=inputs,outputs=prediction)</p>
-<!-- more -->
-<p>#编译模型，参数包括指定的优化器，学习率，损失函数loss，metics模型的评价函数  其中adam,sgd都是优化器<br>
+model=tf.keras.Model(inputs=inputs,outputs=prediction)<br>
+#编译模型，参数包括指定的优化器，学习率，损失函数loss，metics模型的评价函数  其中adam,sgd都是优化器<br>
 model.compile(optimizer=tf.keras.optimizers.RMSprop(0.001),<br>
 loss='categorical_crossentropy',<br>
 metrics=['accuracy'])<br>

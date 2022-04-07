@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://www.sssdoctor.com/favicon.ico?v=1649298472062">
+<link rel="shortcut icon" href="https://www.sssdoctor.com/favicon.ico?v=1649298611042">
 <link rel="stylesheet" href="https://www.sssdoctor.com/styles/main.css">
 
 
@@ -31,7 +31,7 @@ model=tf.keras.Sequential()
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://www.sssdoctor.com">
-        <img src="https://www.sssdoctor.com/images/avatar.png?v=1649298472062" class="site-logo">
+        <img src="https://www.sssdoctor.com/images/avatar.png?v=1649298611042" class="site-logo">
         <h1 class="site-title">大大大大宋</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -86,15 +86,15 @@ model=tf.keras.Sequential()
 from keras import layers<br>
 model=tf.keras.Sequential()<br>
 #添加一个64个单元的全连接层，&quot;input_shape&quot;为该层接受输入的数据的维度<br>
-##'activation'指定该层用的激活函数<br>
-#第一层，输入层<br>
+##'activation'指定该层用的激活函数</p>
+<!-- more -->
+<p>#第一层，输入层<br>
 model.add(layers.Dense(64,activation='relu',input_shape=(32,)))<br>
 #第二层，隐藏层<br>
 model.add(layers.Dense(64,activation='relu'))<br>
 #添加一个softmax层作为输出层<br>
-model.add(layers.Dense(10,activation='softmax'))</p>
-<!-- more -->
-<p>#编译模型，参数包括指定的优化器，学习率，损失函数loss，metics模型的评价函数  其中adam,sgd都是优化器<br>
+model.add(layers.Dense(10,activation='softmax'))<br>
+#编译模型，参数包括指定的优化器，学习率，损失函数loss，metics模型的评价函数  其中adam,sgd都是优化器<br>
 model.compile(optimizer=tf.keras.optimizers.Adam(0.001),<br>
 loss='categorical_crossentropy',<br>
 metrics=['accuracy'])<br>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sssdoctor.com</id>
     <title>大大大大宋</title>
-    <updated>2022-04-07T02:27:56.366Z</updated>
+    <updated>2022-04-07T02:31:55.192Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.sssdoctor.com"/>
     <link rel="self" href="https://www.sssdoctor.com/atom.xml"/>
@@ -20,27 +20,21 @@
 from keras import layers<br>
 model=tf.keras.Sequential()<br>
 #添加一个64个单元的全连接层，&quot;input_shape&quot;为该层接受输入的数据的维度<br>
-##'activation'指定该层用的激活函数<br>
-#第一层，输入层<br>
-model.add(layers.Dense(64,activation='relu',input_shape=(32,)))<br>
-#第二层，隐藏层<br>
-model.add(layers.Dense(64,activation='relu'))<br>
-#添加一个softmax层作为输出层<br>
-model.add(layers.Dense(10,activation='softmax'))</p>
+##'activation'指定该层用的激活函数</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>import tensorflow as tf<br>
 from keras import layers<br>
 model=tf.keras.Sequential()<br>
 #添加一个64个单元的全连接层，&quot;input_shape&quot;为该层接受输入的数据的维度<br>
-##'activation'指定该层用的激活函数<br>
-#第一层，输入层<br>
+##'activation'指定该层用的激活函数</p>
+<!-- more -->
+<p>#第一层，输入层<br>
 model.add(layers.Dense(64,activation='relu',input_shape=(32,)))<br>
 #第二层，隐藏层<br>
 model.add(layers.Dense(64,activation='relu'))<br>
 #添加一个softmax层作为输出层<br>
-model.add(layers.Dense(10,activation='softmax'))</p>
-<!-- more -->
-<p>#编译模型，参数包括指定的优化器，学习率，损失函数loss，metics模型的评价函数  其中adam,sgd都是优化器<br>
+model.add(layers.Dense(10,activation='softmax'))<br>
+#编译模型，参数包括指定的优化器，学习率，损失函数loss，metics模型的评价函数  其中adam,sgd都是优化器<br>
 model.compile(optimizer=tf.keras.optimizers.Adam(0.001),<br>
 loss='categorical_crossentropy',<br>
 metrics=['accuracy'])<br>
@@ -63,21 +57,18 @@ val_labels=np.random.random((1000,10))</p>
         </link>
         <updated>2022-04-06T12:31:19.000Z</updated>
         <summary type="html"><![CDATA[<p>import tensorflow as tf<br>
-import pathlib</p>
-<p>#检查tensorflow版本<br>
+import pathlib<br>
+#检查tensorflow版本<br>
 print(tf.version)</p>
-<p>#获取当前路径<br>
-data_root=pathlib.Path.cwd()<br>
-print(data_root)</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>import tensorflow as tf<br>
-import pathlib</p>
-<p>#检查tensorflow版本<br>
+import pathlib<br>
+#检查tensorflow版本<br>
 print(tf.version)</p>
+<!-- more -->
 <p>#获取当前路径<br>
 data_root=pathlib.Path.cwd()<br>
 print(data_root)</p>
-<!-- more -->
 <p>#获取所有图片样本文件的路径并输出：<br>
 all_imagine_paths = list(data_root.glob('<em>/</em>/*'))<br>
 print(type(all_imagine_paths[0]))</p>
@@ -167,27 +158,21 @@ model.summary()</p>
 from keras import layers<br>
 #单独的一个输入层<br>
 inputs=tf.keras.Input(shape=(32,))<br>
-#网络层可以像函数一样被调用<br>
-x=layers.Dense(64,activation='relu')(inputs)<br>
-x=layers.Dense(64,activation='relu')(x)<br>
-#输出层<br>
-prediction=layers.Dense(10,activation='softmax')(x)<br>
-#创建模型<br>
-model=tf.keras.Model(inputs=inputs,outputs=prediction)</p>
+#网络层可以像函数一样被调用</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>import tensorflow as tf<br>
 from keras import layers<br>
 #单独的一个输入层<br>
 inputs=tf.keras.Input(shape=(32,))<br>
-#网络层可以像函数一样被调用<br>
-x=layers.Dense(64,activation='relu')(inputs)<br>
+#网络层可以像函数一样被调用</p>
+<!-- more -->
+<p>x=layers.Dense(64,activation='relu')(inputs)<br>
 x=layers.Dense(64,activation='relu')(x)<br>
 #输出层<br>
 prediction=layers.Dense(10,activation='softmax')(x)<br>
 #创建模型<br>
-model=tf.keras.Model(inputs=inputs,outputs=prediction)</p>
-<!-- more -->
-<p>#编译模型，参数包括指定的优化器，学习率，损失函数loss，metics模型的评价函数  其中adam,sgd都是优化器<br>
+model=tf.keras.Model(inputs=inputs,outputs=prediction)<br>
+#编译模型，参数包括指定的优化器，学习率，损失函数loss，metics模型的评价函数  其中adam,sgd都是优化器<br>
 model.compile(optimizer=tf.keras.optimizers.RMSprop(0.001),<br>
 loss='categorical_crossentropy',<br>
 metrics=['accuracy'])<br>
