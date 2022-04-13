@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sssdoctor.com</id>
     <title>大大大大宋</title>
-    <updated>2022-04-07T02:31:55.192Z</updated>
+    <updated>2022-04-13T01:05:06.612Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.sssdoctor.com"/>
     <link rel="self" href="https://www.sssdoctor.com/atom.xml"/>
@@ -10,6 +10,520 @@
     <logo>https://www.sssdoctor.com/images/avatar.png</logo>
     <icon>https://www.sssdoctor.com/favicon.ico</icon>
     <rights>All rights reserved 2022, 大大大大宋</rights>
+    <entry>
+        <title type="html"><![CDATA[Ansys Workbench Mechanical—求解设置]]></title>
+        <id>https://www.sssdoctor.com/post/ansys-workbench-mechanical-qiu-jie-she-zhi/</id>
+        <link href="https://www.sssdoctor.com/post/ansys-workbench-mechanical-qiu-jie-she-zhi/">
+        </link>
+        <updated>2022-04-12T05:51:16.000Z</updated>
+        <summary type="html"><![CDATA[<p>对于结构静力学中的简单线性问题，不需要对其进行设置，但是对于复杂的分析需要设置一些控制选项。分析设置是在Mechanical分析树的Static Structural下的Anslysis Settings细节设置中。本文主要对载荷步控制、求解器控制、重启控制、非线性控制、输出控制、分析数据管理进行介绍。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>对于结构静力学中的简单线性问题，不需要对其进行设置，但是对于复杂的分析需要设置一些控制选项。分析设置是在Mechanical分析树的Static Structural下的Anslysis Settings细节设置中。本文主要对载荷步控制、求解器控制、重启控制、非线性控制、输出控制、分析数据管理进行介绍。</p>
+<!-- more -->
+<h1 id="1载荷步控制">1.载荷步控制</h1>
+<p>载荷步控制用于指定求解<strong>步数和时间</strong>。在非线性分析时，用于控制时间步长。载荷步控制也用于创建多载荷步，如螺栓预紧载荷。</p>
+<h2 id="11-载荷步与子步">1.1 载荷步与子步</h2>
+<p><strong>载荷步、子步和平衡迭代</strong>是控制加载求解过程的三个载荷时间历程节点。</p>
+<h2 id="111-载荷步">1.1.1 载荷步</h2>
+<p>在线性<strong>静力学分析或稳态分析中</strong>，可以使用<strong>不同的载荷步施加不同的载荷组合</strong>。<br>
+在<strong>瞬态分析</strong>中，可以将<strong>多个载荷步加载到同一加载历程曲线的不同时间点</strong>。<br>
+注意：载荷可以分步，约束不能分步。<br>
+<img src="https://www.sssdoctor.com/post-images/1649811489956.jpg" alt="" loading="lazy"><br>
+实例1，固定矩形条一端，在另一端分3步加载载荷，第一步只加载100N的力，第二步只加载10000Nm的逆时针扭矩，第三步力与扭矩共同作用，求每一步的变形。<br>
+<strong>Step1</strong>，设置零件材料，接触关系，网格划分，过程略。<br>
+<strong>Step2</strong>，分析设置，将载荷步设置为3，其余默认。<br>
+<img src="https://www.sssdoctor.com/post-images/1649811703901.png" alt="" loading="lazy"><br>
+<strong>Step3</strong>，设置边界条件，如下图。<br>
+<img src="https://www.sssdoctor.com/post-images/1649811714977.jpg" alt="" loading="lazy"><br>
+载荷默认都是渐增(斜坡)加载的，用一个载荷步将载荷从0增加到设定值。<br>
+选中分析树中的Force，在信息窗口中出现了Tabular Data表格和Graph图表，代表了Force的加载历程，在第一步中，力从0渐变到100，并在第二三步中保持。<br>
+对于<strong>静力学分析，渐增加载与恒定加载计算无区别</strong>，本例将力与扭矩都改为恒定加载，在表格第一行将数字改为设定值。要想Force在第二步不起作用，只需要点击图表的第二步区域或表格对应行，右击选择<strong>Activate/Deactive at this step!</strong>（在此步激活/取消），此载荷便在第二步中消失。<br>
+同样设置Moment载荷，使它在第一步中不起作用。<br>
+<img src="https://www.sssdoctor.com/post-images/1649811746118.jpg" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1649811754905.jpg" alt="" loading="lazy"><br>
+<strong>Step4</strong>，添加结果，点击分析树的Solution(A6)，在工具栏出现Solution工具条，点击Deformation-Total（合位移），在分析树中便出现了Total Deformation项目，默认是最后结果，但是现在我们需要查看第一步结果。<br>
+在Total Deformation的细节设置中，By改为Result Set（结果位置），Set Number改为1，即表示第一步的结果。当然，也可以设置为Time（时间），然后在下一行Display Time改为1s。同样设置第二三步的结果。<br>
+<img src="https://www.sssdoctor.com/post-images/1649811769652.jpg" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1649811778935.jpg" alt="" loading="lazy"><br>
+<strong>Step5</strong>，计算，结果如下<br>
+<img src="https://www.sssdoctor.com/post-images/1649811786887.jpg" alt="" loading="lazy"></p>
+<h2 id="112-子步">1.1.2 子步</h2>
+<p>子步Substep是一个载荷步中插入若干的点。通常一个子步求解需要若干次迭代，每次迭代都被称为一次平衡迭代。子步对于求解过程的控制非常重要，很多时候需要使用不同的子步数来满足不同的加载和求解需要。子步的主要作用如下：<br>
+1，在非线性静态和稳态分析中，使用子步逐渐施加载荷以提高求解精度，甚至可以使求解结果从不收敛变为收敛。在以后的文章将讲到子步在非线性屈曲中的应用。<br>
+2，在线性或非线性瞬态分析中，使用子步满足时间步长的需要，得到较为精确的解，即满足瞬态时间累计法则。在以后的文章将讲到子步在瞬态分析中的应用。<br>
+3，在谐波响应分析中，使用子步获得响应频率范围内多个频率处的解。在以后的文章将讲到子步在瞬态分析中的应用。<br>
+以下以矩形条一端固定一端加载力为例说明子步的设置方法<br>
+在分析设置中，将自动时间步Auto Time Stepping设置为On，Define By设置为Substep。然后需要设置三个参数<br>
+初始子步Initial substeps ：用于计算初始加载量（即确定初始子步位置）。<br>
+最小子步Minimum Substeps，最大子步 Maximum Substeps用于计算子步之间的增量。三者关系数值关系必须满足：最小子步≤初始子步≤最大子步。大多数情况下，为了方便控制与计算，设置：最小子步=初始子步=最大子步。<br>
+比如给矩形条加载100N的力，载荷步为1，初始子步8，最小子步4，最大子步10。<br>
+则力的初始加载值为 100N/8=25N，子步的数量为4<sub>10（由程序选择），子步之间的增量范围为100N/10</sub>100N/4，即10N~25N。其中最小子步不得大于最大子步，初始子步必须在最小子步和最大子步的数值之间）<br>
+<img src="https://www.sssdoctor.com/post-images/1649811805395.jpg" alt="" loading="lazy"><br>
+计算后可以在图表中看到共生成了5个子步。<br>
+<img src="https://www.sssdoctor.com/post-images/1649811810542.jpg" alt="" loading="lazy"><br>
+1.2 时间<br>
+载荷步和子步中经常会见到时间相关的选项，但是此处的1s不一定表示1s时间。无论载荷类型是否依赖于时间，Workbench都使用时间作为跟踪参数，这样，计算的结果将是与时间相关的函数。<br>
+1，在静态线性分析中，时间取值为常数0，即计算与时间无关，所以在案例1中，我们可以将渐增加载改为恒定加载，而不影响计算结果。<br>
+2，在瞬态分析中，时间作为表示真实时间历程的变量在变化。<br>
+3，在其他分析中，时间仅作为一个计算器，识别求解时所采用的不同载荷步。<br>
+4，时间也可以作为识别载荷步与载荷子步的跟踪器，载荷步是作用在指定的时间间隔内的一系列载荷，载荷子步是载荷步中的时间节点，平衡迭代求取的是子步时间节点上的中间解。<br>
+2 求解器控制<br>
+2.1 求解器类型<br>
+求解器类型有直接求解器Direct和迭代求解器Iterative。我们一般使用程序控制就可以。<br>
+直接求解器可以处理任何情况，主要用于薄面和细长体的模型。<br>
+迭代求解器在处理体积大的模型时很有效。<br>
+<img src="https://www.sssdoctor.com/post-images/1649811819009.jpg" alt="" loading="lazy"><br>
+2.2 弱弹簧<br>
+弱弹簧Weak Springs：在某些时候，希望模型在平衡状态下计算，而不是约束所有方向，此时就会用到若弹簧。比如如下一个几何体，在左右方向受到方向相反大小相等的力，理论上几何体处于平衡状态，不会发生刚体平移，但是在有限元软件中，经过网格离散化后，几何体可能处于微小的不平衡中，而弱弹簧就是用来平衡这种微小不平衡力。<br>
+但是，用户约束所有可能的刚体平移方向才是最好的习惯，比如上图模型，可以采用1/2或1/4的模型，施加对称约束。<br>
+2.3 大变形<br>
+大变形Large Deflection用于几何非线性计算中，关于非线性的概念将在非线性分析一文中详解。大变形关闭时，计算器使用模型的初始刚度矩阵；大变形打开后，计算器将在每次迭代后重新生成刚度矩阵。<br>
+当变形超过5%或转角超过10°时，必须打开大变形开关。<br>
+2.4 惯性释放<br>
+通常在做静力学分析时，需要保证结构无刚体平移，否则求解器不能计算。但是在飞机飞行，轮船航行时要计算机构，需要采用惯性释放在结构上施加一个虚拟的约束反力，来保证合力平衡。惯性释放允许对完全无约束的结构进行静力分析<br>
+3 其他控制<br>
+3.1 重启控制<br>
+重启控制设置静力分析和瞬态分析中的多个重启点，来获得从某时刻重新启动分析所需的数据库。<br>
+3.2 非线性控制<br>
+非线性控制可以修改收敛准则和其他一些求解控制选项，增加了稳定控制和稳定能量结果。<br>
+<img src="https://www.sssdoctor.com/post-images/1649811829050.jpg" alt="" loading="lazy"><br>
+3.3 输出控制<br>
+输出控制允许在结果后处理中得到需要的时间点结果，尤其在非线性分析中，中间载荷的结果也很重要。<br>
+<img src="https://www.sssdoctor.com/post-images/1649811837536.jpg" alt="" loading="lazy"><br>
+3.3 分析数据管理<br>
+分析数据管理用于管理分析数据的储存结果文件，以用于其他的分析系统。<br>
+写在最后，除了在需要时设置载荷步与子步外，其余选项使用默认设置已经足以解决我们工作中的绝大部分需求。<br>
+<img src="https://www.sssdoctor.com/post-images/1649811846365.jpg" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Ansys Workbench Mechanical—连接关系(接触）]]></title>
+        <id>https://www.sssdoctor.com/post/ansys-workbench-mechanical-lian-jie-guan-xi/</id>
+        <link href="https://www.sssdoctor.com/post/ansys-workbench-mechanical-lian-jie-guan-xi/">
+        </link>
+        <updated>2022-04-11T01:17:41.000Z</updated>
+        <summary type="html"><![CDATA[<p>当几何体存在多个零部件时，需要确定零部件之间的相互关系，在Mechanical中可以创建的连接关系如下：•接触Connect•网格接触Mesh Connection•关节连接Joint•梁连接Beam Connection•弹簧Spring•轴承Bearings•点焊spot Weld•末端释放End Releaser（应用于梁、壳单元）•几何体交互Body Interaction (应用于显示动力学中）仅有接触Connect、网格接触Mesh Connection、关节连接Joint可以自动生成。本文主要介绍接触</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>当几何体存在多个零部件时，需要确定零部件之间的相互关系，在Mechanical中可以创建的连接关系如下：•接触Connect•网格接触Mesh Connection•关节连接Joint•梁连接Beam Connection•弹簧Spring•轴承Bearings•点焊spot Weld•末端释放End Releaser（应用于梁、壳单元）•几何体交互Body Interaction (应用于显示动力学中）仅有接触Connect、网格接触Mesh Connection、关节连接Joint可以自动生成。本文主要介绍接触</p>
+<!-- more -->
+<h1 id="1接触概述">1.接触概述</h1>
+<p><strong>通常两个独立表面之间相互接触并相切时，称为接触</strong>。接触类型中，能够粘合在一起或<strong>不能分离</strong>的接触为<strong>线性接触</strong>，能够<strong>分离和碰撞</strong>的接触为<strong>非线性接触</strong>（状态非线性），非线性接触需要消耗大量的计算资源，因此设置有效的接触参数至关重要。接触状态可分为<strong>分离状态</strong>、<strong>粘接接触状态</strong>、<strong>滑动接触状态</strong>。<br>
+<strong>非线性接触：</strong> 在形成接触的不同物体的表面之间，可以沿法向分开和沿切向相互移动，但不能发生相互渗透，可传递法向压缩与切向摩擦力，但不能传递拉伸力。接触面接触时产生接触约束，接触面一旦分离，约束失效。此时的接触表现为强非线性，随着接触状态的改变，接触表面的法线和切向刚度都有显著变化。刚度突变会导致严重的收敛困难。</p>
+<h1 id="2接触设置">2.接触设置</h1>
+<h2 id="21创建接触">2.1创建接触</h2>
+<p>导入到Mechanical中的装配体自动生成的接触为绑定接触，最快捷的修改方法是找到这个接触对，修改属性中的接触类型。<br>
+若要新建接触集合，只需要右击特种树中的Connectiong——Insert——Manual Contact Region（手动接触区域）。便创建了新的接触集合和接触对，若右击Connectiong下的集合名Contacts——Insert——Manual Contact Region，则在此集合内部创建接触对，不新建接触集合。<br>
+<img src="https://www.sssdoctor.com/post-images/1649725567460.jpg" alt="" loading="lazy"><br>
+<strong>接触集合与接触对之间的关系</strong></p>
+<h2 id="22接触类型type">2.2接触类型Type</h2>
+<p>在Mechanical中，系统提供了5种接触类型：<br>
+•<strong>绑定Bonded</strong>：即接触界面焊接在一起，既不能分离也不能滑动。<br>
+•<strong>不分离No Separation</strong>：不允许分离，允许微量自由滑动。<br>
+•<strong>无摩擦Frictionless</strong>：允许分离，允许自由滑动。<br>
+•<strong>粗糙Rough</strong>：允许分离，不允许滑动。<br>
+•<strong>摩擦Frictional</strong>：允许分离，允许有摩擦的滑动。<br>
+•<strong>强制摩擦滑动 Forced Frictional Sliding</strong>：在每个接触点上施加一个切向阻力，仅用于显示动力学。<br>
+<strong>注意：</strong><br>
+1，摩擦接触中， 摩擦系数&gt;0.2时计算结果会提示，不用处理。<br>
+2，非线性接触不适用于模态分析、谐响应分析的线性分析，定义的非线性接触将被忽略。<br>
+<img src="https://www.sssdoctor.com/post-images/1649725806382.jpg" alt="" loading="lazy"></p>
+<h2 id="23接触行为behavioe">2.3接触行为Behavioe</h2>
+<p>在Mechanical中接触面显示为红色, 目标面显示为蓝色。程序默认为对称接触( Symmetric )，此时任何一边都可穿透到另一边。对称接触行为更容易建立，但需要较大计算量。选择非对称接触(Asymmetric)时，<strong>接触面的节点不能穿透目标面</strong>。选择自动非对称接触(Auto Asymmetric )时接触面和目标面的指定可在内部互换。只有罚函数和增强拉格朗日算法支持对称行为，普通拉格朗日和MPC（多点约束）算法要求使用非对称行为。<br>
+对于非对称接触行为，手工选择接触表面时<strong>应遵循以下原则:</strong><br>
+1, 当<strong>凸面与平面或凹面接触</strong>时，应选择<strong>平面或凹面</strong>为目标面。<br>
+2, 当<strong>硬表面和软表面接触</strong>时，应选择<strong>硬表面</strong>为目标面。<br>
+3, 当<strong>大</strong>表面和<strong>小</strong>表面接触时，应选择<strong>大表面</strong>为目标面。<br>
+4, 如果结构已<strong>划分网格</strong>，应选择<strong>较粗糙</strong>一方的表面为目标面。<br>
+5，<strong>刚度相同</strong>的大小面接触时，应选<strong>大面</strong>为目标面。</p>
+<h2 id="24接触算法">2.4接触算法</h2>
+<p><strong>为了阻止接触表面相互穿透，在相互接触处需要建立一定的规则，即接触算法</strong>。ANSYS 采用的是接触约束算法，它提供了如下五种接触约束算法：<br>
+• 罚函数法Pure Penalty（程序控制默认使用的算法）<br>
+• 拉格朗日法Normal lagrange<br>
+• 增强拉格朗日法Augmented Lagrange<br>
+• 多点约束方程法MРC<br>
+• 梁约束法 Beam<br>
+接触算法调用是在接触的属性——Advanced——Formulation中，程序控制Program Controlled默认罚函数算法，你可以根据自己的实际工况来选择更适合的接触算法 。<br>
+接触算法选择</p>
+<h3 id="241罚函数法pure-penalty">2.4.1罚函数法Pure Penalty</h3>
+<p>罚函数法用一个接触弹簧来在两个面间建立关系，弹簧刚度被称为惩罚参数，其实就是接触刚度。当两面分开时，弹簧不起作用；当面开始穿透时，弹簧起作用，根据胡克定律：F = K x ，此处的 K 为法向刚度 ，x为穿透深度。<img src="https://www.sssdoctor.com/post-images/1649726015236.jpg" alt="" loading="lazy"><br>
+这种算法的精度较依赖于接触刚度和穿透量的大小。接触刚度越大，则穿透越小，但是接触刚度过大会导致整体刚度矩阵出现病态和收敛的困难。因此，理想的刚度就是既要能保证渗透较小，又要保证整体刚度矩阵。<br>
+当接触方法为程序控制/罚函数或增强的拉格拉日时，其他设置如下：<br>
+<img src="https://www.sssdoctor.com/post-images/1649726114434.jpg" alt="" loading="lazy"><br>
+<strong>探测方法</strong><br>
+1，探测方法一般使用程序控制。对于罚函数和增强拉格朗日公式，程序控制默认使用探测点更多、探索更准确的“On Gauss point（积分点）”进行探测。拉格朗日与MPC公式默认使用“Nodal- Normal to Target（节点-目标面法向）”方法，探测点更少。当有摩擦的接触面和目标面之间存在偏移时，为更好的满足力矩平衡可选用“Nodal-Projection Normal from Contact（节点-投影法向接触）”。<br>
+<img src="https://www.sssdoctor.com/post-images/1649726274975.jpg" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1649726280717.jpg" alt="" loading="lazy"><br>
+2，穿透容差即允许穿透量，代表F=Kx中的x，一般使用程序控制，程序控制默认为0.1<em>单元厚度，用户可以设置为数值（Value）或因子（Factor），因子即相较于下层单元的厚度比例 。<br>
+3，切向滑移容差又称弹性滑移容差，一般使用程序控制，程序控制默认为0.1</em>单元长度、用户可以设置为数值（Value）或因子（Factor），因子即相较于下层单元的长度比例。如果弹性滑移在许可的容差范围内，接触协调性在切向满足要求。 绑定、粗糙、摩擦接触等增强了切向的协调性。<br>
+<img src="https://www.sssdoctor.com/post-images/1649726289889.jpg" alt="" loading="lazy"><br>
+4，法向刚度即K值，刚度越大，计算越精确，但是越难收敛。默认为程序控制，对于绑定和不分离约束，默认K=10；对于其他形式的接触，默认K=1.0；手动控制时，对于体积为主的问题，建议设置为1，对于弯曲为主的问题，建议设置0.01~0.1之间。<br>
+5，弹球区域一般作为十分有效的接触探测器使用，可自定义并在图形区显示。在弹球内的目标面上的节点, 程序就会认为它“接近”接触，而且会更加密切地监测它与接触探测点的关系 ,在球体以外的目标面上的节点被忽略。对于绑定或不分离的接触，如果间隙或穿透小于弹球区域，则间隙/穿透自动被删除。（若选择程序控制弹球区域，将自动生成一个足够大的弹球区域将间隙或穿透包括在内，使得绑定或不分离接触能忽略间隙或穿透）<br>
+<img src="https://www.sssdoctor.com/post-images/1649726298192.jpg" alt="" loading="lazy"></p>
+<h2 id="242增强拉格朗日法augmented-lagrange">2.4.2增强拉格朗日法Augmented Lagrange</h2>
+<p>增强拉格朗日是在罚函数的方法上衍生出来的一种方法，他与罚函数法类似，但是在计算接触压力时，引入了附加项λ，即F = K x+λ，使得接触压力对于接触刚度的敏感性降低，更利于在给定的接触刚度较大的时候收敛，可以一定程度上提高计算精度，但同时也会造成收敛时间加长。在<strong>大变形问题的无摩擦或摩擦问题中</strong>，建议将程序控制（即罚函数）算法修改为增强拉格朗日，因为增强拉格拉日的公式增加了额外的控制自动减少渗透的功能。</p>
+<h3 id="243拉格朗日法normal-lagrange">2.4.3拉格朗日法Normal lagrange</h3>
+<p>拉格朗日法不同于罚函数法，不采用力与位移的关系来求解接触力，而是把接触作为一个独立的自由度直接求解。该方法可得到0或近似0的穿透量，是一种精确的接触算法，但是需要使用直接求解器来求解，在接触状态发生急剧变化时时，容易发生计算震颤从而较难收敛 。</p>
+<h3 id="244多点约束方程法mрc">2.4.4多点约束方程法MРC</h3>
+<p>多点约束法适用于绑定接触（Bonded）、不分离(No seperation)这两种线性约束。他在接触面间添加一个联结使两个面之间不出现分离。多点约束法支持大变形效应。<br>
+2.4.5梁约束法 Beam<br>
+梁约束法，顾名思义，就是在两个接触面之间添加无质量的梁进行联结，这种算法只适用于绑定接触（Bonded）。<br>
+总结：对于线性接触的MPC和Beam算法，其收敛性和计算速度最优。对于另外三种接触算法，一般情况下，从计算精度和收敛性上的排序为：<br>
+<strong>收敛性</strong>：罚函数&gt;增强拉格朗日&gt;拉格朗日<br>
+<strong>精度</strong>：拉格朗日&gt;增强拉格朗日≥罚函数<br>
+<strong>计算花费时间</strong>：拉格朗日&gt;增强拉格朗日&gt;罚函数<br>
+<img src="https://www.sssdoctor.com/post-images/1649726444824.jpg" alt="" loading="lazy"></p>
+<h2 id="25几何修正">2.5几何修正</h2>
+<p>几何修正选项含：接触面处理，接触面几何修正，目标面几何修正。其中当接触类型为非线性接触（无摩擦、摩擦、粗糙）时才会出现接触界面处理选项。</p>
+<h3 id="251接触界面处理interface-treatment">2.5.1接触界面处理Interface Treatment</h3>
+<p>当接触类型为线性接触（绑定，不分离）时，程序将忽略干涉与间隙，不需要修正。<br>
+当接触类型为非线性接触（无摩擦、摩擦、粗糙）时，需要修正间隙或干涉。有时候CAD模型不一定有间隙，但是在有限元软件划分网格离散化后，会出现间隙，用户可以设置为无增量的偏移（Add Offset，No Ramping）；线性增量偏移（Add Offset，Ramped Effects）；自动接触（Adjust To Touch）.无增量的偏移和线性增量偏移下，默认接触偏移Offset为0。绑定和接触行为通过建立一个足够大Pinball半径允许忽略接触和目标面间任何间隙和干涉。但是对于摩擦或无摩擦接触，初始缝隙无法被自动忽略，这是因为它有可能代表几何信息（相互接触或脱离接触）。<br>
+1，Adjusted to Touch<br>
+推荐使用此设置，界面上存在的间隙将会自动补偿到接触状态，界面上存在的干涉将被自动消除。（需间隙和干涉在弹球范围内）<br>
+2，Add Offset<br>
+能够自定义来指定允许接触面偏移的正负距离。正值代表关闭缝隙。负值增大缝隙。<br>
+Add Offset有两个选项：<br>
+(1) Add Offset, Ramped Effects：一个载荷步分割为几个子步逐步施加，难于收敛的干涉问题建议使用。<br>
+(2) Add Offset, No Ramping：一个子步一次完成载荷施加。<br>
+2.5.2接触面几何修正Contact Geometry Correction<br>
+用户可以在该选项中选择圆面光滑（Smoothing）和螺栓截面（Bolt Thread）。<br>
+1，螺栓截面(Bolt Thread)<br>
+Bolt Thread能够利用简化圆柱模拟螺栓连接，一般设置过程包括：<br>
+(1)创建接触关系，如图2.1所示。<br>
+(2) 接触几何修正：定义Orientation方向，上图本例中采用Revolute Axis建立坐标系需要设置起始点Starting Point和终止点Ending Point。<br>
+(3)建立起始点和终止点坐标系，如图所示。<br>
+(4)定义螺栓螺纹基本参数，例如平均螺纹直径Mean Pitch Diameter，螺距Pitch Diameter，牙型角Thread Angle，单、多线螺纹Thread Type以及左右手定则Handedness等。</p>
+<h3 id="253目标面几何修正target-geometry-correction">2.5.3目标面几何修正Target Geometry Correction</h3>
+<p>用户只能选择圆面光滑功能。<br>
+搬运自<a href="https://zhuanlan.zhihu.com/p/394729188">https://zhuanlan.zhihu.com/p/394729188</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Ansys Workbench Mechanical—前处理]]></title>
+        <id>https://www.sssdoctor.com/post/ansys-workbench-mechanical-qian-chu-li/</id>
+        <link href="https://www.sssdoctor.com/post/ansys-workbench-mechanical-qian-chu-li/">
+        </link>
+        <updated>2022-04-11T00:45:58.000Z</updated>
+        <summary type="html"><![CDATA[<p>Mechanical应用是Ansys Workbench的重要组成部分，可进行力学分析、热分析、电磁分析等。Mechanical支持的有限元分析如下：<br>
+**•结构：**静态和瞬态，线性和非线性。<br>
+**•动态特性：**模态、谐波、随机振动、柔性和刚性动力学。<br>
+**•热分析：**稳态和瞬态，温度场和热流等。<br>
+**•磁场：**静磁场分析。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Mechanical应用是Ansys Workbench的重要组成部分，可进行力学分析、热分析、电磁分析等。Mechanical支持的有限元分析如下：<br>
+**•结构：**静态和瞬态，线性和非线性。<br>
+**•动态特性：**模态、谐波、随机振动、柔性和刚性动力学。<br>
+**•热分析：**稳态和瞬态，温度场和热流等。<br>
+**•磁场：**静磁场分析。</p>
+<!-- more -->
+<h1 id="1-mechanical用户界面"><strong>1. Mechanical用户界面</strong></h1>
+<h2 id="11-进入mechanical">1.1 进入Mechanical</h2>
+<p>在Workbench的项目管理区，双击Model等栏目进入Mechanical环境。<br>
+<img src="https://www.sssdoctor.com/post-images/1649743302125.png" alt="" loading="lazy"></p>
+<h2 id="12-mechanical界面简介">1.2 Mechanical界面简介</h2>
+<p>Mechanical界面主要包括菜单栏、分析树、详细设置窗、图形操作窗、信息窗、状态栏等。<br>
+Mechanical界面鼠标选择方式可实现点选与框选，选择过滤器包括标签、点、线、面</p>
+<h2 id="13-刷新与删除数据">1.3 刷新与删除数据</h2>
+<p>模型导入Mechanical后，程序会自动刷新，但是我们有时候需要手动刷新，只需要点击标题栏File——Refresh All Data。<br>
+刷新数据有时候修改了参数需要删除计算结果数据、网格数据等，只需要在分析树对应的项目上右击——Clear Generated Data。在Static Structural或Solution上操作只会清除计算结果，在Mesh上操作会清除网格数据和计算结果。</p>
+<h1 id="2-定义零件属性"><strong>2. 定义零件属性</strong></h1>
+<p>在分析树中点击Model下的零件，在详细窗口中可以设置零件属性。<strong>一般情况下，赋予材料选项可能需要修改，其他选项使用默认设置即可</strong><br>
+<strong>零件属性</strong><br>
+<img src="https://www.sssdoctor.com/post-images/1649743316467.jpg" alt="" loading="lazy"></p>
+<h2 id="21-刚度行为">2.1 刚度行为</h2>
+<p>•柔体Flexible：默认选项，零件可变形。<br>
+•刚体Rigid：零件不能变形，可以采用集中质量来减少求解时间。对于刚体需要注意3个问题：<br>
+1 连接：刚体支持接触、节点连接、弹簧等类型的连接，刚体只能作为目标体，不能作为接触体；<br>
+2 网格划分：刚体不划分网格，但会在接触面上划分网格以便计算接触；<br>
+3 边界条件：刚体只支持远程位移、远程力和力矩。<br>
+•垫片Gasket：仅用于静力学分析。垫片密封是工程中非常重要和常见的密封手段，垫片材料具有高度的非线性与复杂的卸载性能。</p>
+<h2 id="22-行为">2.2 行为</h2>
+<p>行为<strong>默认为None</strong>，修改为构造体Construction Body后，此零件将不参与任何计算，也不能进行操作，相当于此零件被抑制，但是与抑制不同的是构造体可以显示。</p>
+<h2 id="23-赋予材料">2.3 赋予材料</h2>
+<p>在赋予材料中，可以给几何体指派材料，默认为合金钢，可以点击右侧下拉菜单进入材料库修改，或者选择收藏的材料。</p>
+<h2 id="24-非线性材料效应与热应变效应">2.4 非线性材料效应与热应变效应</h2>
+<p>默认使用材料的非线性效应。如果修改为No，材料的非线性特性将被忽略。此处建议使用默认设置。<br>
+默认使用材料的热应变效应。如果修改为No，材料的热应变特性将被忽略。此处建议使用默认设置。</p>
+<h2 id="25-边界">2.5 边界</h2>
+<p>边界显示了零件的最大尺寸轮廓值。</p>
+<h2 id="26-属性">2.6 属性</h2>
+<p>属性显示了零件的体积、重量、质心坐标、惯性矩等。</p>
+<h2 id="27-统计数据">2.7 统计数据</h2>
+<p>属性显示了零件的节点数量、单元数量等，如果还没有划分网格，节点与单元数显示为0。</p>
+<h1 id="3-model工具">3. Model工具</h1>
+<p>点击分析树的Model后，工具栏会出现Model工具条，下图是其中部分工具：<br>
+<img src="https://www.sssdoctor.com/post-images/1649744727732.png" alt="" loading="lazy"><br>
+以下主要介绍构造几何、远程点、集合，其余功能将在以后的实例中详解。</p>
+<h2 id="31-构造几何">3.1 构造几何</h2>
+<p>构造几何包括路径、剖面、体区，可以在此路径或剖面上显示求解结果。点击Model工具栏的Construction Geometry，便创建了一个构造集合。在分析树中右击创建的Construction Geometry——Insert——Path/Surface/Solid（或在工具栏的Construction Geometry工具条中选取），便能创建路径/剖面/体区。<br>
+Construction Geometry工具条<br>
+<img src="https://www.sssdoctor.com/post-images/1649744736591.png" alt="" loading="lazy"><br>
+3.1.1 定义路径<br>
+路径是由用户定义的空间曲线或直线，可以通过3种方法定义：<br>
+1，起点与终点：在Path Type中选择Two Point，根据选取的坐标不一样，得到的路径也不一样，在笛卡尔坐标下定义的为直线，在圆柱坐标下定义的为螺旋线。<br>
+2，通过模型边线定义：在Path Type中选择Edge。<br>
+3，通过模型与X轴相交定义：在Path Type中选择X Axis Intersection。<br>
+3.1.2 定义剖面<br>
+剖面只能通过坐标系定义，而且为坐标系的XY面。<br>
+3.1.3 定义体区<br>
+剖面只能通过坐标系定义，分别输入体区的两个角顶点的坐标x1、y1、z1和x2、y2、z2，便生成了一个方块区域。<br>
+实例2，求如图受扭矩的圆环在X轴、XY面的位移。<br>
+<img src="https://www.sssdoctor.com/post-images/1649744794119.jpg" alt="" loading="lazy"><br>
+Step1 创建构造集合。点击分析树中的Model，在工具栏出现Model工具条，选择Construction Geometry，便在分析树中创建了构造集合。点击这个构造集合，在工具栏出现Construction Geometry工具条。<br>
+1，创建路径：点击 Construction Geometry工具条中的Path，在细节窗口设置Path Type为X Axis Intersection。<br>
+<img src="https://www.sssdoctor.com/post-images/1649744806962.jpg" alt="" loading="lazy"><br>
+2，创建剖面：点击 Construction Geometry工具条中的Surface，在细节窗口中设置坐标系（如果全局坐标的XY面不是我们想要的，可以事先建立局部坐标系）。<br>
+<img src="https://www.sssdoctor.com/post-images/1649744814711.jpg" alt="" loading="lazy"><br>
+Step2 设置网格和边界条件。设置完成后点击Solve开始计算。<br>
+Step3 查看结果：在计算结果上不能直接添加构造集合的云图，需要通过Worksheet添加。<br>
+创建合位移结果：点击分析树的Soulution，在工具栏中找到工作表Worksheet并点击，跳出工作表。找到合位移USUM右击，选择Create User Defined Result(创建用户自定义结果)。<br>
+<img src="https://www.sssdoctor.com/post-images/1649744832697.jpg" alt="" loading="lazy"><br>
+在Soulution边创建了USUM结果，点击进行细节设置，在Scoping Method中选择 Path，在Path中选择我们设置的路径。同理设置其他结果。<br>
+<img src="https://www.sssdoctor.com/post-images/1649744838859.jpg" alt="" loading="lazy"><br>
+定义结果<br>
+右击分析树Solution——Evaluate All Results（评估所有结果），结果被刷新，显示如下<br>
+结果显示<br>
+<img src="https://www.sssdoctor.com/post-images/1649744845653.jpg" alt="" loading="lazy"></p>
+<h1 id="4-几何工具">4 .几何工具</h1>
+<p>点击分析树中Geometry或下属零件，工具栏便会出现Geometry工具条。</p>
+<h2 id="41-质量点">4.1 质量点</h2>
+<p><strong>Point Mass</strong>是理想的质量点，将零件简化称为一个带质量参数的点，在有惯性载荷的计算中提高了计算速度。需要注意的时，创建的质量点并不会继承原模型的边界条件与接触关系，也不会自动抑制原模型。所以创建质量点前一般先手动抑制原模型，并通过远程点的形式添加与其他模型的接触关系。</p>
+<h2 id="42-分布质量">4.2 分布质量</h2>
+<p><strong>Distributed Mass</strong>设置方法类似于质量点，但是它不是集中质量点，是在一个面或一条边线上的均布质量</p>
+<h2 id="43-表面涂层">4.3 表面涂层</h2>
+<p><strong>Surface Coating</strong>可以定义表面涂层厚度与材料。</p>
+<h1 id="5-坐标系">5 .坐标系</h1>
+<h1 id="6-定义连接">6 .定义连接</h1>
+<p>当几何体存在多个零部件时，需要确定零部件之间的相互关系，在Mechanical中可以创建的连接关系如下：<br>
+•接触Connect<br>
+•网格接触Mesh Connection<br>
+•关节连接Joint<br>
+•梁连接Beam Connection<br>
+•弹簧Spring<br>
+•轴承Bearings<br>
+•点焊spot Weld<br>
+•末端释放End Releaser（应用于梁、壳单元）<br>
+•几何体交互Body Interaction (应用于显示动力学中）<br>
+在Cnnections的选项细节窗口中，Generate Automatic Connection On Refresh（在刷新时自动生成连接）默认为Yes，这一设置在设计分析时很有用。</p>
+<hr>
+<p>Connections选项</p>
+<h2 id="61-网格接触mesh-connection">6.1 网格接触Mesh Connection</h2>
+<p>网格接触可以帮助连接不连续的体之间的网格划分，如以下实例。</p>
+<h2 id="62-关节连接joint">6.2 关节连接Joint</h2>
+<p>Joint核心即为MPC接触形式,采用约束方程定义实体之间或者实体与大地之间的连接关系。<br>
+分为固定Fixed、旋转Revolute 、圆柱Cylindrical 、平移Translational 、 槽Slot 、万向节 Universal 、球Spherical 、 平面Planar、套管Bushing、通用General 、点面连接Point on Curve。</p>
+<h2 id="63-弹簧spring和梁beam接触">6.3 弹簧Spring和梁Beam接触</h2>
+<p>Spring和Beam接触，用来模拟弹簧和梁的连接，以定义相应的接触关系。两者的创建方法相同，以下以创建弹簧接触为例。</p>
+<h2 id="64-轴承bearing">6.4 轴承Bearing</h2>
+<p>轴承接触为一个2D弹性单元，可用来限制旋转部件的相对运动和转动。定义轴承时，需要设置刚度矩阵与阻尼矩阵。</p>
+<h2 id="64-点焊spot-weld">6.4 点焊Spot Weld</h2>
+<p>点焊连接用来连接不同的零件，其作用与绑定接触一样，但是对象只能选择点。点焊在不同零件直接传递载荷。如下图将两个方块4个顶点一对一点焊，在施加底面的固定与横向的拉力，位移结果如下。</p>
+<h1 id="7-网格划分">7. 网格划分</h1>
+<p>网格划分在以往的文章中已经详细解释，但是结构分析中应该注意以下几点：<br>
+1，接触面应提供适当精细的网格，以使接触应力平滑分布。<br>
+2，对应力应变感兴趣的区域，网格应相应加密，对位移感兴趣而对应力应变不感兴趣的区域，网格可以相应粗大。<br>
+3，考虑结构非线性时，网格应适当加密。</p>
+<h1 id="8-边界条件">8. 边界条件</h1>
+<p>载荷与约束也被称为边界条件。<br>
+参考：<a href="https://zhuanlan.zhihu.com/p/395234485">https://zhuanlan.zhihu.com/p/395234485</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Ansys Workbench Mechanical—后处理]]></title>
+        <id>https://www.sssdoctor.com/post/ansys-workbench-mechanical-hou-chu-li/</id>
+        <link href="https://www.sssdoctor.com/post/ansys-workbench-mechanical-hou-chu-li/">
+        </link>
+        <updated>2022-04-08T13:01:48.000Z</updated>
+        <summary type="html"><![CDATA[<p>Workbench结果后处理功能很强大，能得到用户所需的多种结果，如变形、应力应变、接触工具、疲劳工具等，本文以静力分析为例讲解结果后处理。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Workbench结果后处理功能很强大，能得到用户所需的多种结果，如变形、应力应变、接触工具、疲劳工具等，本文以静力分析为例讲解结果后处理。</p>
+<!-- more -->
+<h1 id="1变形deformation">1.变形Deformation</h1>
+<p>变形命令集在Solution工具条的Deformation中。<br>
+变形结果对点、线、面、体均适用。<br>
+总变形是一个标量，可使用矢量方式显示方向：计算后点击Result工具条的方向显示图标即可设置方向显示。<br>
+<img src="https://www.sssdoctor.com/post-images/1649764302533.jpg" alt="" loading="lazy"><br>
+方向变形包括Ux、Uy、Uz三个方向的变形，可<strong>显示指定坐标下的变形，如在用户设定的圆柱坐标下的径向、周向、轴向变形</strong>。</p>
+<h1 id="2应力和应变">2.应力和应变</h1>
+<h2 id="21-强度理论">2.1 强度理论</h2>
+<h3 id="211-应力状态">2.1.1 应力状态</h3>
+<p>在某一坐标系中，描述一点的应力状态需要6个应力分量，即三组正应力<br>
+σx、σy、σz，及3组切应力τxy、τyz、τzx。<br>
+对上述点旋转一定角度，一定能找到某个角度，使每一面的切应力τ=0，而只有三个主应力，而这三个主应力中最大的为第一主应力σ1，中间的为第二主应力σ2，最小的为第三主应力σ3。(同样，一定能找到某个角度，使每一面的正应力σ=0，而只有三个切应力。)<br>
+<img src="https://www.sssdoctor.com/post-images/1649764374578.jpg" alt="" loading="lazy"><br>
+注意，<strong>若某一向主应力&lt;0，说明此方向是压缩应力，三向均为负数，则表示三向受压</strong>。<br>
+当某一向主应力为0时，称为二向应力状态，比如<strong>水塔、油管、皮球等可简化为二向应力状态</strong>。<br>
+当某两向主应力为0时，称为单向应力状态，比如<strong>杆梁受拉状态</strong>。</p>
+<h3 id="212-应力应变图">2.1.2 应力应变图</h3>
+<p>塑形材料为试件拉断时的伸长率＞5%的材料，如钢、铝合金、黄铜等，塑形材料在拉伸时应力与应变关系如下图。<br>
+<img src="https://www.sssdoctor.com/post-images/1649764457909.jpg" alt="" loading="lazy"><br>
+当应力超过屈服强度σs时将发生塑形变形，当应力超过强度极限σb时将发生缩颈直至断裂。<br>
+<strong>塑形材料的失效多以屈服强度σs作为判定标准</strong>。<br>
+对于没有明显屈服阶段的材料如T10A，一般将产生0.2%塑性应变时的应力作为名义屈服极限，表示σ0.2。<br>
+脆性材料为试件拉断时的伸长率≤5%的材料，如灰铸铁、玻璃、陶瓷等,<strong>脆性材料的失效多以强度极限σb作为判定标准</strong>。</p>
+<h3 id="213-四大强度理论">2.1.3 四大强度理论</h3>
+<p>在《材料力学》中，介绍了4种常用的强度理论：<br>
+<strong>第一强度理论</strong>：最大拉应力理论，认为当最大拉应力 σ1≥σb时，材料发生断裂。<br>
+<strong>第二强度理论</strong>：最大伸长线应变理论，认为当最大伸长线应变是引起断裂的主要原因，即材料断裂条件为 σ1-μ(σ2+σ3)≥σb（μ为泊松比）。<br>
+<strong>第三强度理论</strong>：最大切应力理论，认为当最大切应力 τmax=(σ1-σ3)/2≥σs/2时，材料发生屈服，即塑形材料不失效条件为σ1-σ3≤σs。<br>
+补充：莫尓强度理论为第三强度理论的扩充，它是以实验资料作为基础得出的，并不像4种强度理论是以假说为基础，考虑了材料抗拉和抗压强度不相等的情况，可用于塑形材料，也可用于脆性材料。当材料的扛拉和抗压强度相等时，莫尓强度理论与第三强度理论相同。<br>
+<strong>第四强度理论</strong>：畸变能密度理论（冯米斯Von-Mises等效应力理论），认为畸变能密度是引起屈服的主要原因。即塑形材料不失效条件为σVon≤σs。<br>
+四种强度理论在Ansys-Workbench中的应用见下表：<br>
+<img src="https://www.sssdoctor.com/post-images/1649765845627.jpg" alt="" loading="lazy"></p>
+<h2 id="22-workbench中应力与应变的应用">2.2 Workbench中应力与应变的应用</h2>
+<p>应变命令集在Solution工具条的Strain中，应力命令集在Stress中。<br>
+由于应力与应变成正比关系：σ=E*ε（E是材料的弹性模量），所以下文主要以应力作讲解，读者可推广到应变结果的应用。<br>
+<img src="https://www.sssdoctor.com/post-images/1649768715445.jpg" alt="" loading="lazy"><br>
+<strong>等效应力Equivalent (von-Mises)</strong><br>
+等效应力/应变又称冯米斯(von-Mises)等效应力/应变，是塑形材料计算时最常用的结果。计算结果需满足第四强度理论σVon≤σs。<br>
+<strong>第一主应力Maximum Principal</strong><br>
+第一主应力又称最大主应力，是脆形材料计算时常用的结果。计算结果需满足第一强度理论σ1≤σb。<br>
+第二主应力σ2与第三主应力σ3分别对应Middle Principal和Minimum Principal，在此不再赘述。<br>
+<strong>最大剪应力Maximum Shear与应力强度Intensity</strong><br>
+最大剪应力与应力强度其实是等效概念，都是第三强度理论所需计算的对象，应力强度为最大剪切应力的2倍，即Intensity=2×Maximum Shear。<br>
+实际应用中更多使用应力强度，因为此时只需将计算强度与σs对比，即满足第三强度理论<br>
+Intensity=σ1-σ3≤σs<br>
+如果使用最大剪应力来校核，则需要满足Maximum Shear=(σ1-σ3)/2≤σs/2<br>
+<strong>主应力矢量Vector Principal</strong><br>
+主应力矢量可以3D显示3个主应力的方向，正值朝外，负值朝内。该显示有助于描述结构某点所承受的最大正应力的方向。<br>
+<strong>应力误差Error</strong><br>
+应力误差用于识别高误差区域，表示该区域需要网格细化，以获得更准确的结果，但是对于非线性结果可能不准确，且仅适用于各向同性材料。<br>
+<strong>等效塑形应变Equivalent Plastic</strong><br>
+等效塑形应变用于测量结构的永久应变，材料应力应变超过比例极限后，应力与应变呈现非线性关系，塑形行为表现为应力超过屈服强度后发生永久不可恢复的应变。由于比例极限与屈服强度很接近，Ansys计算中将它们合为一点。如果要使用本选项得到塑形应力，需要先设置塑形材料的非线性属性。</p>
+<h1 id="3工具">3.工具</h1>
+<p>工具选项在Solution工具条的Tools里面，包括应力工具、疲劳工具、接触工具、螺栓工具等。<br>
+<img src="https://www.sssdoctor.com/post-images/1649768790085.jpg" alt="" loading="lazy"></p>
+<h2 id="31-应力工具">3.1 应力工具</h2>
+<p>应力工具主要用于<strong>计算安全系数、安全余量与应力比值</strong>，安全余量=安全系数-1，应力比值=1/安全系数。选择应力工具Stress Tool后，会在分析树中生成Stress Tool项目，可对其进行细节设置。<br>
+<img src="https://www.sssdoctor.com/post-images/1649768890063.jpg" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1649768953182.jpg" alt="" loading="lazy"></p>
+<h2 id="32-疲劳工具">3.2 疲劳工具</h2>
+<p>疲劳工具提供以<strong>应力寿命和应变寿命为基础的疲劳计算寿</strong>命，可以计算<strong>恒幅值或变幅值载荷，比例或非比例载荷</strong>。</p>
+<h2 id="33-接触工具">3.3 接触工具</h2>
+<p>选择接触工具Contact Tool后，会在分析树中生成Contact Tool项目，并在工具栏出现Contact Tool工具条。<br>
+<img src="https://www.sssdoctor.com/post-images/1649769064232.jpg" alt="" loading="lazy"><br>
+<strong>摩擦应力</strong>：显示摩擦引起的切向应力。<br>
+<strong>压力</strong>：显示法向接触压力。<br>
+<strong>滑移距离</strong>：显示表面相对滑动的距离。<br>
+<strong>穿透</strong>：显示穿透深度。<br>
+<strong>间隙</strong>：显示在弹球Pinball半径内的缝隙值大小。<br>
+<strong>接触状态</strong>：提供是否接触的信息，Over Constrained表示过约束，Far表示在弹球范围外，Near表示在弹球范围内，Sliding表示有相对滑移，Sticking表示粘结在一起。</p>
+<h1 id="4探测结果probe">4.探测结果Probe</h1>
+<p>探测显示用于显示某一点、线、面、体的结果，仅介绍常用选项。<br>
+4.1 变形、应变和应力<br>
+探测结果所能计算的变形、应变与应力类型与上文介绍的相同，不同之处在于：<br>
+1，对象选择中没有All body选项，只能选择点、线、面、体或网格单元，可以同时选择多个对象。<br>
+2，结果类型是在细节设置窗口选择。<br>
+3，不能显示云图结果，只在信息窗口以图表的形式显示计算的最大值。<br>
+4.2 反力与反力矩<br>
+求取反力与反力矩是工程应用中经常会遇到的问题，Workbench可以求取边界条件（含弱弹簧）、接触、网格接触、梁/弹簧连接等处的约反力与反力矩。<br>
+注意，求取连接或接触处的反力与反力矩时，需要打开分析设置中的Output Controls——Nodal Forces。<br>
+实例2，模型右端固定，左端施加力与力矩，求取下列模型约束处的反力与反力矩。<br>
+本例只需要自己添加Probe中的反力与反力矩，在细节设置中将Location Method(定位方法)设置为Boundary Condition(边界条件)，然后再Boundary Condition下拉菜单中选中我们定义的固定约束。结果如下<br>
+5 图形显示工具<br>
+在分析树中选中某一计算结果，在工具栏将出现图形显示工具。<br>
+1，比例显示、显示方式、色条显示、外形显示<br>
+这几种显示工具是我们常用的，其中的含义很简单，无需解释，在此不赘述。<br>
+2，矢量显示<br>
+当选择矢量显示后，工具栏将出现矢量显示工具条。<br>
+3，最大值、最小值、探针<br>
+选择最大值与最小值时，程序会自动在图形此处标记，但是应力奇异需要用户自己判断，所以很多时候不能直接使用最大值，而是需要我们手动探测。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Ansys Workbench Mechanical边界条件—载荷与约束界面详解]]></title>
+        <id>https://www.sssdoctor.com/post/ansys-workbench-mechanical-bian-jie-tiao-jian-zai-he-yu-yue-shu-jie-mian-xiang-jie/</id>
+        <link href="https://www.sssdoctor.com/post/ansys-workbench-mechanical-bian-jie-tiao-jian-zai-he-yu-yue-shu-jie-mian-xiang-jie/">
+        </link>
+        <updated>2022-04-08T07:07:36.000Z</updated>
+        <summary type="html"><![CDATA[<p>Mechanical应用是Ansys Workbench的重要组成部分，可进行力学分析、热分析、电磁分析等。载荷与约束被称为边界条件，只有在正确的设置情况下，才能反映真实的载荷与约束情况。Mechanical中有4种类型的边界条件：惯性载荷、结构载荷、结构约束、热载荷。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Mechanical应用是Ansys Workbench的重要组成部分，可进行力学分析、热分析、电磁分析等。载荷与约束被称为边界条件，只有在正确的设置情况下，才能反映真实的载荷与约束情况。Mechanical中有4种类型的边界条件：惯性载荷、结构载荷、结构约束、热载荷。</p>
+<!-- more -->
+<h1 id="1-对象选择与施加方法"><strong>1. 对象选择与施加方法</strong></h1>
+<p>载荷与约束的施加对象通常可以通过两种方式选择：几何模型选择<strong>Geometry Selection</strong>与集合选择 <strong>named Selection</strong>。<br>
+<img src="https://www.sssdoctor.com/post-images/1649683037751.jpg" alt="" loading="lazy"></p>
+<h1 id="2惯性力inertial">2.惯性力Inertial</h1>
+<p>惯性力包括加速度<strong>Acceleration</strong>、重力加速度<strong>Standard Earth Gravity</strong>、旋转速度<strong>Rotational Velocit</strong>、旋转加速度<strong>Rotational Acceleration</strong><br>
+<img src="https://www.sssdoctor.com/post-images/1649682843950.png" alt="" loading="lazy"></p>
+<h1 id="3结构载荷loads">3.结构载荷Loads</h1>
+<h2 id="31压力pressure">3.1.压力Pressure</h2>
+<p>压力只能施加在面上，方向通常垂直于面，也可以按分量施加压力。</p>
+<h2 id="32静水压力hydrostatic-pressure">3.2静水压力Hydrostatic Pressure</h2>
+<p>静水压力用于<strong>模拟流体对容器的压力</strong>，施加静水压力时需要指定<strong>流体密度</strong>、<strong>重力加速度</strong>和<strong>流体液面位置</strong>。<br>
+<img src="https://www.sssdoctor.com/post-images/1649683257168.jpg" alt="" loading="lazy"></p>
+<h2 id="33力force">3.3力Force</h2>
+<p>力可以施加在<strong>点、边、面上</strong>。施加在面上的力将均布在所选面上，比如一个力施加在N个相同面积的面上，则每个面所施加的力为总力的1/N。</p>
+<h2 id="34远端力remote-force">3.4远端力Remote Force</h2>
+<p>远端力是指在点、边、面上施加一个远离集中力的载荷，相当于施加力一个<strong>集中力</strong>和<strong>一个力矩</strong>。在细节窗口中需要指定力作用点和大小。<br>
+<img src="https://www.sssdoctor.com/post-images/1649683325480.jpg" alt="" loading="lazy"></p>
+<h2 id="35轴承载荷bearing-load">3.5轴承载荷Bearing Load</h2>
+<p>在轴与孔接触面上存在法向（径向）压力的作用，轴与孔之间的这个压缩载荷，称之为轴承载荷。轴承载荷施加在圆柱内表面或外表面，其径向分量将根据投影面积来分布压力载荷，无轴向分量。如果孔的圆柱面被分割为多个面，使用轴承载荷边界条件时，需要选择所有面。<br>
+<img src="https://www.sssdoctor.com/post-images/1649683460863.png" alt="" loading="lazy"></p>
+<h2 id="36螺栓预紧力bolt-pretension">3.6螺栓预紧力Bolt Pretension</h2>
+<p>螺栓预紧力可加载在圆轴面、单个体或多个体上，用于模拟螺栓连接。如果加载在一个体上，需要指定一个坐标系，预紧力作用在该坐标系的原点，且方向沿Z轴收缩。☆<strong>需要注意的是，由于软件计算机制的问题，当施加一个与预紧力平行的拉力，且拉力＞预紧力时，软件将不能正确计算，此时可使用力代替预紧力施加在螺栓两端。</strong><br>
+<img src="https://www.sssdoctor.com/post-images/1649683681470.png" alt="" loading="lazy"></p>
+<h2 id="37力矩moment">3.7力矩Moment</h2>
+<p>力矩可加载在点、线、面上，施加在面上的力矩，力矩的旋转中心为所选面的几何形心。<br>
+<img src="https://www.sssdoctor.com/post-images/1649684830845.jpg" alt="" loading="lazy"><br>
+**如何定义偏心矩？**☆如何加载偏心力矩：通过修改坐标系的位置（或建立新坐标系）并不能使力矩中心偏离，因为分量只能定义力矩方向，而不能定义力矩中心位置。<br>
+<strong>step1</strong>定义Joint，右击特征树中Model——Inset——Connections，如果特征树中已经有Connections，则可以省略这一操作。右击Connections——Inset——Joint，Connection Type选择Body-Ground，Type选择Revolute，Scope选择外圆柱面。<br>
+<img src="https://www.sssdoctor.com/post-images/1649686511870.png" alt="" loading="lazy"><br>
+<strong>step2</strong>设置Joint后，在特征树的Joint下将生成一个新的坐标ReferenceCoordinate System，点击进行设置，Define By改为全局坐标Global Coordinates并分别设置XYZ方向偏移距离。<br>
+<img src="https://www.sssdoctor.com/post-images/1649686519969.png" alt="" loading="lazy"><br>
+<strong>step3</strong>添加Joint Moment，点击Loads——Joint Load，Joint设置为刚才定义的连接，Type设置为Moment，Magnitude设置力矩大小。<br>
+<img src="https://www.sssdoctor.com/post-images/1649686527343.jpg" alt="" loading="lazy"></p>
+<h2 id="38线压力line-pressure">3.8线压力Line Pressure</h2>
+<p>线压力以载荷密度的形式在边上施加一个均布载荷，单位为N/mm，方向可以按矢量、分量和切向方式。<br>
+<img src="https://www.sssdoctor.com/post-images/1649686611876.png" alt="" loading="lazy"></p>
+<h2 id="39热条件thermal-condition">3.9热条件Thermal Condition</h2>
+<p>热条件可在结构分析或热分析中插入温度边界条件。使用热条件时请先确认模型材料是否已经定义了热膨胀系数。<br>
+如图内外圈材料均为默认的合金钢，内圈温度为200℃，外圈为常温，固定外圈的外圆柱面求应力与变形。<br>
+<img src="https://www.sssdoctor.com/post-images/1649686843043.png" alt="" loading="lazy"><br>
+进入Mechanical，在特征的Model下点击几何体，如下图点击Edit Structural Steel进入材料库。<br>
+<img src="https://www.sssdoctor.com/post-images/1649686853478.jpg" alt="" loading="lazy"><br>
+检查是否已定义了热膨胀参数，下图为程序默认的结构钢定义的热膨胀参数，已定义了各向同性热膨胀割线系数Isotropic Secant Coefficient of Thermal Expansion，热膨胀系数Coefficient of Thermal Expansion为1.2×10^-5mm/℃。<br>
+<img src="https://www.sssdoctor.com/post-images/1649687048465.jpg" alt="" loading="lazy"><br>
+回到Mechanical中，修改接触关系，点击特征树的Connections——Contacts下的接触对，将接触类型Type的绑定Bonded改为摩擦Frictional，摩擦系数设置为0.2。<br>
+<img src="https://www.sssdoctor.com/post-images/1649687070882.jpg" alt="" loading="lazy"><br>
+设置边界条件：固定外圈的外圆柱面，对内圈施加热条件。<br>
+<img src="https://www.sssdoctor.com/post-images/1649687078743.jpg" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1649687084460.jpg" alt="" loading="lazy"></p>
+<h2 id="310关节载荷joint-load">3.10关节载荷Joint Load</h2>
+<p>使用前需要先建立关节节点，相关内容将在接触类型中详解。</p>
+<h1 id="4结构约束supports">4.结构约束Supports</h1>
+<p>约束种类:约束的本质是限制自由度。自由度是用于描述物理场的响应特性，结构场的自由度包括移动和转动。自由度＞0时为运动机构，自由度＝0时为静力学平衡机构，自由度＜0为超静定结构。静力学主要研究自由度≤0的机构。<br>
+<img src="https://www.sssdoctor.com/post-images/1649687257820.jpg" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1649687487239.jpg" alt="" loading="lazy"></p>
+<h2 id="41固定约束fixed-support">4.1固定约束Fixed Support</h2>
+<p>约束点、线、面的所有自由度，即约束实体X/Y/Z方向的移动，约束面体、线体X/Y/Z方向的移动及绕X/Y/Z的转动。需要注意的是在<strong>固定约束处会产生应力奇异,所以不能以固定约束处的应力作为结果判据</strong>。下面以截面为10mm×10mm的矩形条拉伸说明此问题，固定矩形条一端，另一端施加10000N的拉力，根据材料力学的理论。矩形条的应力应该为σ =F/A=10000/100=100MPa。使用固定约束后，在不同网格尺寸下的最大（奇异）应力见下表，最大（奇异）应力均出现在固定约束处。<br>
+<img src="https://www.sssdoctor.com/post-images/1649724516721.jpg" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1649724526261.png" alt="" loading="lazy"></p>
+<h2 id="42位移约束displacement">4.2位移约束Displacement</h2>
+<p>约束点、线、面的位移自由度，即约束实体、面体、线体X/Y/Z方向的移动，默认是全局坐标系，可以在Define By中设置自定义的坐标系，在各向X/Y/Z Componernt设置X/Y/Z向强制位移的值，默认为Free(自由)，设置为0时表示此方向约束，输入具体数值时表示在此方向强制移动此距离。注意<strong>位移约束也可能会产生应力奇异，约束处的应力不能作为结果判据</strong>。</p>
+<h2 id="43远程位移约束remote-displacement">4.3远程位移约束Remote Displacement</h2>
+<p>远程位移约束是以刚性的方法将所选的点、线、面连接到一个公共点（即定位点），在该点上对三向移动和三向转动共6个自由点进行设置，读者可以将此点理解为铰支点。实体设置旋转自由度常使用这一方法。<br>
+默认的定位点是所选对象的质心，可以手动修改，所设置的6向自由度都是相对于定位点，定位点不同，所求结果有所区别。<strong>经常把远程位移约束称为万能约束(不会产生奇异）</strong>。</p>
+<hr>
+<h2 id="44无摩擦约束frictionless-support">4.4无摩擦约束Frictionless Support</h2>
+<p>无摩擦约束是在几何体选定的面上施加法向约束，对切向不约束，效果等同于对称面的约束。</p>
+<hr>
+<h2 id="45仅压缩的约束compression-only-support">4.5仅压缩的约束Compression Only Support</h2>
+<p>仅压缩的约束事在选定的面上的<strong>法向施加仅压缩方向</strong>的约束，而拉伸方向自由，对切向不约束。注意，无摩擦约束是在选定面的法向施加拉伸和压缩的约束，而仅压缩的约束是在选定面的法向施加压缩方向的约束，所以<strong>无摩擦约束是线性约束</strong>，而<strong>仅压缩的约束是非线性约束</strong>，会增加计算时间。仅压缩的约束经常用于模拟物体放置于地面(或平台)，此时允许物体脱离地面(或平台)，但不允许穿过地面(或平台)。</p>
+<hr>
+<h2 id="46圆柱面约束cylindrical-support">4.6圆柱面约束Cylindrical Support</h2>
+<p>圆柱面约束是指在圆柱表面施加轴向、径向、切向（圆周方向）约束，默认三个方向都为固定，可以通过下拉菜单选择自由，该约束仅适用于小变形的线性分析。</p>
+<hr>
+<h2 id="47简支约束simply-supported">4.7简支约束Simply Supported</h2>
+<p>简支约束即简支点约束，只适用于线体或面体（即梁或壳单元），只能加载在边线或顶点上，简支约束约束三向位移，不约束旋转自由度。</p>
+<hr>
+<h2 id="48固定旋转fixed-rotation">4.8固定旋转Fixed Rotation</h2>
+<p>固定旋转只适用于线体或面体（即梁或壳单元），只能加载在的边线或顶点上，固定旋转约束三向旋转，不约束位移自由度。每一方向的旋转自由度可通过下拉菜单修改为free（自由）。</p>
+<hr>
+<h2 id="49弹性约束elastic-support">4.9弹性约束Elastic Support</h2>
+<p>弹性约束允许面根据弹簧行为产生移动或变形，必须设置基础刚度S (Foundation Stiffness)。可以将弹性约束想象为给选定面加上了弹性系数为K的弹簧，当几何体受力时可以根据胡克定律F=Kx算出约束面的位移。</p>
+<h1 id="搬运自httpszhuanlanzhihucomp392980475个人小修">搬运自<a href="https://zhuanlan.zhihu.com/p/392980475">https://zhuanlan.zhihu.com/p/392980475</a>+个人小修</h1>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[tensorflow_keras]]></title>
         <id>https://www.sssdoctor.com/post/tensorflow_keras/</id>
@@ -149,6 +663,163 @@ model.summary()</p>
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[CNN]]></title>
+        <id>https://www.sssdoctor.com/post/cnn/</id>
+        <link href="https://www.sssdoctor.com/post/cnn/">
+        </link>
+        <updated>2022-04-01T00:44:59.000Z</updated>
+        <summary type="html"><![CDATA[<p>import numpy as np<br>
+import pandas as pd<br>
+import tensorflow as tf</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>import numpy as np<br>
+import pandas as pd<br>
+import tensorflow as tf</p>
+<!-- more -->
+<p>#数据预处理函数<br>
+def data_preprocess(path, more_data):<br>
+# 读取数据<br>
+#json是JavaScript Object Notation的简写<br>
+#panda是数据处理库<br>
+#data_frame是数据框架<br>
+data_frame = pd.read_json(path)</p>
+<pre><code># 获取图像数据
+images = []#首先有一个矩阵用于存放图像
+#row行 colum列
+for _, row in data_frame.iterrows():
+    # 将一维数据转为75x75的二维数据
+    band_1 = np.array(row['band_1']).reshape(75, 75)
+    band_2 = np.array(row['band_2']).reshape(75, 75)
+    band_3 = band_1 + band_2
+
+    images.append(np.dstack((band_1, band_2, band_3)))
+if more_data:
+    # 扩充数据集
+    images = create_more_data(np.array(images))
+
+# 获取类标
+labels = np.array(data_frame['is_iceberg'])
+if more_data:
+    # 扩充数据集后，类标也需要相应扩充
+    labels = np.concatenate((labels, labels, labels, labels, labels, labels))
+
+return np.array(images), labels
+</code></pre>
+<p>def create_more_data(images):<br>
+# 扩充数据<br>
+image_rot90 = []<br>
+image_rot180 = []<br>
+image_rot270 = []<br>
+img_lr = []<br>
+img_ud = []</p>
+<pre><code>for i in range(0, images.shape[0]):
+    band_1 = images[i, :, :, 0]
+    band_2 = images[i, :, :, 1]
+    band_3 = images[i, :, :, 2]
+
+    # 旋转90度
+    band_1_rot90 = np.rot90(band_1)
+    band_2_rot90 = np.rot90(band_2)
+    band_3_rot90 = np.rot90(band_3)
+    image_rot90.append(np.dstack((band_1_rot90, band_2_rot90, band_3_rot90)))
+
+    # 旋转180度
+    band_1_rot180 = np.rot90(band_1_rot90)
+    band_2_rot180 = np.rot90(band_2_rot90)
+    band_3_rot180 = np.rot90(band_3_rot90)
+    image_rot180.append(np.dstack((band_1_rot180, band_2_rot180, band_3_rot180)))
+
+    # 旋转270度
+    band_1_rot270 = np.rot90(band_1_rot180)
+    band_2_rot270 = np.rot90(band_2_rot180)
+    band_3_rot270 = np.rot90(band_3_rot180)
+    image_rot270.append(np.dstack((band_1_rot270,
+                                   band_2_rot270, band_3_rot270)))
+
+    # 左右翻转
+    lr1 = np.flip(band_1, 0)
+    lr2 = np.flip(band_2, 0)
+    lr3 = np.flip(band_3, 0)
+    img_lr.append(np.dstack((lr1, lr2, lr3)))
+
+    # 上下翻转
+    ud1 = np.flip(band_1, 1)
+    ud2 = np.flip(band_2, 1)
+    ud3 = np.flip(band_3, 1)
+    img_ud.append(np.dstack((ud1, ud2, ud3)))
+
+rot90 = np.array(image_rot90)
+rot180 = np.array(image_rot180)
+rot270 = np.array(image_rot270)
+lr = np.array(img_lr)
+ud = np.array(img_ud)
+images = np.concatenate((images, rot90, rot180, rot270, lr, ud))
+
+return images
+</code></pre>
+<h1 id="定义模型">定义模型</h1>
+<p>def get_model():<br>
+# 建立一个序贯模型<br>
+model = tf.keras.Sequential()</p>
+<pre><code># 第一个卷积层  卷积核数量128  大小3*3 激活函数relu 池化层大小3*3,两方向步长为2 dropout0.2丢弃20%神经元
+#以防止过拟合
+model.add(tf.keras.layers.Conv2D(128, kernel_size=(3, 3), activation='relu',
+                        input_shape=(75, 75, 3)))
+model.add(tf.keras.layers.MaxPooling2D(pool_size=(3, 3), strides=(2, 2)))
+model.add(tf.keras.layers.Dropout(0.2))
+
+# 第二个卷积层
+model.add(tf.keras.layers.Conv2D(128, kernel_size=(3, 3), activation='relu'))
+model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
+model.add(tf.keras.layers.Dropout(0.2))
+
+# 第三个卷积层
+model.add(tf.keras.layers.Conv2D(64, kernel_size=(2, 2), activation='relu'))
+model.add(tf.keras.layers.MaxPooling2D(pool_size=(3, 3), strides=(2, 2)))
+model.add(tf.keras.layers.Dropout(0.2))
+
+# 第四个卷积层
+model.add(tf.keras.layers.Conv2D(64, kernel_size=(2, 2), activation='relu'))
+model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
+model.add(tf.keras.layers.Dropout(0.2))
+
+# 将上一层的输出特征映射转化为一维数据，
+# 以便进行全连接操作
+model.add(tf.keras.layers.Flatten())
+
+# 第一个全连接层
+model.add(tf.keras.layers.Dense(256))
+model.add(tf.keras.layers.Activation('relu'))
+model.add(tf.keras.layers.Dropout(0.2))
+
+# 第二个全连接层
+model.add(tf.keras.layers.Dense(128))
+model.add(tf.keras.layers.Activation('relu'))
+model.add(tf.keras.layers.Dropout(0.2))
+
+# 第三个全连接层
+model.add(tf.keras.layers.Dense(1))
+model.add(tf.keras.layers.Activation('sigmoid'))
+
+# 编译模型
+model.compile(loss='binary_crossentropy',
+              optimizer=tf.keras.optimizers.Adam(0.0001),
+              metrics=['accuracy'])
+# 打印出模型的概况信息
+model.summary()
+
+return model
+</code></pre>
+<h1 id="数据预处理">数据预处理</h1>
+<p>train_x, train_y = data_preprocess('D:/learning/python/tensorflow/《TensorFlow从零开始学》配套实验数据/Chapter4/iceberg_cnn/data/train.json', more_data=True)</p>
+<h1 id="初始化模型">初始化模型</h1>
+<p>cnn_model = get_model()</p>
+<h1 id="模型训练">模型训练</h1>
+<p>cnn_model.fit(train_x, train_y, batch_size=25,<br>
+epochs=100, verbose=1, validation_split=0.2)</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[神经网络NN]]></title>
         <id>https://www.sssdoctor.com/post/shen-jing-wang-luo-nn/</id>
         <link href="https://www.sssdoctor.com/post/shen-jing-wang-luo-nn/">
@@ -245,10 +916,15 @@ X[:,m:n]需要单独说一下，表示输出所有行中的某一列到另外N-1
         <link href="https://www.sssdoctor.com/post/jue-ce-shu/">
         </link>
         <updated>2022-03-18T01:51:09.000Z</updated>
+        <summary type="html"><![CDATA[<p>1.核心算法：相似的输入产生相似的输出<br>
+2.决策树本身就应用了分类的思想，将连续数据离散化。可以提升运算速度。<br>
+3.信息熵（混乱程度）。</p>
+]]></summary>
         <content type="html"><![CDATA[<p>1.核心算法：相似的输入产生相似的输出<br>
 2.决策树本身就应用了分类的思想，将连续数据离散化。可以提升运算速度。<br>
-3.信息熵（混乱程度）。<br>
-决策树：sklearn.tree.decidiontreeregressor然后 fit 最后predict<br>
+3.信息熵（混乱程度）。</p>
+<!-- more -->
+<p>决策树：sklearn.tree.decidiontreeregressor然后 fit 最后predict<br>
 <img src="https://www.sssdoctor.com/post-images/1647912674345.png" alt="" loading="lazy"><br>
 4.工程优化：没必要用尽所有特征。可以混杂 最后一级可能数量太少，太片面。优先选择使信息熵减少量最大的特征作为区分的依据。<br>
 5.集合算法（算法融合）：根据不同模型给出的预测结果，利用平均（回归）或者分类的方法得出最后的结果。<br>
@@ -263,335 +939,6 @@ sklearn.ensemble.randomforestregresso<br>
 <img src="https://www.sssdoctor.com/post-images/1647997113693.png" alt="" loading="lazy"><br>
 <img src="https://www.sssdoctor.com/post-images/1647997118795.png" alt="" loading="lazy"><br>
 <img src="https://www.sssdoctor.com/post-images/1647997122746.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[机器学习03—回归]]></title>
-        <id>https://www.sssdoctor.com/post/ji-qi-xue-xi-03-xian-xing-hui-gui/</id>
-        <link href="https://www.sssdoctor.com/post/ji-qi-xue-xi-03-xian-xing-hui-gui/">
-        </link>
-        <updated>2022-03-12T00:32:59.000Z</updated>
-        <summary type="html"><![CDATA[<p>线性回归：根据已知输入和输出，求解二者之间的线性模型参数，得到连续输入和输出。线性回归的算法种类很多，包括：普通线性回归、岭回归、多项式回归、贝叶斯回归、logistic回归等.</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>线性回归：根据已知输入和输出，求解二者之间的线性模型参数，得到连续输入和输出。线性回归的算法种类很多，包括：普通线性回归、岭回归、多项式回归、贝叶斯回归、logistic回归等.</p>
-<!-- more -->
-<p>鉴于目前处于初期学段暂时不做深入探究，暂时介绍三种算法：主要基于sklearn.linear_model.linearrgression、sklearn.linear_model.ridge、sklearn.preprocessing.ploynomia<br>
-1.sklearn.linear_model.linearregression<br>
-<img src="https://www.sssdoctor.com/post-images/1647873509929.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1647872977323.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1647872996139.png" alt="" loading="lazy"><br>
-2.sklearn.linear_model.ridge<br>
-<img src="https://www.sssdoctor.com/post-images/1647907809001.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1647907814972.png" alt="" loading="lazy"><br>
-3.多项式回归是多元线性回归的一个特例<br>
-所以其本质是一个求解多元线性方程组的问题：f(https://www.sssdoctor.com/post-images/1647909151289.png)<br>
-左边是关于x的矩阵，右边是关于w系数的矩阵，每一个系数w都对应x中的一列。而PolynomialFeatures就是用来生成关于x的矩阵的。然后再用LinearRegression学习，获得相应的w。需要用到管道和复合估算器pipeline其实就是流水线的意思。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[机器学习数据预处理02]]></title>
-        <id>https://www.sssdoctor.com/post/ji-qi-xue-xi-shu-ju-yu-chu-li-02/</id>
-        <link href="https://www.sssdoctor.com/post/ji-qi-xue-xi-shu-ju-yu-chu-li-02/">
-        </link>
-        <updated>2022-03-09T04:21:59.000Z</updated>
-        <summary type="html"><![CDATA[<p>手动范围缩放、归一化、独热编码、标签编码</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>手动范围缩放、归一化、独热编码、标签编码</p>
-<!-- more -->
-<p>1.手动范围缩放<br>
-主要利用一个for循环 （for in遍历转置矩阵，确定最小最大值，根据最大最小值，利用np.linagl.solve(a,b)求解未知数，也就是k,b、然后将求的结果添加到某一空矩阵，继续循环。<br>
-<img src="https://www.sssdoctor.com/post-images/1646829755177.png" alt="" loading="lazy"><br>
-2.归一化（比例占比100%+1）sp.normalize   norm范数<br>
-情景：特征值具体的值不重要、但是每个样本特征值的占比更加重要。示例：不同人对于某一类型的电影与个人观看总体类型的观看比例，可推测偏好相似程度。个人认为数据预处理的方式，跟数据要处理的问题具体相关。<br>
-<img src="https://www.sssdoctor.com/post-images/1646829768358.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646829774788.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646829780437.png" alt="" loading="lazy"><br>
-3.二值化<br>
-有些业务并不需要分析矩阵，完整的数据。比如图像边缘识别只需要检测边缘即可可以根据事先给定的阈值，用0与1表示高不高于阈值。二值化的数组中的每个元素非0即1，需要设置一个阈值器，相当于过滤器，将这一过滤器应用于某一数据组。sp.binarizer(threshold=阈值)然后fit_transform<br>
-<img src="https://www.sssdoctor.com/post-images/1646829793035.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646829803227.png" alt="" loading="lazy"><br>
-4.独热编码<br>
-特征变多，数值的复杂度降低（例如文字）sp.onehotencoder 然后fit_transform<br>
-<img src="https://www.sssdoctor.com/post-images/1646829818099.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646829823098.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646829827781.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646829831957.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646829836265.png" alt="" loading="lazy"><br>
-5.标签编码<br>
-对于某些字符串，利用自带的编码器可以简单编码，但是以后对于自己研究的东西，需要自己写编码的程序<br>
-sp.labelencoder()然后fit_transform<br>
-<img src="https://www.sssdoctor.com/post-images/1646829856722.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646829862530.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[iCEM 网格划分 练习1]]></title>
-        <id>https://www.sssdoctor.com/post/icem-wang-ge-hua-fen-lian-xi-1/</id>
-        <link href="https://www.sssdoctor.com/post/icem-wang-ge-hua-fen-lian-xi-1/">
-        </link>
-        <updated>2022-03-09T01:25:46.000Z</updated>
-        <summary type="html"><![CDATA[<p>流场几何形状为45度弯头，内部有一竖直空心管道通过。空心管道与流场接触的壁面对于流体产生阻碍作用。划分的基本操作：1.生成3d块，利用切割功能实现块整体结构与几何的相似。2.关联：快网格能够映射到几何上。3.空心管道进行o型切分，同时删除多余的块。4.进行空心块的关联，包括：边关联以及面关联。5.进行整体结构O型切分。6.划分网格并开始调整。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>流场几何形状为45度弯头，内部有一竖直空心管道通过。空心管道与流场接触的壁面对于流体产生阻碍作用。划分的基本操作：1.生成3d块，利用切割功能实现块整体结构与几何的相似。2.关联：快网格能够映射到几何上。3.空心管道进行o型切分，同时删除多余的块。4.进行空心块的关联，包括：边关联以及面关联。5.进行整体结构O型切分。6.划分网格并开始调整。</p>
-<!-- more -->
-<p><img src="https://www.sssdoctor.com/post-images/1646789517196.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646789525342.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646789530500.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646789534144.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646789538438.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646789553961.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[python—01—学习路径及数据类型]]></title>
-        <id>https://www.sssdoctor.com/post/1/</id>
-        <link href="https://www.sssdoctor.com/post/1/">
-        </link>
-        <updated>2022-03-07T06:23:05.000Z</updated>
-        <summary type="html"><![CDATA[<p>1.计算机三大件之间的相互关系<br>
-cpu负责计算、 内存暂时存储、 硬盘存储，内存相当于中间商，加快cpu需要的数据的输送，硬盘输送数据太慢。<br>
-2.变量与内存之间的关系<br>
-内存：仓库<br>
-变量：仓库内的容器 既然是容器就得有名字、地址、以及空间</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>1.计算机三大件之间的相互关系<br>
-cpu负责计算、 内存暂时存储、 硬盘存储，内存相当于中间商，加快cpu需要的数据的输送，硬盘输送数据太慢。<br>
-2.变量与内存之间的关系<br>
-内存：仓库<br>
-变量：仓库内的容器 既然是容器就得有名字、地址、以及空间</p>
-<!-- more -->
-<p>3.常量<br>
-python里面没有常量、约定俗成是全部大写，但是依然可以修改<br>
-<img src="https://www.sssdoctor.com/post-images/1646639742651.png" alt="" loading="lazy"><br>
-4.数据类型<br>
-4.1引言：<br>
-为了计算机方便处理不同的类型<br>
-举例:10、中国、#人可以区别 计算机如何区分？<br>
-4.2常见类型：<br>
-数字类型：int /long/float/<br>
-字符串：str存储文字<br>
-列表：list<br>
-布尔：bool逻辑判断<br>
-集合set两组数据之间的关系<br>
-字典：dict<br>
-字节bytes<br>
-4.2.1数字<br>
-<img src="https://www.sssdoctor.com/post-images/1646634927872.png" alt="" loading="lazy"></p>
-<p>代码：type(变量名)#查看变量类型<br>
-python 2.2以后自动将long 转换为Int<br>
-4.2.2字符串<br>
-只要是引号就可以，但必须保证一致性，三引号表示多行字符串<br>
-<img src="https://www.sssdoctor.com/post-images/1646636358317.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646635523316.png" alt="" loading="lazy"><br>
-特性一：不可修改<br>
-如下图所示，虽然name的显示内容发生改变 但是id地址也发生了改变，原先的id依然存在<br>
-<img src="https://www.sssdoctor.com/post-images/1646635631392.png" alt="" loading="lazy"><br>
-特性二：有索引，可切片（具有编号）<br>
-但是切片是顾头不顾尾，首位为0<br>
-<img src="https://www.sssdoctor.com/post-images/1646636119050.png" alt="" loading="lazy"><br>
-字符串的格式修改、拼接等操作仍需要扩展！<br>
-字符串引用外部变量%s %占位符<br>
-注意%d 后面要求是数字<br>
-%f后面要求后面是小数<br>
-示例：<br>
-#方法一</p>
-<h2 id="msg-s-info-namesageshobbys">msg='''-------------%s info---------<br>
-name:%s<br>
-age:%s<br>
-hobby:%s</h2>
-<p>'''%(name,name,age,hobby)<br>
-print(msg)</p>
-<h2 id="方法二mdgf-name-info-namenameageagehobbyhobby">#方法二<br>
-mdg=f'''-------------{name} info---------<br>
-name:{name}<br>
-age:{age}<br>
-hobby:{hobby}</h2>
-<h2 id="printmdg输出-wentao-info-namewentaoage27hobbyswim">'''<br>
-print(mdg)<br>
-输出：<br>
--------------wentao info---------<br>
-name:wentao<br>
-age:27<br>
-hobby:swim</h2>
-<h2 id="-wentao-info-namewentaoage27hobbyswim">-------------wentao info---------<br>
-name:wentao<br>
-age:27<br>
-hobby:swim</h2>
-<p>4.2.3bool运算<br>
-<img src="https://www.sssdoctor.com/post-images/1646638011085.png" alt="" loading="lazy"><br>
-true or false<br>
-代码示例：<br>
-goal=500<br>
-a=600<br>
-if goal&gt;=a:<br>
-print(&quot;niubi&quot;)<br>
-else:<br>
-print(&quot;laji&quot;)<br>
-输出结果<br>
-laji<br>
-4.2.4list<br>
-可支持多个同等类型字符串并列，以及修改<br>
-示例代码：<br>
-girl_names=[&quot;xiaobian&quot;,&quot;xiaoyun&quot;,&quot;xiaohei&quot;]</p>
-<p>girl_names[1]<br>
-print(girl_names[1])<br>
-girl_names[0]='hhhh'<br>
-print(girl_names)</p>
-<p>列表的操作：增、删、改、查<br>
-<img src="https://www.sssdoctor.com/post-images/1646639542840.png" alt="" loading="lazy"><br>
-示例：<br>
-<img src="https://www.sssdoctor.com/post-images/1646641423818.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[机器学习概述]]></title>
-        <id>https://www.sssdoctor.com/post/ji-qi-xue-xi/</id>
-        <link href="https://www.sssdoctor.com/post/ji-qi-xue-xi/">
-        </link>
-        <updated>2022-03-01T10:40:17.000Z</updated>
-        <summary type="html"><![CDATA[<p>有关机器学习的背景、应用、基本问题以及数据预处理中的均值移除、范围缩放</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>有关机器学习的背景、应用、基本问题以及数据预处理中的均值移除、范围缩放</p>
-<!-- more -->
-<p>一、<br>
-人工智能<br>
-机器学习<br>
-深度学习</p>
-<p>人工智能领域：computer vision/natural language processing/recommender system) cv/nlp/rc</p>
-<p>基础：高等数学（求偏导）、线性代数（会矩阵运算）、概率论与数理统计（随机变量）</p>
-<p>二、机器学习的一般过程<br>
-<img src="https://www.sssdoctor.com/post-images/1646632942621.jpg" alt="" loading="lazy"><br>
-2.1数据处理<br>
-2.2机器学习<br>
-2.3业务运维</p>
-<p>三、应用<br>
-股价预测、推荐引擎、人脸识别、语音识别、自然语言识别、图像识别</p>
-<p>四、基本问题<br>
-4.1回归问题<br>
-根据已知的输入输出寻得某一模型，将未知输入带入模型，得到连续的输出<br>
-4.2分类问题<br>
-根据已知的输入输出寻得某一模型，将未知输入带入模型，得到离散的输出<br>
-4.3聚类问题<br>
-根据输入的相似程度，将其划分为不同的群落<br>
-4.4降维问题<br>
-在尽量不影响性能的情况下，降低数据的复杂程度</p>
-<p>五、数据预处理<br>
-1.输入数据-模型-输出数据<br>
-2.一行一样本、一列一特征<br>
-3.均值移除（标准化）、范围缩放、归一化、二值化、独热编码、标签编码、<br>
-3.1均值移除（标准化）<br>
-3.1.1均值为0 标准差为1 可以避免不同特征值的差异对于最后模型性能的影响<br>
-此处应该有图<br>
-3.1.2标准差能反映数据的离散程度。<br>
-import numpy as np #引入numpy库<br>
-import sklearn.preprocessing as sp#引入sp库<br>
-raw_samples#变量名#=np.array#数组#([<br>
-[17,90,4000],<br>
-[20,80,5000],<br>
-[23,75,5500]])<br>
-result=sp.scale(raw_samples)#scale比例模型<br>
-print(result)<br>
-print(result.mean(axis=0))#mean平均的<br>
-print(result.std(axis=0)<br>
-)<br>
-输出结果为：<br>
-[[-1.22474487  1.33630621 -1.33630621]<br>
-[ 0.         -0.26726124  0.26726124]<br>
-[ 1.22474487 -1.06904497  1.06904497]]<br>
-[ 0.00000000e+00 -8.14163551e-16  5.18104078e-16]<br>
-[1. 1. 1.]<br>
-<img src="https://www.sssdoctor.com/post-images/1646632521860.png" alt="" loading="lazy"></p>
-<p>3.2范围缩放<br>
-3.2.1将样本矩阵中的每一列最小最大值设为相同的区间，统一各列特征值的范围。一般情况下会把特征值缩放到【0，1】<br>
-3.2.2<br>
-每个数减去数组中的最小数 结果再除以上一步结果中的最大值<br>
-3.2.3<br>
-<img src="https://www.sssdoctor.com/post-images/1646630918053.png" alt="" loading="lazy"><br>
-import numpy as np<br>
-import sklearn.preprocessing as sp</p>
-<p>raw_samples=np.array([<br>
-[17,90,4000],<br>
-[20,80,5000],<br>
-[23,75,5500]])<br>
-mms=sp.MinMaxScaler(feature_range=(0,1))#MinMaxScaler范围缩放命令（+参数指定）<br>
-result=mms.fit_transform(raw_samples)<br>
-print(result)<br>
-输出结果为：<br>
-[[0.         1.         0.        ]<br>
-[0.5        0.33333333 0.66666667]<br>
-[1.         0.         1.        ]]<br>
-<img src="https://www.sssdoctor.com/post-images/1646632838188.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646632844467.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ICEM CFD六面体网格划分-01]]></title>
-        <id>https://www.sssdoctor.com/post/icem-cfd-liu-mian-ti-wang-ge-hua-fen/</id>
-        <link href="https://www.sssdoctor.com/post/icem-cfd-liu-mian-ti-wang-ge-hua-fen/">
-        </link>
-        <updated>2022-02-24T01:43:33.000Z</updated>
-        <summary type="html"><![CDATA[<p>1.Block基本概念<br>
-2.Bolock层次结构<br>
-点、线、面、块<br>
-3.Block创建(creat)以及分割（split)<br>
-3.1自上而下<br>
-即先对几何体切块，然后细分，最终实现精细化控制。自上而下实际上是一种拓扑意义上的顺序。常见类型包括：3D、2DSurface、2DPlan</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>1.Block基本概念<br>
-2.Bolock层次结构<br>
-点、线、面、块<br>
-3.Block创建(creat)以及分割（split)<br>
-3.1自上而下<br>
-即先对几何体切块，然后细分，最终实现精细化控制。自上而下实际上是一种拓扑意义上的顺序。常见类型包括：3D、2DSurface、2DPlan</p>
-<!-- more -->
-<p><img src="https://www.sssdoctor.com/post-images/1646649258121.png" alt="" loading="lazy"><br>
-3.2自下而上<br>
-先建立块的面，然后拉伸块，让块的贴近于几何结构。面块生成以后，自下而上生成块的四个命令才能急活.<br>
-总结：关于3d块的关联务必是重点关注的地方，不然软件默认的关联方式会给你带来极大的麻烦。2022.3.08日关于弹簧的网格划分 耗时四五个小时。总结到的最重要的经验就是关联的严谨性<br>
-<img src="https://www.sssdoctor.com/post-images/1646649431777.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646723099367.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646723103787.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646723111014.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646723146090.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646723155739.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646723159756.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646723164017.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646723168034.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646723172660.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646723176213.png" alt="" loading="lazy"><br>
-3.3普通分割<br>
-包括线分割以及点分割，其余切割方式还未接触过。<br>
-<img src="https://www.sssdoctor.com/post-images/1646649815800.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646649885776.png" alt="" loading="lazy"><br>
-3.4 O型切分的骚操作<br>
-适用于圆弧形、比如：圆形、圆柱、球等。O型切分的实质是为映射的实现，提供几何基础，提升映射结构网格的质量。<br>
-选择块、面(2d不激活）、边（与边相关的block/face都会被选中，因此L/C切分虽然选择了边，实际上选择了被删除的块）、点。可实现全O型网格、L型、C型网格切分，以及O型外网格切分便于快速创建边界层。<br>
-<img src="https://www.sssdoctor.com/post-images/1646652584235.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646653383957.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646653391132.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646653398724.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646653407040.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646653420117.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646653427942.png" alt="" loading="lazy"><br>
-3.5Y型切分<br>
-3.5.1平面Y型切分<br>
-平面三角形的Y切分实际上是四边形的Y切分，因为生成的块是四边形，具体也可参考上部分内容<br>
-<img src="https://www.sssdoctor.com/post-images/1646660247248.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646660250473.png" alt="" loading="lazy"><br>
-3.5.2 3DY型切分<br>
-具体过程：<br>
-1.生成块<br>
-2.利用合并顶点操作，注意此处要把program去掉勾选（平面三角形不可以用合并点的操作，是因为合并顶点之后块变成三角形，三棱柱则不会，因为还存在四边形）<br>
-3.关联边，使得块映射网格能够反映到几何体上<br>
-4.移动点，选定相应的约束<br>
-5.选择edit block<br>
-6.找到对应切面进行Y切分<br>
-<img src="https://www.sssdoctor.com/post-images/1646661672859.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646661677674.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646661686488.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646661692169.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646661697459.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1646661702753.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>

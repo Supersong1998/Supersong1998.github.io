@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Ansys Workbench Mechanical—连接关系(接触） | 大大大大宋</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://www.sssdoctor.com/favicon.ico?v=1649811898691">
+<link rel="stylesheet" href="https://www.sssdoctor.com/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="当几何体存在多个零部件时，需要确定零部件之间的相互关系，在Mechanical中可以创建的连接关系如下：•接触Connect•网格接触Mesh Connection•关节连接Joint•梁连接Beam Connection•弹簧Spring..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://www.sssdoctor.com">
+        <img src="https://www.sssdoctor.com/images/avatar.png?v=1649811898691" class="site-logo">
+        <h1 class="site-title">大大大大宋</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://Supersong1998.github.io/tags" class="site-nav" target="_blank">
+            分类
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://www.sssdoctor.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Ansys Workbench Mechanical—连接关系(接触）</h2>
+            <div class="post-date">2022-04-11</div>
+            
+              <div class="feature-container" style="background-image: url('https://www.sssdoctor.com/post-images/ansys-workbench-mechanical-lian-jie-guan-xi.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>当几何体存在多个零部件时，需要确定零部件之间的相互关系，在Mechanical中可以创建的连接关系如下：•接触Connect•网格接触Mesh Connection•关节连接Joint•梁连接Beam Connection•弹簧Spring•轴承Bearings•点焊spot Weld•末端释放End Releaser（应用于梁、壳单元）•几何体交互Body Interaction (应用于显示动力学中）仅有接触Connect、网格接触Mesh Connection、关节连接Joint可以自动生成。本文主要介绍接触</p>
+<!-- more -->
+<h1 id="1接触概述">1.接触概述</h1>
+<p><strong>通常两个独立表面之间相互接触并相切时，称为接触</strong>。接触类型中，能够粘合在一起或<strong>不能分离</strong>的接触为<strong>线性接触</strong>，能够<strong>分离和碰撞</strong>的接触为<strong>非线性接触</strong>（状态非线性），非线性接触需要消耗大量的计算资源，因此设置有效的接触参数至关重要。接触状态可分为<strong>分离状态</strong>、<strong>粘接接触状态</strong>、<strong>滑动接触状态</strong>。<br>
+<strong>非线性接触：</strong> 在形成接触的不同物体的表面之间，可以沿法向分开和沿切向相互移动，但不能发生相互渗透，可传递法向压缩与切向摩擦力，但不能传递拉伸力。接触面接触时产生接触约束，接触面一旦分离，约束失效。此时的接触表现为强非线性，随着接触状态的改变，接触表面的法线和切向刚度都有显著变化。刚度突变会导致严重的收敛困难。</p>
+<h1 id="2接触设置">2.接触设置</h1>
+<h2 id="21创建接触">2.1创建接触</h2>
+<p>导入到Mechanical中的装配体自动生成的接触为绑定接触，最快捷的修改方法是找到这个接触对，修改属性中的接触类型。<br>
+若要新建接触集合，只需要右击特种树中的Connectiong——Insert——Manual Contact Region（手动接触区域）。便创建了新的接触集合和接触对，若右击Connectiong下的集合名Contacts——Insert——Manual Contact Region，则在此集合内部创建接触对，不新建接触集合。<br>
+<img src="https://www.sssdoctor.com/post-images/1649725567460.jpg" alt="" loading="lazy"><br>
+<strong>接触集合与接触对之间的关系</strong></p>
+<h2 id="22接触类型type">2.2接触类型Type</h2>
+<p>在Mechanical中，系统提供了5种接触类型：<br>
+•<strong>绑定Bonded</strong>：即接触界面焊接在一起，既不能分离也不能滑动。<br>
+•<strong>不分离No Separation</strong>：不允许分离，允许微量自由滑动。<br>
+•<strong>无摩擦Frictionless</strong>：允许分离，允许自由滑动。<br>
+•<strong>粗糙Rough</strong>：允许分离，不允许滑动。<br>
+•<strong>摩擦Frictional</strong>：允许分离，允许有摩擦的滑动。<br>
+•<strong>强制摩擦滑动 Forced Frictional Sliding</strong>：在每个接触点上施加一个切向阻力，仅用于显示动力学。<br>
+<strong>注意：</strong><br>
+1，摩擦接触中， 摩擦系数&gt;0.2时计算结果会提示，不用处理。<br>
+2，非线性接触不适用于模态分析、谐响应分析的线性分析，定义的非线性接触将被忽略。<br>
+<img src="https://www.sssdoctor.com/post-images/1649725806382.jpg" alt="" loading="lazy"></p>
+<h2 id="23接触行为behavioe">2.3接触行为Behavioe</h2>
+<p>在Mechanical中接触面显示为红色, 目标面显示为蓝色。程序默认为对称接触( Symmetric )，此时任何一边都可穿透到另一边。对称接触行为更容易建立，但需要较大计算量。选择非对称接触(Asymmetric)时，<strong>接触面的节点不能穿透目标面</strong>。选择自动非对称接触(Auto Asymmetric )时接触面和目标面的指定可在内部互换。只有罚函数和增强拉格朗日算法支持对称行为，普通拉格朗日和MPC（多点约束）算法要求使用非对称行为。<br>
+对于非对称接触行为，手工选择接触表面时<strong>应遵循以下原则:</strong><br>
+1, 当<strong>凸面与平面或凹面接触</strong>时，应选择<strong>平面或凹面</strong>为目标面。<br>
+2, 当<strong>硬表面和软表面接触</strong>时，应选择<strong>硬表面</strong>为目标面。<br>
+3, 当<strong>大</strong>表面和<strong>小</strong>表面接触时，应选择<strong>大表面</strong>为目标面。<br>
+4, 如果结构已<strong>划分网格</strong>，应选择<strong>较粗糙</strong>一方的表面为目标面。<br>
+5，<strong>刚度相同</strong>的大小面接触时，应选<strong>大面</strong>为目标面。</p>
+<h2 id="24接触算法">2.4接触算法</h2>
+<p><strong>为了阻止接触表面相互穿透，在相互接触处需要建立一定的规则，即接触算法</strong>。ANSYS 采用的是接触约束算法，它提供了如下五种接触约束算法：<br>
+• 罚函数法Pure Penalty（程序控制默认使用的算法）<br>
+• 拉格朗日法Normal lagrange<br>
+• 增强拉格朗日法Augmented Lagrange<br>
+• 多点约束方程法MРC<br>
+• 梁约束法 Beam<br>
+接触算法调用是在接触的属性——Advanced——Formulation中，程序控制Program Controlled默认罚函数算法，你可以根据自己的实际工况来选择更适合的接触算法 。<br>
+接触算法选择</p>
+<h3 id="241罚函数法pure-penalty">2.4.1罚函数法Pure Penalty</h3>
+<p>罚函数法用一个接触弹簧来在两个面间建立关系，弹簧刚度被称为惩罚参数，其实就是接触刚度。当两面分开时，弹簧不起作用；当面开始穿透时，弹簧起作用，根据胡克定律：F = K x ，此处的 K 为法向刚度 ，x为穿透深度。<img src="https://www.sssdoctor.com/post-images/1649726015236.jpg" alt="" loading="lazy"><br>
+这种算法的精度较依赖于接触刚度和穿透量的大小。接触刚度越大，则穿透越小，但是接触刚度过大会导致整体刚度矩阵出现病态和收敛的困难。因此，理想的刚度就是既要能保证渗透较小，又要保证整体刚度矩阵。<br>
+当接触方法为程序控制/罚函数或增强的拉格拉日时，其他设置如下：<br>
+<img src="https://www.sssdoctor.com/post-images/1649726114434.jpg" alt="" loading="lazy"><br>
+<strong>探测方法</strong><br>
+1，探测方法一般使用程序控制。对于罚函数和增强拉格朗日公式，程序控制默认使用探测点更多、探索更准确的“On Gauss point（积分点）”进行探测。拉格朗日与MPC公式默认使用“Nodal- Normal to Target（节点-目标面法向）”方法，探测点更少。当有摩擦的接触面和目标面之间存在偏移时，为更好的满足力矩平衡可选用“Nodal-Projection Normal from Contact（节点-投影法向接触）”。<br>
+<img src="https://www.sssdoctor.com/post-images/1649726274975.jpg" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1649726280717.jpg" alt="" loading="lazy"><br>
+2，穿透容差即允许穿透量，代表F=Kx中的x，一般使用程序控制，程序控制默认为0.1<em>单元厚度，用户可以设置为数值（Value）或因子（Factor），因子即相较于下层单元的厚度比例 。<br>
+3，切向滑移容差又称弹性滑移容差，一般使用程序控制，程序控制默认为0.1</em>单元长度、用户可以设置为数值（Value）或因子（Factor），因子即相较于下层单元的长度比例。如果弹性滑移在许可的容差范围内，接触协调性在切向满足要求。 绑定、粗糙、摩擦接触等增强了切向的协调性。<br>
+<img src="https://www.sssdoctor.com/post-images/1649726289889.jpg" alt="" loading="lazy"><br>
+4，法向刚度即K值，刚度越大，计算越精确，但是越难收敛。默认为程序控制，对于绑定和不分离约束，默认K=10；对于其他形式的接触，默认K=1.0；手动控制时，对于体积为主的问题，建议设置为1，对于弯曲为主的问题，建议设置0.01~0.1之间。<br>
+5，弹球区域一般作为十分有效的接触探测器使用，可自定义并在图形区显示。在弹球内的目标面上的节点, 程序就会认为它“接近”接触，而且会更加密切地监测它与接触探测点的关系 ,在球体以外的目标面上的节点被忽略。对于绑定或不分离的接触，如果间隙或穿透小于弹球区域，则间隙/穿透自动被删除。（若选择程序控制弹球区域，将自动生成一个足够大的弹球区域将间隙或穿透包括在内，使得绑定或不分离接触能忽略间隙或穿透）<br>
+<img src="https://www.sssdoctor.com/post-images/1649726298192.jpg" alt="" loading="lazy"></p>
+<h2 id="242增强拉格朗日法augmented-lagrange">2.4.2增强拉格朗日法Augmented Lagrange</h2>
+<p>增强拉格朗日是在罚函数的方法上衍生出来的一种方法，他与罚函数法类似，但是在计算接触压力时，引入了附加项λ，即F = K x+λ，使得接触压力对于接触刚度的敏感性降低，更利于在给定的接触刚度较大的时候收敛，可以一定程度上提高计算精度，但同时也会造成收敛时间加长。在<strong>大变形问题的无摩擦或摩擦问题中</strong>，建议将程序控制（即罚函数）算法修改为增强拉格朗日，因为增强拉格拉日的公式增加了额外的控制自动减少渗透的功能。</p>
+<h3 id="243拉格朗日法normal-lagrange">2.4.3拉格朗日法Normal lagrange</h3>
+<p>拉格朗日法不同于罚函数法，不采用力与位移的关系来求解接触力，而是把接触作为一个独立的自由度直接求解。该方法可得到0或近似0的穿透量，是一种精确的接触算法，但是需要使用直接求解器来求解，在接触状态发生急剧变化时时，容易发生计算震颤从而较难收敛 。</p>
+<h3 id="244多点约束方程法mрc">2.4.4多点约束方程法MРC</h3>
+<p>多点约束法适用于绑定接触（Bonded）、不分离(No seperation)这两种线性约束。他在接触面间添加一个联结使两个面之间不出现分离。多点约束法支持大变形效应。<br>
+2.4.5梁约束法 Beam<br>
+梁约束法，顾名思义，就是在两个接触面之间添加无质量的梁进行联结，这种算法只适用于绑定接触（Bonded）。<br>
+总结：对于线性接触的MPC和Beam算法，其收敛性和计算速度最优。对于另外三种接触算法，一般情况下，从计算精度和收敛性上的排序为：<br>
+<strong>收敛性</strong>：罚函数&gt;增强拉格朗日&gt;拉格朗日<br>
+<strong>精度</strong>：拉格朗日&gt;增强拉格朗日≥罚函数<br>
+<strong>计算花费时间</strong>：拉格朗日&gt;增强拉格朗日&gt;罚函数<br>
+<img src="https://www.sssdoctor.com/post-images/1649726444824.jpg" alt="" loading="lazy"></p>
+<h2 id="25几何修正">2.5几何修正</h2>
+<p>几何修正选项含：接触面处理，接触面几何修正，目标面几何修正。其中当接触类型为非线性接触（无摩擦、摩擦、粗糙）时才会出现接触界面处理选项。</p>
+<h3 id="251接触界面处理interface-treatment">2.5.1接触界面处理Interface Treatment</h3>
+<p>当接触类型为线性接触（绑定，不分离）时，程序将忽略干涉与间隙，不需要修正。<br>
+当接触类型为非线性接触（无摩擦、摩擦、粗糙）时，需要修正间隙或干涉。有时候CAD模型不一定有间隙，但是在有限元软件划分网格离散化后，会出现间隙，用户可以设置为无增量的偏移（Add Offset，No Ramping）；线性增量偏移（Add Offset，Ramped Effects）；自动接触（Adjust To Touch）.无增量的偏移和线性增量偏移下，默认接触偏移Offset为0。绑定和接触行为通过建立一个足够大Pinball半径允许忽略接触和目标面间任何间隙和干涉。但是对于摩擦或无摩擦接触，初始缝隙无法被自动忽略，这是因为它有可能代表几何信息（相互接触或脱离接触）。<br>
+1，Adjusted to Touch<br>
+推荐使用此设置，界面上存在的间隙将会自动补偿到接触状态，界面上存在的干涉将被自动消除。（需间隙和干涉在弹球范围内）<br>
+2，Add Offset<br>
+能够自定义来指定允许接触面偏移的正负距离。正值代表关闭缝隙。负值增大缝隙。<br>
+Add Offset有两个选项：<br>
+(1) Add Offset, Ramped Effects：一个载荷步分割为几个子步逐步施加，难于收敛的干涉问题建议使用。<br>
+(2) Add Offset, No Ramping：一个子步一次完成载荷施加。<br>
+2.5.2接触面几何修正Contact Geometry Correction<br>
+用户可以在该选项中选择圆面光滑（Smoothing）和螺栓截面（Bolt Thread）。<br>
+1，螺栓截面(Bolt Thread)<br>
+Bolt Thread能够利用简化圆柱模拟螺栓连接，一般设置过程包括：<br>
+(1)创建接触关系，如图2.1所示。<br>
+(2) 接触几何修正：定义Orientation方向，上图本例中采用Revolute Axis建立坐标系需要设置起始点Starting Point和终止点Ending Point。<br>
+(3)建立起始点和终止点坐标系，如图所示。<br>
+(4)定义螺栓螺纹基本参数，例如平均螺纹直径Mean Pitch Diameter，螺距Pitch Diameter，牙型角Thread Angle，单、多线螺纹Thread Type以及左右手定则Handedness等。</p>
+<h3 id="253目标面几何修正target-geometry-correction">2.5.3目标面几何修正Target Geometry Correction</h3>
+<p>用户只能选择圆面光滑功能。<br>
+搬运自<a href="https://zhuanlan.zhihu.com/p/394729188">https://zhuanlan.zhihu.com/p/394729188</a></p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://www.sssdoctor.com/post/ansys-workbench-mechanical-qian-chu-li/">
+                  <h3 class="post-title">
+                    Ansys Workbench Mechanical—前处理
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
