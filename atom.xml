@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sssdoctor.com</id>
     <title>大大大大宋</title>
-    <updated>2022-04-13T01:30:06.641Z</updated>
+    <updated>2022-05-05T14:24:40.346Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.sssdoctor.com"/>
     <link rel="self" href="https://www.sssdoctor.com/atom.xml"/>
@@ -10,6 +10,107 @@
     <logo>https://www.sssdoctor.com/images/avatar.png</logo>
     <icon>https://www.sssdoctor.com/favicon.ico</icon>
     <rights>All rights reserved 2022, 大大大大宋</rights>
+    <entry>
+        <title type="html"><![CDATA[响应谱分析]]></title>
+        <id>https://www.sssdoctor.com/post/xiang-ying-pu-fen-xi/</id>
+        <link href="https://www.sssdoctor.com/post/xiang-ying-pu-fen-xi/">
+        </link>
+        <updated>2022-05-05T06:26:56.000Z</updated>
+        <summary type="html"><![CDATA[<p>在工程计中，常要求了解系统受到<strong>冲击载荷作用后的最大响应值</strong>，即振动的位移或加速度的最大值。由于作用时间短暂，计算最大响应值时通常忽略系统的阻尼，使计算结果更偏于安全。最大响应值与激励的某个参数（例如激励作用时间）的关系曲线即称作响应谱（<strong>response spectrum</strong>）</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>在工程计中，常要求了解系统受到<strong>冲击载荷作用后的最大响应值</strong>，即振动的位移或加速度的最大值。由于作用时间短暂，计算最大响应值时通常忽略系统的阻尼，使计算结果更偏于安全。最大响应值与激励的某个参数（例如激励作用时间）的关系曲线即称作响应谱（<strong>response spectrum</strong>）</p>
+<!-- more -->
+<h1 id="概念">概念</h1>
+<ol>
+<li>响应谱是系统在给定激励下的<strong>最大响应值与系统或激励的某一参数之间</strong>的关系曲线图。最大响应值可以是系统的<strong>最大位移、最大速度、最大应力或出现最大值的时刻</strong>；参数可以选择为<strong>系统的固有频率或激励的作用时间</strong>等。响应谱中有关量都化为无量纲的参数表示。</li>
+<li>响应谱在工程实际中是很重要的，它<strong>揭示出最大值出现的条件或时间</strong>等，如受迫振动幅频特性曲线。当振动系统已定，激励力的大小已定时，该曲线表示出受迫振动的振幅和激励力频率的关系。由曲线便能确定最大振幅出现时的激励力频率的值，因此幅频特性曲线就是一种响应谱。</li>
+<li>响应谱分析是<strong>计算结构在瞬态激励下峰值响应的近似算法，它是模态分析的扩展</strong>。响应谱分析的应用非常广泛，最典型的应用是土木行业的地震响应谱分析，<strong>响应谱分析是地震分析的标准分析方法</strong>，被应用到各种结构的地震分析中，如<strong>大坝、电站、桥梁、房屋建筑</strong>等。任何受到地震或其它振动荷载的结构或部件均可以用响应谱分析来进行校核。</li>
+<li>响应谱分析是一种频域分析，其输入荷载为<strong>振动荷载的频谱</strong>，如地震频谱，加速度频谱，也可以是速度频谱、位移频谱等，响应谱分析从频域的角度计算结构的峰值响应。</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[FEA模态分析基本理论及概念]]></title>
+        <id>https://www.sssdoctor.com/post/fea-mo-tai-fen-xi-ji-ben-li-lun-ji-gai-nian/</id>
+        <link href="https://www.sssdoctor.com/post/fea-mo-tai-fen-xi-ji-ben-li-lun-ji-gai-nian/">
+        </link>
+        <updated>2022-04-24T12:49:27.000Z</updated>
+        <summary type="html"><![CDATA[<p><strong>模态分析</strong>是研究结构动力特性一种方法，一般应用在<strong>工程振动</strong>领域。其中，<strong>模态是指机械结构的固有振动特性</strong>，每一个模态都有特定的<strong>固有频率、阻尼比和模态振型</strong>。分析这些模态参数的过程称为模态分析。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p><strong>模态分析</strong>是研究结构动力特性一种方法，一般应用在<strong>工程振动</strong>领域。其中，<strong>模态是指机械结构的固有振动特性</strong>，每一个模态都有特定的<strong>固有频率、阻尼比和模态振型</strong>。分析这些模态参数的过程称为模态分析。</p>
+<!-- more -->
+<h1 id="前言">前言</h1>
+<p>通过模态分析方法搞清楚了结构物在某一易受影响的频率范围内的各阶主要模态的特性，就可以预言结构在此频段内在外部或内部各种振源作用下产生的实际振动响应。因此，模态分析是结构动态设计及设备故障诊断的重要方法。</p>
+<h1 id="概念">概念</h1>
+<p><strong>模态分析是根据用结构的固有特征，包括频率、阻尼和模态振型，这些动力学属性去描述结构的过程</strong>。用一块平板的振动模式来简单地解释模态分析。考虑自由支撑的平板，在平板的一角施加一个常力，由静力学可知，一个静态力会引起平板的某种静态变形。但是在这儿施加的是一个以正弦方式变化，且频率固定的振荡常力。改变此力的振动频率，但是力的峰值保持不变，仅仅是改变力的振动频率。同时在平板另一个角点安装一个加速度传感器，测量由此激励力引起的平板响应。现在如果我们测量平板的响应，会注意到平板的响应幅值随着激励力的振动频率的变化而变化。随着时间的推进，响应幅值在不同的频率处有增也有减。<br>
+<img src="https://www.sssdoctor.com/post-images/1651759228873.webp" alt="" loading="lazy"><br>
+时域数据提供了非常有用的信息，但是如果用快速傅立叶变换（FFT）将时域数据转换到频域，可以计算出所谓的频响函数（FRF）。注意到频响函数的峰值出现在系统的共振频率处，注意到频响函数的这些峰出现在观测到的时域响应信号的幅值达到最大时刻的频率处。<br>
+<img src="https://www.sssdoctor.com/post-images/1651759311217.webp" alt="" loading="lazy"><br>
+如果将频响函数叠加在时域波形之上，会发现时域波形幅值达到最大值时的激励力振动频率等于频响函数峰值处的频率。因此可以看出，既可以使用时域信号确定系统的固有频率，也可以使用频响函数确定这些固有频率。显然，频响函数更易于估计系统的固有频率。<br>
+<img src="https://www.sssdoctor.com/post-images/1651759376461.webp" alt="" loading="lazy"><br>
+现在了解结构在每一个固有频率处的变形模式。在平板上均匀分布45个加速度计，用于测量平板在不同激励频率下的响应幅值。如果激励力在结构的每一个固有频率处驻留，会发现结构本身存在特定的变形模式。<strong>这个特征表明激励频率与系统的某一阶固有频率相等时，会导致结构产生相应的变形模式</strong>。注意当激励频率在第一阶固有频率处驻留时，平板发生了第1阶弯曲变形，在图中用蓝色表示。在第2阶固有频率处驻留时，平板发生了第2阶扭转变形，在图中用红色表示。分别在结构的第3和第4阶固有频率处驻留时，平板发生了第3阶弯曲变形，在图中用绿色表示，和第4阶扭转变形，在图中用红紫红色表示。这些变形模式称为结构的模态振型。<strong>（从纯数学角度讲，这种叫法实际上不完全正确，但在这儿作为简单的讨论，从实际应用角度讲，这些变形模式非常接近模态振型。）</strong><br>
+<img src="https://www.sssdoctor.com/post-images/1651759490566.webp" alt="" loading="lazy"><br>
+所有结构都具有各自的固有频率和模态振型。本质上，这些特性取决于确定结构固有频率和模态振型的结构质量和刚度分布。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SCI配色攻略]]></title>
+        <id>https://www.sssdoctor.com/post/sci-pei-se-gong-lue/</id>
+        <link href="https://www.sssdoctor.com/post/sci-pei-se-gong-lue/">
+        </link>
+        <updated>2022-04-20T00:50:53.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://www.sssdoctor.com/post-images/1650415881989.jpg" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1650415888171.jpg" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1650415892459.jpg" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1650415897662.jpg" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1650415908454.jpg" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1650415922496.jpg" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1650415926736.jpg" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Academic Paper Writing_01]]></title>
+        <id>https://www.sssdoctor.com/post/academic-paper-writing_001/</id>
+        <link href="https://www.sssdoctor.com/post/academic-paper-writing_001/">
+        </link>
+        <updated>2022-04-18T06:11:54.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="tips-of-academic-writing">Tips of Academic Writing</h1>
+<h2 id="characteristics-of-academic-writing">Characteristics of Academic writing</h2>
+<p>Writing in these forms or styles is usually serious, intended for a critical and informed audience, based on closely investigated knowledge, and posits ideas or arguments. It usually circulates within the academic world (‘the academy’)</p>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="tips-of-academic-writing">Tips of Academic Writing</h1>
+<h2 id="characteristics-of-academic-writing">Characteristics of Academic writing</h2>
+<p>Writing in these forms or styles is usually serious, intended for a critical and informed audience, based on closely investigated knowledge, and posits ideas or arguments. It usually circulates within the academic world (‘the academy’)</p>
+<!-- more -->
+<p>Typically scholarly writing has an objective stance,clearly states the significance of the topic, and is organized with adequate detail so that other scholars could try to replicate the results. Strong papers are not overly general and correctly utilize formal academic rhetoric</p>
+<h1 id="a-good-paper">A good paper</h1>
+<h2 id="a-good-academic-paper-has-a-definite-structure-makes-its-point-and-does-not-waste-space-and-time">A good academic paper has a definite structure, makes its point, and does not waste space and time.</h2>
+<p><strong>Present your contribution/novelty clearly</strong><br>
+<strong>Highlight your findings in Title,Abstract,Introdution&amp;Conclusion</strong></p>
+<h2 id="a-good-article-is-often-easy-to-read-and-understand">A good article is often easy to read and understand.</h2>
+<p><strong>Plan to spend a lot of time and thought on structure</strong></p>
+<h2 id="the-most-difficult-part-in-writing-a-scientific-paper-is-planning-its-logical-structurestructure-your-paragraphs-and-sentences">The most difficult part in writing a scientific paper is planning its logical structure.(Structure your paragraphs and sentences.)</h2>
+<h3 id="external-structure">External Structure</h3>
+<h3 id="internal-structure">Internal Structure</h3>
+<pre><code> **Breaking up long sentences.**
+ **Using Linking words. **
+ **Deciding where to put new and old information. **
+ **Use consistent numbering system to list states. **
+</code></pre>
+<h3 id="gramma">Gramma</h3>
+<pre><code> **Word Order**
+ **Tenses and Voices Punctuation**
+</code></pre>
+<h3 id="simplicity">Simplicity</h3>
+<pre><code> **Breaking up Long Sentences**
+ **Removing Redundancy**
+</code></pre>
+<h3 id="preciseness">Preciseness</h3>
+<pre><code>**Avoiding Ambiguity and Vagueness**
+</code></pre>
+<h3 id="avoid-plagiarism">Avoid Plagiarism</h3>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Ansys Workbench Mechanical—求解设置]]></title>
         <id>https://www.sssdoctor.com/post/ansys-workbench-mechanical-qiu-jie-she-zhi/</id>
@@ -817,128 +918,6 @@ return model
 <h1 id="模型训练">模型训练</h1>
 <p>cnn_model.fit(train_x, train_y, batch_size=25,<br>
 epochs=100, verbose=1, validation_split=0.2)</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[神经网络NN]]></title>
-        <id>https://www.sssdoctor.com/post/shen-jing-wang-luo-nn/</id>
-        <link href="https://www.sssdoctor.com/post/shen-jing-wang-luo-nn/">
-        </link>
-        <updated>2022-04-01T00:44:28.000Z</updated>
-        <summary type="html"><![CDATA[<p>import tensorflow as tf<br>
-from keras import layers<br>
-#单独的一个输入层<br>
-inputs=tf.keras.Input(shape=(32,))<br>
-#网络层可以像函数一样被调用</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>import tensorflow as tf<br>
-from keras import layers<br>
-#单独的一个输入层<br>
-inputs=tf.keras.Input(shape=(32,))<br>
-#网络层可以像函数一样被调用</p>
-<!-- more -->
-<p>x=layers.Dense(64,activation='relu')(inputs)<br>
-x=layers.Dense(64,activation='relu')(x)<br>
-#输出层<br>
-prediction=layers.Dense(10,activation='softmax')(x)<br>
-#创建模型<br>
-model=tf.keras.Model(inputs=inputs,outputs=prediction)<br>
-#编译模型，参数包括指定的优化器，学习率，损失函数loss，metics模型的评价函数  其中adam,sgd都是优化器<br>
-model.compile(optimizer=tf.keras.optimizers.RMSprop(0.001),<br>
-loss='categorical_crossentropy',<br>
-metrics=['accuracy'])<br>
-#使用numpy生成随机数作为训练数据<br>
-import numpy as np<br>
-data=np.random.random((1000,32))#1000行32列<br>
-labels=np.random.random((1000,10))<br>
-print(data[0])<br>
-print(labels[0])<br>
-#验证集使用numpy随机生成<br>
-val_data=np.random.random((1000,32))<br>
-val_labels=np.random.random((1000,10))<br>
-#模型训练及验证<br>
-model.fit(data,labels,epochs=10,batch_size=50,validation_data=(val_data,val_labels))</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[样本类别均衡化及置信概率]]></title>
-        <id>https://www.sssdoctor.com/post/yang-ben-lei-bie-jun-heng-hua-ji-zhi-xin-gai-lu/</id>
-        <link href="https://www.sssdoctor.com/post/yang-ben-lei-bie-jun-heng-hua-ji-zhi-xin-gai-lu/">
-        </link>
-        <updated>2022-03-23T01:13:48.000Z</updated>
-        <summary type="html"><![CDATA[<p>1.通过类别权重的均衡化，使得占比小的样本权重较高，占比大的样本权重较小，假设100图片，90狗，10猫然后训练出的模型会得出狗的结果，因为这样准确率也能得到90%以上。<br>
-API：model=svm.SVC(kernel='linear',calss_weight='balanced')<br>
-model.fit(trainx,trainy)</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>1.通过类别权重的均衡化，使得占比小的样本权重较高，占比大的样本权重较小，假设100图片，90狗，10猫然后训练出的模型会得出狗的结果，因为这样准确率也能得到90%以上。<br>
-API：model=svm.SVC(kernel='linear',calss_weight='balanced')<br>
-model.fit(trainx,trainy)</p>
-<!-- more -->
-<p>1.1样本类别不均衡解决方案：上采样、下采样。样本数量2000 类别1 1800   类别2 200<br>
-下采样：以数少的为准，减少类别1的数量.<br>
-上采样：扩充类别2的数量。</p>
-<p>2.置信概率：根据样本与分类边界的距离远近，对其预测类别的可信程度进行量化，离边界越近的样本，置信概率越低，反之，离边界越远的样本，置信概率高。<br>
-#API:model=svm.SVC(kernel='rbf',c=600,gamma=0.01,probability=true)#给出超参数：probability=true<br>
-#调用model.predict_proba(样本矩阵)<br>
-可以获取每个样本的置信概率矩阵</p>
-<p>3.网格搜索：获取一个最优超参数的方式可以绘制验证曲线，但是验证曲线只能每次获取一个最优超参数。如果多个超参数有很多排列组合的话们就可以使用网格搜索寻求最优超参数组合。<br>
-#API:Model=sklearn.model_selection.GridSearchCV(模型，超参数组合列表，cv=折叠次数)<br>
-#model.fit(输入、输出)<br>
-#获取网格搜索每个参数组合<br>
-#model.cv_results_['params']<br>
-#获取网格搜索每个参数组合的平均测试分数<br>
-#model.cv_results_['mean_test_score']</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Python中array数组维度]]></title>
-        <id>https://www.sssdoctor.com/post/python-zhong-array-shu-zu-wei-du/</id>
-        <link href="https://www.sssdoctor.com/post/python-zhong-array-shu-zu-wei-du/">
-        </link>
-        <updated>2022-03-21T13:16:21.000Z</updated>
-        <summary type="html"><![CDATA[<p>X[m,n]<br>
-m,n可以看作是行m与列n</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>X[m,n]<br>
-m,n可以看作是行m与列n</p>
-<!-- more -->
-<p>X[:,0]表示所有行的第一列的元素，X[:,1]表示所有行的第二列元素，X[:,:,0]表示三维数组中第一层（用词可能不当，但是列是二维数组中的），X[:,:,1]表示三维数组中的第二层。需要注意的是X[m,n]表示取值m行中的某一列，然后作为行输出。维度相当于一维。<br>
-X[:,m:n]需要单独说一下，表示输出所有行中的某一列到另外N-1列，维度属于二维，有两个【【】】，X[:,:,m:n]同理某一层到另外一层是三维的。<br>
-<img src="https://www.sssdoctor.com/post-images/1647871045079.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1647871050707.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1647871055181.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1647871058904.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[决策树]]></title>
-        <id>https://www.sssdoctor.com/post/jue-ce-shu/</id>
-        <link href="https://www.sssdoctor.com/post/jue-ce-shu/">
-        </link>
-        <updated>2022-03-18T01:51:09.000Z</updated>
-        <summary type="html"><![CDATA[<p>1.核心算法：相似的输入产生相似的输出<br>
-2.决策树本身就应用了分类的思想，将连续数据离散化。可以提升运算速度。<br>
-3.信息熵（混乱程度）。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>1.核心算法：相似的输入产生相似的输出<br>
-2.决策树本身就应用了分类的思想，将连续数据离散化。可以提升运算速度。<br>
-3.信息熵（混乱程度）。</p>
-<!-- more -->
-<p>决策树：sklearn.tree.decidiontreeregressor然后 fit 最后predict<br>
-<img src="https://www.sssdoctor.com/post-images/1647912674345.png" alt="" loading="lazy"><br>
-4.工程优化：没必要用尽所有特征。可以混杂 最后一级可能数量太少，太片面。优先选择使信息熵减少量最大的特征作为区分的依据。<br>
-5.集合算法（算法融合）：根据不同模型给出的预测结果，利用平均（回归）或者分类的方法得出最后的结果。<br>
-特征重要性：<br>
-6.正向激励（adaboost增强型学习法)：带有权重的树，有点类似于迭代的过程（自适应增强决策树模型），反复构建带有不同权重的树，带有修正（因为有测试集对比）直到达到允许范围内.<br>
-正向激励：sklearn.ensemble.adaboostregressor<br>
-<img src="https://www.sssdoctor.com/post-images/1647913232195.png" alt="" loading="lazy"><br>
-7.自助聚合：有放回随机抽样的方式，行成多颗决策树，提高模型的泛化特性。<br>
-8.随机森林：在自助聚合的基础上，对于特征也进行又放回的抽样，行成不同的树，规避不同特征对于模型的影响。<br>
-sklearn.ensemble.randomforestregresso<br>
-9.特征重要性：feature.importance计算不同特征的信息熵减少量，然后利用柱状图的形式来展现。<br>
-<img src="https://www.sssdoctor.com/post-images/1647997113693.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1647997118795.png" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1647997122746.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>

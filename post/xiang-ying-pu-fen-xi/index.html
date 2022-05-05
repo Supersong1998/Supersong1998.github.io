@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>响应谱分析 | 大大大大宋</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://www.sssdoctor.com/favicon.ico?v=1651760668407">
+<link rel="stylesheet" href="https://www.sssdoctor.com/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="在工程计中，常要求了解系统受到冲击载荷作用后的最大响应值，即振动的位移或加速度的最大值。由于作用时间短暂，计算最大响应值时通常忽略系统的阻尼，使计算结果更偏于安全。最大响应值与激励的某个参数（例如激励作用时间）的关系曲线即称作响应谱（res..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://www.sssdoctor.com">
+        <img src="https://www.sssdoctor.com/images/avatar.png?v=1651760668407" class="site-logo">
+        <h1 class="site-title">大大大大宋</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://Supersong1998.github.io/tags" class="site-nav" target="_blank">
+            分类
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://www.sssdoctor.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">响应谱分析</h2>
+            <div class="post-date">2022-05-05</div>
+            
+              <div class="feature-container" style="background-image: url('https://www.sssdoctor.com/post-images/xiang-ying-pu-fen-xi.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>在工程计中，常要求了解系统受到<strong>冲击载荷作用后的最大响应值</strong>，即振动的位移或加速度的最大值。由于作用时间短暂，计算最大响应值时通常忽略系统的阻尼，使计算结果更偏于安全。最大响应值与激励的某个参数（例如激励作用时间）的关系曲线即称作响应谱（<strong>response spectrum</strong>）</p>
+<!-- more -->
+<h1 id="概念">概念</h1>
+<ol>
+<li>响应谱是系统在给定激励下的<strong>最大响应值与系统或激励的某一参数之间</strong>的关系曲线图。最大响应值可以是系统的<strong>最大位移、最大速度、最大应力或出现最大值的时刻</strong>；参数可以选择为<strong>系统的固有频率或激励的作用时间</strong>等。响应谱中有关量都化为无量纲的参数表示。</li>
+<li>响应谱在工程实际中是很重要的，它<strong>揭示出最大值出现的条件或时间</strong>等，如受迫振动幅频特性曲线。当振动系统已定，激励力的大小已定时，该曲线表示出受迫振动的振幅和激励力频率的关系。由曲线便能确定最大振幅出现时的激励力频率的值，因此幅频特性曲线就是一种响应谱。</li>
+<li>响应谱分析是<strong>计算结构在瞬态激励下峰值响应的近似算法，它是模态分析的扩展</strong>。响应谱分析的应用非常广泛，最典型的应用是土木行业的地震响应谱分析，<strong>响应谱分析是地震分析的标准分析方法</strong>，被应用到各种结构的地震分析中，如<strong>大坝、电站、桥梁、房屋建筑</strong>等。任何受到地震或其它振动荷载的结构或部件均可以用响应谱分析来进行校核。</li>
+<li>响应谱分析是一种频域分析，其输入荷载为<strong>振动荷载的频谱</strong>，如地震频谱，加速度频谱，也可以是速度频谱、位移频谱等，响应谱分析从频域的角度计算结构的峰值响应。</li>
+</ol>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://www.sssdoctor.com/post/fea-mo-tai-fen-xi-ji-ben-li-lun-ji-gai-nian/">
+                  <h3 class="post-title">
+                    FEA模态分析基本理论及概念
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

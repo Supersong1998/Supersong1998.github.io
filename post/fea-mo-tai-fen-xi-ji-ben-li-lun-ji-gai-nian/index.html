@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>FEA模态分析基本理论及概念 | 大大大大宋</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://www.sssdoctor.com/favicon.ico?v=1651760668407">
+<link rel="stylesheet" href="https://www.sssdoctor.com/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="模态分析是研究结构动力特性一种方法，一般应用在工程振动领域。其中，模态是指机械结构的固有振动特性，每一个模态都有特定的固有频率、阻尼比和模态振型。分析这些模态参数的过程称为模态分析。
+
+前言
+通过模态分析方法搞清楚了结构物在某一易受影响的频..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://www.sssdoctor.com">
+        <img src="https://www.sssdoctor.com/images/avatar.png?v=1651760668407" class="site-logo">
+        <h1 class="site-title">大大大大宋</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://Supersong1998.github.io/tags" class="site-nav" target="_blank">
+            分类
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://www.sssdoctor.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">FEA模态分析基本理论及概念</h2>
+            <div class="post-date">2022-04-24</div>
+            
+              <div class="feature-container" style="background-image: url('https://www.sssdoctor.com/post-images/fea-mo-tai-fen-xi-ji-ben-li-lun-ji-gai-nian.webp')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p><strong>模态分析</strong>是研究结构动力特性一种方法，一般应用在<strong>工程振动</strong>领域。其中，<strong>模态是指机械结构的固有振动特性</strong>，每一个模态都有特定的<strong>固有频率、阻尼比和模态振型</strong>。分析这些模态参数的过程称为模态分析。</p>
+<!-- more -->
+<h1 id="前言">前言</h1>
+<p>通过模态分析方法搞清楚了结构物在某一易受影响的频率范围内的各阶主要模态的特性，就可以预言结构在此频段内在外部或内部各种振源作用下产生的实际振动响应。因此，模态分析是结构动态设计及设备故障诊断的重要方法。</p>
+<h1 id="概念">概念</h1>
+<p><strong>模态分析是根据用结构的固有特征，包括频率、阻尼和模态振型，这些动力学属性去描述结构的过程</strong>。用一块平板的振动模式来简单地解释模态分析。考虑自由支撑的平板，在平板的一角施加一个常力，由静力学可知，一个静态力会引起平板的某种静态变形。但是在这儿施加的是一个以正弦方式变化，且频率固定的振荡常力。改变此力的振动频率，但是力的峰值保持不变，仅仅是改变力的振动频率。同时在平板另一个角点安装一个加速度传感器，测量由此激励力引起的平板响应。现在如果我们测量平板的响应，会注意到平板的响应幅值随着激励力的振动频率的变化而变化。随着时间的推进，响应幅值在不同的频率处有增也有减。<br>
+<img src="https://www.sssdoctor.com/post-images/1651759228873.webp" alt="" loading="lazy"><br>
+时域数据提供了非常有用的信息，但是如果用快速傅立叶变换（FFT）将时域数据转换到频域，可以计算出所谓的频响函数（FRF）。注意到频响函数的峰值出现在系统的共振频率处，注意到频响函数的这些峰出现在观测到的时域响应信号的幅值达到最大时刻的频率处。<br>
+<img src="https://www.sssdoctor.com/post-images/1651759311217.webp" alt="" loading="lazy"><br>
+如果将频响函数叠加在时域波形之上，会发现时域波形幅值达到最大值时的激励力振动频率等于频响函数峰值处的频率。因此可以看出，既可以使用时域信号确定系统的固有频率，也可以使用频响函数确定这些固有频率。显然，频响函数更易于估计系统的固有频率。<br>
+<img src="https://www.sssdoctor.com/post-images/1651759376461.webp" alt="" loading="lazy"><br>
+现在了解结构在每一个固有频率处的变形模式。在平板上均匀分布45个加速度计，用于测量平板在不同激励频率下的响应幅值。如果激励力在结构的每一个固有频率处驻留，会发现结构本身存在特定的变形模式。<strong>这个特征表明激励频率与系统的某一阶固有频率相等时，会导致结构产生相应的变形模式</strong>。注意当激励频率在第一阶固有频率处驻留时，平板发生了第1阶弯曲变形，在图中用蓝色表示。在第2阶固有频率处驻留时，平板发生了第2阶扭转变形，在图中用红色表示。分别在结构的第3和第4阶固有频率处驻留时，平板发生了第3阶弯曲变形，在图中用绿色表示，和第4阶扭转变形，在图中用红紫红色表示。这些变形模式称为结构的模态振型。<strong>（从纯数学角度讲，这种叫法实际上不完全正确，但在这儿作为简单的讨论，从实际应用角度讲，这些变形模式非常接近模态振型。）</strong><br>
+<img src="https://www.sssdoctor.com/post-images/1651759490566.webp" alt="" loading="lazy"><br>
+所有结构都具有各自的固有频率和模态振型。本质上，这些特性取决于确定结构固有频率和模态振型的结构质量和刚度分布。</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://www.sssdoctor.com/post/sci-pei-se-gong-lue/">
+                  <h3 class="post-title">
+                    SCI配色攻略
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
