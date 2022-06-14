@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sssdoctor.com</id>
     <title>大大大大宋</title>
-    <updated>2022-06-14T00:13:27.509Z</updated>
+    <updated>2022-06-14T07:48:48.468Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.sssdoctor.com"/>
     <link rel="self" href="https://www.sssdoctor.com/atom.xml"/>
@@ -10,6 +10,27 @@
     <logo>https://www.sssdoctor.com/images/avatar.png</logo>
     <icon>https://www.sssdoctor.com/favicon.ico</icon>
     <rights>All rights reserved 2022, 大大大大宋</rights>
+    <entry>
+        <title type="html"><![CDATA[ADAMS进阶2——刚体建模]]></title>
+        <id>https://www.sssdoctor.com/post/adams-jin-jie-2-gang-ti-jian-mo/</id>
+        <link href="https://www.sssdoctor.com/post/adams-jin-jie-2-gang-ti-jian-mo/">
+        </link>
+        <updated>2022-06-14T00:15:31.000Z</updated>
+        <summary type="html"><![CDATA[<p>本专题要求：**1.熟练掌握刚体模型建立的两种方法：软件内部建立（直接创立集合元素）或者其他软件导入****2.熟悉使用adams本身建模时操作命令，包括：实体建模、布尔运算、特征。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>本专题要求：**1.熟练掌握刚体模型建立的两种方法：软件内部建立（直接创立集合元素）或者其他软件导入****2.熟悉使用adams本身建模时操作命令，包括：实体建模、布尔运算、特征。</p>
+<!-- more -->
+<p><img src="https://www.sssdoctor.com/post-images/1655192694450.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655192699160.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655192703922.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655192707579.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655192711302.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655192715161.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655192719589.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655192723594.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655192728162.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ADAMS进阶1——使用基础提升]]></title>
         <id>https://www.sssdoctor.com/post/adams-jin-jie-1-shi-yong-ji-chu-ti-sheng/</id>
@@ -579,101 +600,6 @@ Intensity=σ1-σ3≤σs<br>
 当选择矢量显示后，工具栏将出现矢量显示工具条。<br>
 3，最大值、最小值、探针<br>
 选择最大值与最小值时，程序会自动在图形此处标记，但是应力奇异需要用户自己判断，所以很多时候不能直接使用最大值，而是需要我们手动探测。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Ansys Workbench Mechanical边界条件—载荷与约束界面详解]]></title>
-        <id>https://www.sssdoctor.com/post/ansys-workbench-mechanical-bian-jie-tiao-jian-zai-he-yu-yue-shu-jie-mian-xiang-jie/</id>
-        <link href="https://www.sssdoctor.com/post/ansys-workbench-mechanical-bian-jie-tiao-jian-zai-he-yu-yue-shu-jie-mian-xiang-jie/">
-        </link>
-        <updated>2022-04-08T07:07:36.000Z</updated>
-        <summary type="html"><![CDATA[<p>Mechanical应用是Ansys Workbench的重要组成部分，可进行力学分析、热分析、电磁分析等。载荷与约束被称为边界条件，只有在正确的设置情况下，才能反映真实的载荷与约束情况。Mechanical中有4种类型的边界条件：惯性载荷、结构载荷、结构约束、热载荷。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>Mechanical应用是Ansys Workbench的重要组成部分，可进行力学分析、热分析、电磁分析等。载荷与约束被称为边界条件，只有在正确的设置情况下，才能反映真实的载荷与约束情况。Mechanical中有4种类型的边界条件：惯性载荷、结构载荷、结构约束、热载荷。</p>
-<!-- more -->
-<h1 id="1-对象选择与施加方法"><strong>1. 对象选择与施加方法</strong></h1>
-<p>载荷与约束的施加对象通常可以通过两种方式选择：几何模型选择<strong>Geometry Selection</strong>与集合选择 <strong>named Selection</strong>。<br>
-<img src="https://www.sssdoctor.com/post-images/1649683037751.jpg" alt="" loading="lazy"></p>
-<h1 id="2惯性力inertial">2.惯性力Inertial</h1>
-<p>惯性力包括加速度<strong>Acceleration</strong>、重力加速度<strong>Standard Earth Gravity</strong>、旋转速度<strong>Rotational Velocit</strong>、旋转加速度<strong>Rotational Acceleration</strong><br>
-<img src="https://www.sssdoctor.com/post-images/1649682843950.png" alt="" loading="lazy"></p>
-<h1 id="3结构载荷loads">3.结构载荷Loads</h1>
-<h2 id="31压力pressure">3.1.压力Pressure</h2>
-<p>压力只能施加在面上，方向通常垂直于面，也可以按分量施加压力。</p>
-<h2 id="32静水压力hydrostatic-pressure">3.2静水压力Hydrostatic Pressure</h2>
-<p>静水压力用于<strong>模拟流体对容器的压力</strong>，施加静水压力时需要指定<strong>流体密度</strong>、<strong>重力加速度</strong>和<strong>流体液面位置</strong>。<br>
-<img src="https://www.sssdoctor.com/post-images/1649683257168.jpg" alt="" loading="lazy"></p>
-<h2 id="33力force">3.3力Force</h2>
-<p>力可以施加在<strong>点、边、面上</strong>。施加在面上的力将均布在所选面上，比如一个力施加在N个相同面积的面上，则每个面所施加的力为总力的1/N。</p>
-<h2 id="34远端力remote-force">3.4远端力Remote Force</h2>
-<p>远端力是指在点、边、面上施加一个远离集中力的载荷，相当于施加力一个<strong>集中力</strong>和<strong>一个力矩</strong>。在细节窗口中需要指定力作用点和大小。<br>
-<img src="https://www.sssdoctor.com/post-images/1649683325480.jpg" alt="" loading="lazy"></p>
-<h2 id="35轴承载荷bearing-load">3.5轴承载荷Bearing Load</h2>
-<p>在轴与孔接触面上存在法向（径向）压力的作用，轴与孔之间的这个压缩载荷，称之为轴承载荷。轴承载荷施加在圆柱内表面或外表面，其径向分量将根据投影面积来分布压力载荷，无轴向分量。如果孔的圆柱面被分割为多个面，使用轴承载荷边界条件时，需要选择所有面。<br>
-<img src="https://www.sssdoctor.com/post-images/1649683460863.png" alt="" loading="lazy"></p>
-<h2 id="36螺栓预紧力bolt-pretension">3.6螺栓预紧力Bolt Pretension</h2>
-<p>螺栓预紧力可加载在圆轴面、单个体或多个体上，用于模拟螺栓连接。如果加载在一个体上，需要指定一个坐标系，预紧力作用在该坐标系的原点，且方向沿Z轴收缩。☆<strong>需要注意的是，由于软件计算机制的问题，当施加一个与预紧力平行的拉力，且拉力＞预紧力时，软件将不能正确计算，此时可使用力代替预紧力施加在螺栓两端。</strong><br>
-<img src="https://www.sssdoctor.com/post-images/1649683681470.png" alt="" loading="lazy"></p>
-<h2 id="37力矩moment">3.7力矩Moment</h2>
-<p>力矩可加载在点、线、面上，施加在面上的力矩，力矩的旋转中心为所选面的几何形心。<br>
-<img src="https://www.sssdoctor.com/post-images/1649684830845.jpg" alt="" loading="lazy"><br>
-**如何定义偏心矩？**☆如何加载偏心力矩：通过修改坐标系的位置（或建立新坐标系）并不能使力矩中心偏离，因为分量只能定义力矩方向，而不能定义力矩中心位置。<br>
-<strong>step1</strong>定义Joint，右击特征树中Model——Inset——Connections，如果特征树中已经有Connections，则可以省略这一操作。右击Connections——Inset——Joint，Connection Type选择Body-Ground，Type选择Revolute，Scope选择外圆柱面。<br>
-<img src="https://www.sssdoctor.com/post-images/1649686511870.png" alt="" loading="lazy"><br>
-<strong>step2</strong>设置Joint后，在特征树的Joint下将生成一个新的坐标ReferenceCoordinate System，点击进行设置，Define By改为全局坐标Global Coordinates并分别设置XYZ方向偏移距离。<br>
-<img src="https://www.sssdoctor.com/post-images/1649686519969.png" alt="" loading="lazy"><br>
-<strong>step3</strong>添加Joint Moment，点击Loads——Joint Load，Joint设置为刚才定义的连接，Type设置为Moment，Magnitude设置力矩大小。<br>
-<img src="https://www.sssdoctor.com/post-images/1649686527343.jpg" alt="" loading="lazy"></p>
-<h2 id="38线压力line-pressure">3.8线压力Line Pressure</h2>
-<p>线压力以载荷密度的形式在边上施加一个均布载荷，单位为N/mm，方向可以按矢量、分量和切向方式。<br>
-<img src="https://www.sssdoctor.com/post-images/1649686611876.png" alt="" loading="lazy"></p>
-<h2 id="39热条件thermal-condition">3.9热条件Thermal Condition</h2>
-<p>热条件可在结构分析或热分析中插入温度边界条件。使用热条件时请先确认模型材料是否已经定义了热膨胀系数。<br>
-如图内外圈材料均为默认的合金钢，内圈温度为200℃，外圈为常温，固定外圈的外圆柱面求应力与变形。<br>
-<img src="https://www.sssdoctor.com/post-images/1649686843043.png" alt="" loading="lazy"><br>
-进入Mechanical，在特征的Model下点击几何体，如下图点击Edit Structural Steel进入材料库。<br>
-<img src="https://www.sssdoctor.com/post-images/1649686853478.jpg" alt="" loading="lazy"><br>
-检查是否已定义了热膨胀参数，下图为程序默认的结构钢定义的热膨胀参数，已定义了各向同性热膨胀割线系数Isotropic Secant Coefficient of Thermal Expansion，热膨胀系数Coefficient of Thermal Expansion为1.2×10^-5mm/℃。<br>
-<img src="https://www.sssdoctor.com/post-images/1649687048465.jpg" alt="" loading="lazy"><br>
-回到Mechanical中，修改接触关系，点击特征树的Connections——Contacts下的接触对，将接触类型Type的绑定Bonded改为摩擦Frictional，摩擦系数设置为0.2。<br>
-<img src="https://www.sssdoctor.com/post-images/1649687070882.jpg" alt="" loading="lazy"><br>
-设置边界条件：固定外圈的外圆柱面，对内圈施加热条件。<br>
-<img src="https://www.sssdoctor.com/post-images/1649687078743.jpg" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1649687084460.jpg" alt="" loading="lazy"></p>
-<h2 id="310关节载荷joint-load">3.10关节载荷Joint Load</h2>
-<p>使用前需要先建立关节节点，相关内容将在接触类型中详解。</p>
-<h1 id="4结构约束supports">4.结构约束Supports</h1>
-<p>约束种类:约束的本质是限制自由度。自由度是用于描述物理场的响应特性，结构场的自由度包括移动和转动。自由度＞0时为运动机构，自由度＝0时为静力学平衡机构，自由度＜0为超静定结构。静力学主要研究自由度≤0的机构。<br>
-<img src="https://www.sssdoctor.com/post-images/1649687257820.jpg" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1649687487239.jpg" alt="" loading="lazy"></p>
-<h2 id="41固定约束fixed-support">4.1固定约束Fixed Support</h2>
-<p>约束点、线、面的所有自由度，即约束实体X/Y/Z方向的移动，约束面体、线体X/Y/Z方向的移动及绕X/Y/Z的转动。需要注意的是在<strong>固定约束处会产生应力奇异,所以不能以固定约束处的应力作为结果判据</strong>。下面以截面为10mm×10mm的矩形条拉伸说明此问题，固定矩形条一端，另一端施加10000N的拉力，根据材料力学的理论。矩形条的应力应该为σ =F/A=10000/100=100MPa。使用固定约束后，在不同网格尺寸下的最大（奇异）应力见下表，最大（奇异）应力均出现在固定约束处。<br>
-<img src="https://www.sssdoctor.com/post-images/1649724516721.jpg" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1649724526261.png" alt="" loading="lazy"></p>
-<h2 id="42位移约束displacement">4.2位移约束Displacement</h2>
-<p>约束点、线、面的位移自由度，即约束实体、面体、线体X/Y/Z方向的移动，默认是全局坐标系，可以在Define By中设置自定义的坐标系，在各向X/Y/Z Componernt设置X/Y/Z向强制位移的值，默认为Free(自由)，设置为0时表示此方向约束，输入具体数值时表示在此方向强制移动此距离。注意<strong>位移约束也可能会产生应力奇异，约束处的应力不能作为结果判据</strong>。</p>
-<h2 id="43远程位移约束remote-displacement">4.3远程位移约束Remote Displacement</h2>
-<p>远程位移约束是以刚性的方法将所选的点、线、面连接到一个公共点（即定位点），在该点上对三向移动和三向转动共6个自由点进行设置，读者可以将此点理解为铰支点。实体设置旋转自由度常使用这一方法。<br>
-默认的定位点是所选对象的质心，可以手动修改，所设置的6向自由度都是相对于定位点，定位点不同，所求结果有所区别。<strong>经常把远程位移约束称为万能约束(不会产生奇异）</strong>。</p>
-<hr>
-<h2 id="44无摩擦约束frictionless-support">4.4无摩擦约束Frictionless Support</h2>
-<p>无摩擦约束是在几何体选定的面上施加法向约束，对切向不约束，效果等同于对称面的约束。</p>
-<hr>
-<h2 id="45仅压缩的约束compression-only-support">4.5仅压缩的约束Compression Only Support</h2>
-<p>仅压缩的约束事在选定的面上的<strong>法向施加仅压缩方向</strong>的约束，而拉伸方向自由，对切向不约束。注意，无摩擦约束是在选定面的法向施加拉伸和压缩的约束，而仅压缩的约束是在选定面的法向施加压缩方向的约束，所以<strong>无摩擦约束是线性约束</strong>，而<strong>仅压缩的约束是非线性约束</strong>，会增加计算时间。仅压缩的约束经常用于模拟物体放置于地面(或平台)，此时允许物体脱离地面(或平台)，但不允许穿过地面(或平台)。</p>
-<hr>
-<h2 id="46圆柱面约束cylindrical-support">4.6圆柱面约束Cylindrical Support</h2>
-<p>圆柱面约束是指在圆柱表面施加轴向、径向、切向（圆周方向）约束，默认三个方向都为固定，可以通过下拉菜单选择自由，该约束仅适用于小变形的线性分析。</p>
-<hr>
-<h2 id="47简支约束simply-supported">4.7简支约束Simply Supported</h2>
-<p>简支约束即简支点约束，只适用于线体或面体（即梁或壳单元），只能加载在边线或顶点上，简支约束约束三向位移，不约束旋转自由度。</p>
-<hr>
-<h2 id="48固定旋转fixed-rotation">4.8固定旋转Fixed Rotation</h2>
-<p>固定旋转只适用于线体或面体（即梁或壳单元），只能加载在的边线或顶点上，固定旋转约束三向旋转，不约束位移自由度。每一方向的旋转自由度可通过下拉菜单修改为free（自由）。</p>
-<hr>
-<h2 id="49弹性约束elastic-support">4.9弹性约束Elastic Support</h2>
-<p>弹性约束允许面根据弹簧行为产生移动或变形，必须设置基础刚度S (Foundation Stiffness)。可以将弹性约束想象为给选定面加上了弹性系数为K的弹簧，当几何体受力时可以根据胡克定律F=Kx算出约束面的位移。</p>
-<h1 id="搬运自httpszhuanlanzhihucomp392980475个人小修">搬运自<a href="https://zhuanlan.zhihu.com/p/392980475">https://zhuanlan.zhihu.com/p/392980475</a>+个人小修</h1>
 ]]></content>
     </entry>
 </feed>
