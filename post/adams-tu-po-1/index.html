@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>adams突破1 | 大大大大宋</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://www.sssdoctor.com/favicon.ico?v=1655165557746">
+<link rel="stylesheet" href="https://www.sssdoctor.com/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="中心主题
+建模
+连接、约束
+低副
+
+固定副
+旋转副
+滑移副
+圆柱副
+球副
+等速副
+胡克副
+螺纹副
+平面副
+
+基本副
+
+平行约束
+垂直约束
+方向约束
+点面约束
+点线约束
+
+耦合副
+
+
+齿轮副
+
+直齿齿轮
+斜齿轮
+行星齿轮
+锥齿轮
+齿条齿轮
+蜗..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://www.sssdoctor.com">
+        <img src="https://www.sssdoctor.com/images/avatar.png?v=1655165557746" class="site-logo">
+        <h1 class="site-title">大大大大宋</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://Supersong1998.github.io/tags" class="site-nav" target="_blank">
+            分类
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://www.sssdoctor.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">adams突破1</h2>
+            <div class="post-date">2022-05-18</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="中心主题">中心主题</h1>
+<h2 id="建模">建模</h2>
+<h2 id="连接-约束">连接、约束</h2>
+<h3 id="低副">低副</h3>
+<ul>
+<li>固定副</li>
+<li>旋转副</li>
+<li>滑移副</li>
+<li>圆柱副</li>
+<li>球副</li>
+<li>等速副</li>
+<li>胡克副</li>
+<li>螺纹副</li>
+<li>平面副</li>
+</ul>
+<h3 id="基本副">基本副</h3>
+<ul>
+<li>平行约束</li>
+<li>垂直约束</li>
+<li>方向约束</li>
+<li>点面约束</li>
+<li>点线约束</li>
+</ul>
+<h3 id="耦合副">耦合副</h3>
+<ul>
+<li>
+<p>齿轮副</p>
+<ul>
+<li>直齿齿轮</li>
+<li>斜齿轮</li>
+<li>行星齿轮</li>
+<li>锥齿轮</li>
+<li>齿条齿轮</li>
+<li>蜗轮蜗杆齿轮</li>
+</ul>
+</li>
+<li>
+<p>耦合副</p>
+<ul>
+<li>皮带轮</li>
+<li>链轮</li>
+<li>滑轮</li>
+</ul>
+</li>
+</ul>
+<h3 id="高副special">高副special</h3>
+<ul>
+<li>点线接触副</li>
+<li>线线接触副</li>
+</ul>
+<h2 id="驱动motion">驱动motion</h2>
+<h3 id="约束驱动joint-motion">约束驱动joint motion</h3>
+<ul>
+<li>移动副驱动</li>
+<li>旋转副</li>
+</ul>
+<h3 id="通用约束general-motion">通用约束general motion</h3>
+<ul>
+<li>
+<p>单点驱动</p>
+<ul>
+<li>指定两个构件只能沿着一个轴转动或者移动，两个构件可以定义多个单点驱动</li>
+</ul>
+</li>
+<li>
+<p>一般点驱动</p>
+<ul>
+<li>约束一次可以指定两个构件沿三个轴的移动或者转动</li>
+</ul>
+</li>
+</ul>
+<h2 id="力元建模">力元建模</h2>
+<h3 id="分类">分类</h3>
+<ul>
+<li>
+<p>作用力</p>
+<ul>
+<li>单分量力</li>
+<li>单分量力矩</li>
+<li>3分量力</li>
+<li>3分量力矩</li>
+<li>3分量力及力矩</li>
+</ul>
+</li>
+<li>
+<p>柔性力</p>
+<ul>
+<li>线性弹簧阻尼器</li>
+<li>衬套</li>
+<li>扭转弹簧阻尼器</li>
+<li>无质量梁</li>
+<li>场力</li>
+</ul>
+</li>
+<li>
+<p>特殊力</p>
+</li>
+</ul>
+<h3 id="定义力">定义力</h3>
+<ul>
+<li>
+<p>原则：按照力学三要素：大小、方向、作用点</p>
+</li>
+<li>
+<p>大小定义</p>
+<ul>
+<li>对于外部在和，直接输入力或者力矩的大小。对于柔性力，可直接输入相关系数：刚度系数K,阻尼系数C,扭转刚度系数KT，扭转阻尼系数CT</li>
+<li>输入ADAMS/VIEW提供的函数表达式</li>
+<li>输入子程序的传递函数</li>
+</ul>
+</li>
+</ul>
+<h2 id="求解器">求解器</h2>
+<h3 id="功能">功能</h3>
+<h3 id="计算类型">计算类型</h3>
+<ul>
+<li>
+<p>装配分析</p>
+<ul>
+<li>又称为初始条件分析，可以用于检查所定义的初始条件中相矛盾或者不匹配之处，检查所有的约束是否被破坏或者被错误定义，通过装配分析有助于纠正错误的约束，比如分开的约束。</li>
+</ul>
+</li>
+<li>
+<p>静力学</p>
+<ul>
+<li>系统自由度为0，所有部件的加速度及速度都设置为0</li>
+</ul>
+</li>
+<li>
+<p>动力学分析</p>
+<ul>
+<li>系统自由度大于0，由一系列的外载荷和激励所驱动</li>
+</ul>
+</li>
+<li>
+<p>运动学分析</p>
+<ul>
+<li>系统自由度0，由约束驱动使系统运动</li>
+</ul>
+</li>
+<li>
+<p>线性化分析</p>
+</li>
+</ul>
+<h3 id="验证模型">验证模型</h3>
+<ul>
+<li>对模型的拓扑结构、总有毒、冗余约束等信息进行验证以保证所建立模型的准确性</li>
+</ul>
+<h3 id="仿真控制">仿真控制</h3>
+<ul>
+<li>
+<p>交互式</p>
+<ul>
+<li>子主题 1</li>
+</ul>
+</li>
+<li>
+<p>脚本式</p>
+<ul>
+<li>脚本式可实现更复杂的控制，属于ADAMS的进阶</li>
+</ul>
+</li>
+</ul>
+<h3 id="后处理">后处理</h3>
+<ul>
+<li>
+<p>功能及特色</p>
+</li>
+<li>
+<p>界面及操作</p>
+<ul>
+<li>
+<p>模式</p>
+<ul>
+<li>绘制曲线</li>
+<li>仿真动画</li>
+<li>报告</li>
+<li>3D曲线</li>
+</ul>
+</li>
+<li>
+<p>后处理前操作</p>
+<ul>
+<li>动画、颜色、曲线、字体等首选项</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

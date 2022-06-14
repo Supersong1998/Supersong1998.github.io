@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sssdoctor.com</id>
     <title>大大大大宋</title>
-    <updated>2022-05-05T14:24:40.346Z</updated>
+    <updated>2022-06-14T00:13:27.509Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.sssdoctor.com"/>
     <link rel="self" href="https://www.sssdoctor.com/atom.xml"/>
@@ -11,7 +11,55 @@
     <icon>https://www.sssdoctor.com/favicon.ico</icon>
     <rights>All rights reserved 2022, 大大大大宋</rights>
     <entry>
-        <title type="html"><![CDATA[响应谱分析]]></title>
+        <title type="html"><![CDATA[ADAMS进阶1——使用基础提升]]></title>
+        <id>https://www.sssdoctor.com/post/adams-jin-jie-1-shi-yong-ji-chu-ti-sheng/</id>
+        <link href="https://www.sssdoctor.com/post/adams-jin-jie-1-shi-yong-ji-chu-ti-sheng/">
+        </link>
+        <updated>2022-06-13T08:07:44.000Z</updated>
+        <summary type="html"><![CDATA[<p>包括针对特定专业及领域的模块：ADAMS CAR/振动模块ADAMS Vibration/控制模块ADMAS control/耐久性模块ADAMS durability/柔性体模块ADMAS autoflex/机械传动模块machinery</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>包括针对特定专业及领域的模块：ADAMS CAR/振动模块ADAMS Vibration/控制模块ADMAS control/耐久性模块ADAMS durability/柔性体模块ADMAS autoflex/机械传动模块machinery</p>
+<!-- more -->
+<p><img src="https://www.sssdoctor.com/post-images/1655165392623.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655165397549.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655165400679.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655165406704.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655165410035.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655165413947.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655165417037.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655165420941.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[ADAMS基本操作分析]]></title>
+        <id>https://www.sssdoctor.com/post/adams-ji-ben-cao-zuo-fen-xi/</id>
+        <link href="https://www.sssdoctor.com/post/adams-ji-ben-cao-zuo-fen-xi/">
+        </link>
+        <updated>2022-05-16T00:53:58.000Z</updated>
+        <summary type="html"><![CDATA[<p>Adams软件能够让用户通过对其产品的运动情况进行仿真,来验证其产品性能、<strong>计算约束反力、间隙、碰撞、电机和作动器的尺寸、运转周期、精密定位，并观察包装封套是否合理等</strong></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Adams软件能够让用户通过对其产品的运动情况进行仿真,来验证其产品性能、<strong>计算约束反力、间隙、碰撞、电机和作动器的尺寸、运转周期、精密定位，并观察包装封套是否合理等</strong></p>
+<!-- more -->
+<figure data-type="image" tabindex="1"><img src="https://www.sssdoctor.com/post-images/1652688879640.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[随机振动分析]]></title>
+        <id>https://www.sssdoctor.com/post/sui-ji-zhen-dong-fen-xi/</id>
+        <link href="https://www.sssdoctor.com/post/sui-ji-zhen-dong-fen-xi/">
+        </link>
+        <updated>2022-05-05T06:27:10.000Z</updated>
+        <summary type="html"><![CDATA[<p>机械系统受到外部随机激励后，系统产生的响应即为随机振动。例如，一辆货车行驶过路面时，车身受到路面随机激励后产生的振动</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>机械系统受到外部随机激励后，系统产生的响应即为随机振动。例如，一辆货车行驶过路面时，车身受到路面随机激励后产生的振动</p>
+<!-- more -->
+<p>以货车路面试验为例，货车每次以相同速度经过该路面后，都获得一条关于车身某点的应力时间历程曲线X(ei)，由于<strong>路面的随机不平度</strong>，每次得到的应力时间历程曲线都不同。如图所示，经过无穷多次试验后，无穷多条应力时间历程曲线(每条时间历程曲线都是一个样本函数)的组合就是一个随机过程。<br>
+<img src="https://www.sssdoctor.com/post-images/1651816944084.jpg" alt="" loading="lazy"><br>
+外部激励X(t)作用到机械系统后，机械系统输出系统响应y。在这个过程中，机械系统本身被简化为一个频响函数H(w)。这样，随机振动的求解过程就已十分清晰，即应先求解系统频响函数。求解频响函数是随机振动分析中最重要的步骤，系统频响函数的求解包括模态分析和频响函数计算。软件计算时，通常是先计算获取模态参数再进行频响函数计算，在有限元软件中由软件自动完成。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[响应谱&谐响应分析]]></title>
         <id>https://www.sssdoctor.com/post/xiang-ying-pu-fen-xi/</id>
         <link href="https://www.sssdoctor.com/post/xiang-ying-pu-fen-xi/">
         </link>
@@ -20,13 +68,16 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>在工程计中，常要求了解系统受到<strong>冲击载荷作用后的最大响应值</strong>，即振动的位移或加速度的最大值。由于作用时间短暂，计算最大响应值时通常忽略系统的阻尼，使计算结果更偏于安全。最大响应值与激励的某个参数（例如激励作用时间）的关系曲线即称作响应谱（<strong>response spectrum</strong>）</p>
 <!-- more -->
-<h1 id="概念">概念</h1>
+<h1 id="响应谱概念">响应谱概念</h1>
 <ol>
 <li>响应谱是系统在给定激励下的<strong>最大响应值与系统或激励的某一参数之间</strong>的关系曲线图。最大响应值可以是系统的<strong>最大位移、最大速度、最大应力或出现最大值的时刻</strong>；参数可以选择为<strong>系统的固有频率或激励的作用时间</strong>等。响应谱中有关量都化为无量纲的参数表示。</li>
 <li>响应谱在工程实际中是很重要的，它<strong>揭示出最大值出现的条件或时间</strong>等，如受迫振动幅频特性曲线。当振动系统已定，激励力的大小已定时，该曲线表示出受迫振动的振幅和激励力频率的关系。由曲线便能确定最大振幅出现时的激励力频率的值，因此幅频特性曲线就是一种响应谱。</li>
 <li>响应谱分析是<strong>计算结构在瞬态激励下峰值响应的近似算法，它是模态分析的扩展</strong>。响应谱分析的应用非常广泛，最典型的应用是土木行业的地震响应谱分析，<strong>响应谱分析是地震分析的标准分析方法</strong>，被应用到各种结构的地震分析中，如<strong>大坝、电站、桥梁、房屋建筑</strong>等。任何受到地震或其它振动荷载的结构或部件均可以用响应谱分析来进行校核。</li>
 <li>响应谱分析是一种频域分析，其输入荷载为<strong>振动荷载的频谱</strong>，如地震频谱，加速度频谱，也可以是速度频谱、位移频谱等，响应谱分析从频域的角度计算结构的峰值响应。</li>
 </ol>
+<h1 id="谐响应">谐响应</h1>
+<p><strong>从分析的角度看，谐响应分析就是做了一堆等幅值正弦激励下的频响分析</strong><br>
+<strong>谐响应分析就是对线性系统施加一系列不同频率的周期正弦激励，分析其在周期激励下的周期响应(稳态响应)，即不考虑激励刚开始加入系统时候的瞬态响应</strong>。如要考察整个过程(瞬态和稳态)系统的响应情况则需要通过时域分析，可参考之前时域分析部分内容。同时还可以得到不同节点的幅频和相频特性。</p>
 ]]></content>
     </entry>
     <entry>
@@ -623,301 +674,6 @@ Intensity=σ1-σ3≤σs<br>
 <h2 id="49弹性约束elastic-support">4.9弹性约束Elastic Support</h2>
 <p>弹性约束允许面根据弹簧行为产生移动或变形，必须设置基础刚度S (Foundation Stiffness)。可以将弹性约束想象为给选定面加上了弹性系数为K的弹簧，当几何体受力时可以根据胡克定律F=Kx算出约束面的位移。</p>
 <h1 id="搬运自httpszhuanlanzhihucomp392980475个人小修">搬运自<a href="https://zhuanlan.zhihu.com/p/392980475">https://zhuanlan.zhihu.com/p/392980475</a>+个人小修</h1>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[tensorflow_keras]]></title>
-        <id>https://www.sssdoctor.com/post/tensorflow_keras/</id>
-        <link href="https://www.sssdoctor.com/post/tensorflow_keras/">
-        </link>
-        <updated>2022-04-07T00:42:13.000Z</updated>
-        <summary type="html"><![CDATA[<p>import tensorflow as tf<br>
-from keras import layers<br>
-model=tf.keras.Sequential()<br>
-#添加一个64个单元的全连接层，&quot;input_shape&quot;为该层接受输入的数据的维度<br>
-##'activation'指定该层用的激活函数</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>import tensorflow as tf<br>
-from keras import layers<br>
-model=tf.keras.Sequential()<br>
-#添加一个64个单元的全连接层，&quot;input_shape&quot;为该层接受输入的数据的维度<br>
-##'activation'指定该层用的激活函数</p>
-<!-- more -->
-<p>#第一层，输入层<br>
-model.add(layers.Dense(64,activation='relu',input_shape=(32,)))<br>
-#第二层，隐藏层<br>
-model.add(layers.Dense(64,activation='relu'))<br>
-#添加一个softmax层作为输出层<br>
-model.add(layers.Dense(10,activation='softmax'))<br>
-#编译模型，参数包括指定的优化器，学习率，损失函数loss，metics模型的评价函数  其中adam,sgd都是优化器<br>
-model.compile(optimizer=tf.keras.optimizers.Adam(0.001),<br>
-loss='categorical_crossentropy',<br>
-metrics=['accuracy'])<br>
-#使用numpy生成随机数作为训练数据<br>
-import numpy as np<br>
-data=np.random.random((1000,32))#1000行32列<br>
-labels=np.random.random((1000,10))<br>
-print(data[0])<br>
-print(labels[0])</p>
-<p>#验证集使用numpy随机生成<br>
-val_data=np.random.random((1000,32))<br>
-val_labels=np.random.random((1000,10))</p>
-<p>model.fit(data,labels,epochs=10,batch_size=50,validation_data=(val_data,val_labels))</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[tensorflow_data]]></title>
-        <id>https://www.sssdoctor.com/post/tensorflow_data/</id>
-        <link href="https://www.sssdoctor.com/post/tensorflow_data/">
-        </link>
-        <updated>2022-04-06T12:31:19.000Z</updated>
-        <summary type="html"><![CDATA[<p>import tensorflow as tf<br>
-import pathlib<br>
-#检查tensorflow版本<br>
-print(tf.version)</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>import tensorflow as tf<br>
-import pathlib<br>
-#检查tensorflow版本<br>
-print(tf.version)</p>
-<!-- more -->
-<p>#获取当前路径<br>
-data_root=pathlib.Path.cwd()<br>
-print(data_root)</p>
-<p>#获取所有图片样本文件的路径并输出：<br>
-all_imagine_paths = list(data_root.glob('<em>/</em>/*'))<br>
-print(type(all_imagine_paths[0]))</p>
-<p>#将对象转换成字符串<br>
-all_imagine_paths=[str(path) for path in all_imagine_paths]<br>
-print(all_imagine_paths[2])<br>
-print(data_root)</p>
-<p>#获取图片样本类别的名称，即存放样本的五个文件夹的名称 sorted排序、<br>
-label_names=sorted(item.name for item in data_root.glob('<em>/</em>/') if item.is_dir())</p>
-<p>#将类别名称转换成为数值型的类标 dict字典 enumerate枚举<br>
-label_to_index=dict((name,index) for index,name in enumerate(label_names))</p>
-<p>#获取所有图片的类别<br>
-all_image_labels = [label_to_index[pathlib.Path(path).parent.name]<br>
-for path in all_imagine_paths]<br>
-print(label_to_index)</p>
-<p>#加载和预处理图片数据<br>
-def load_and_preprocessing_image(path):<br>
-#读取图片<br>
-image=tf.io.read_file(path)<br>
-#将jpeg格式的图片解码，得到一个张量（三维的矩阵）<br>
-image=tf.image.decode_jpeg(image,channels=3)<br>
-#由于数据集中每个图片大小不一样，所以所以将其统一调整为192*192<br>
-image=tf.image.resize(image, [192,192])<br>
-#对每个像素点的RGB值做归一化处理<br>
-image /=255.0</p>
-<pre><code>return image
-</code></pre>
-<p>#构建图片路径的数据集<br>
-path_ds=tf.data.Dataset.from_tensor_slices(all_imagine_paths)<br>
-#使用autotune自动调节管道参数<br>
-AUTOTUNE=tf.data.experimental.AUTOTUNE<br>
-#构建图片数据的数据集<br>
-image_ds=path_ds.map(load_and_preprocessing_image,num_parallel_calls=AUTOTUNE)<br>
-#构建类标的数据集<br>
-label_ds=tf.data.Dataset.from_tensor_slices(tf.cast(all_image_labels,tf.int64))<br>
-#将图片和类标压缩为（图片，类标）对<br>
-image_label_ds=tf.data.Dataset.zip((image_ds,label_ds))<br>
-print(image_ds)<br>
-print(label_ds)<br>
-print(image_label_ds)</p>
-<p>#数据集中部分可视化<br>
-import matplotlib.pyplot as plt<br>
-plt.figure(figsize=(8,8))<br>
-for n,image_label in enumerate(image_label_ds.take(4)):<br>
-plt.subplot(2,2,n+1)<br>
-plt.imshow(image_label[0])<br>
-plt.grid(False)<br>
-plt.xticks([])<br>
-plt.yticks([])<br>
-plt.show()</p>
-<h1 id="下载的模型在用户根目录下~kerasmodelsmobilenet_v2_weights_tf_dim_ordering_tf_kernels_10_192_no_toph5">下载的模型在用户根目录下“~/.keras/models/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_1.0_192_no_top.h5”</h1>
-<p>mobile_net = tf.keras.applications.MobileNetV2(input_shape=(192, 192, 3),include_top=False)<br>
-mobile_net.trainable = False</p>
-<h1 id="使用dataset类的shuffle方法打乱数据集">使用Dataset类的shuffle方法打乱数据集</h1>
-<p>image_count = len(all_imagine_paths)<br>
-ds = image_label_ds.shuffle(buffer_size=image_count)</p>
-<h1 id="让数据集重复多次">让数据集重复多次</h1>
-<p>ds = ds.repeat()</p>
-<h1 id="设置每个batch的大小">设置每个batch的大小</h1>
-<p>BATCH_SIZE = 32<br>
-ds = ds.batch(BATCH_SIZE)</p>
-<h1 id="通过prefetch方法让模型的训练和每个batch数据集的加载并行">通过“prefetch”方法让模型的训练和每个batch数据集的加载并行</h1>
-<p>ds = ds.prefetch(buffer_size=AUTOTUNE)</p>
-<h1 id="定义一个函数用来将范围在01之间的数据映射到-11之间">定义一个函数用来将范围在[0,1]之间的数据映射到[-1,1]之间</h1>
-<p>def change_range(image,label):<br>
-return 2*image-1, label</p>
-<!-- more -->
-<p>keras_ds = ds.map(change_range)<br>
-model = tf.keras.Sequential([<br>
-mobile_net,<br>
-tf.keras.layers.GlobalAveragePooling2D(),<br>
-tf.keras.layers.Dense(len(label_names))])</p>
-<p>model.compile(optimizer=tf.keras.optimizers.Adam(),<br>
-loss='sparse_categorical_crossentropy',<br>
-metrics=[&quot;accuracy&quot;])<br>
-model.summary()</p>
-<p>model.fit(ds, epochs=10, steps_per_epoch=500)</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[CNN]]></title>
-        <id>https://www.sssdoctor.com/post/cnn/</id>
-        <link href="https://www.sssdoctor.com/post/cnn/">
-        </link>
-        <updated>2022-04-01T00:44:59.000Z</updated>
-        <summary type="html"><![CDATA[<p>import numpy as np<br>
-import pandas as pd<br>
-import tensorflow as tf</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>import numpy as np<br>
-import pandas as pd<br>
-import tensorflow as tf</p>
-<!-- more -->
-<p>#数据预处理函数<br>
-def data_preprocess(path, more_data):<br>
-# 读取数据<br>
-#json是JavaScript Object Notation的简写<br>
-#panda是数据处理库<br>
-#data_frame是数据框架<br>
-data_frame = pd.read_json(path)</p>
-<pre><code># 获取图像数据
-images = []#首先有一个矩阵用于存放图像
-#row行 colum列
-for _, row in data_frame.iterrows():
-    # 将一维数据转为75x75的二维数据
-    band_1 = np.array(row['band_1']).reshape(75, 75)
-    band_2 = np.array(row['band_2']).reshape(75, 75)
-    band_3 = band_1 + band_2
-
-    images.append(np.dstack((band_1, band_2, band_3)))
-if more_data:
-    # 扩充数据集
-    images = create_more_data(np.array(images))
-
-# 获取类标
-labels = np.array(data_frame['is_iceberg'])
-if more_data:
-    # 扩充数据集后，类标也需要相应扩充
-    labels = np.concatenate((labels, labels, labels, labels, labels, labels))
-
-return np.array(images), labels
-</code></pre>
-<p>def create_more_data(images):<br>
-# 扩充数据<br>
-image_rot90 = []<br>
-image_rot180 = []<br>
-image_rot270 = []<br>
-img_lr = []<br>
-img_ud = []</p>
-<pre><code>for i in range(0, images.shape[0]):
-    band_1 = images[i, :, :, 0]
-    band_2 = images[i, :, :, 1]
-    band_3 = images[i, :, :, 2]
-
-    # 旋转90度
-    band_1_rot90 = np.rot90(band_1)
-    band_2_rot90 = np.rot90(band_2)
-    band_3_rot90 = np.rot90(band_3)
-    image_rot90.append(np.dstack((band_1_rot90, band_2_rot90, band_3_rot90)))
-
-    # 旋转180度
-    band_1_rot180 = np.rot90(band_1_rot90)
-    band_2_rot180 = np.rot90(band_2_rot90)
-    band_3_rot180 = np.rot90(band_3_rot90)
-    image_rot180.append(np.dstack((band_1_rot180, band_2_rot180, band_3_rot180)))
-
-    # 旋转270度
-    band_1_rot270 = np.rot90(band_1_rot180)
-    band_2_rot270 = np.rot90(band_2_rot180)
-    band_3_rot270 = np.rot90(band_3_rot180)
-    image_rot270.append(np.dstack((band_1_rot270,
-                                   band_2_rot270, band_3_rot270)))
-
-    # 左右翻转
-    lr1 = np.flip(band_1, 0)
-    lr2 = np.flip(band_2, 0)
-    lr3 = np.flip(band_3, 0)
-    img_lr.append(np.dstack((lr1, lr2, lr3)))
-
-    # 上下翻转
-    ud1 = np.flip(band_1, 1)
-    ud2 = np.flip(band_2, 1)
-    ud3 = np.flip(band_3, 1)
-    img_ud.append(np.dstack((ud1, ud2, ud3)))
-
-rot90 = np.array(image_rot90)
-rot180 = np.array(image_rot180)
-rot270 = np.array(image_rot270)
-lr = np.array(img_lr)
-ud = np.array(img_ud)
-images = np.concatenate((images, rot90, rot180, rot270, lr, ud))
-
-return images
-</code></pre>
-<h1 id="定义模型">定义模型</h1>
-<p>def get_model():<br>
-# 建立一个序贯模型<br>
-model = tf.keras.Sequential()</p>
-<pre><code># 第一个卷积层  卷积核数量128  大小3*3 激活函数relu 池化层大小3*3,两方向步长为2 dropout0.2丢弃20%神经元
-#以防止过拟合
-model.add(tf.keras.layers.Conv2D(128, kernel_size=(3, 3), activation='relu',
-                        input_shape=(75, 75, 3)))
-model.add(tf.keras.layers.MaxPooling2D(pool_size=(3, 3), strides=(2, 2)))
-model.add(tf.keras.layers.Dropout(0.2))
-
-# 第二个卷积层
-model.add(tf.keras.layers.Conv2D(128, kernel_size=(3, 3), activation='relu'))
-model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
-model.add(tf.keras.layers.Dropout(0.2))
-
-# 第三个卷积层
-model.add(tf.keras.layers.Conv2D(64, kernel_size=(2, 2), activation='relu'))
-model.add(tf.keras.layers.MaxPooling2D(pool_size=(3, 3), strides=(2, 2)))
-model.add(tf.keras.layers.Dropout(0.2))
-
-# 第四个卷积层
-model.add(tf.keras.layers.Conv2D(64, kernel_size=(2, 2), activation='relu'))
-model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
-model.add(tf.keras.layers.Dropout(0.2))
-
-# 将上一层的输出特征映射转化为一维数据，
-# 以便进行全连接操作
-model.add(tf.keras.layers.Flatten())
-
-# 第一个全连接层
-model.add(tf.keras.layers.Dense(256))
-model.add(tf.keras.layers.Activation('relu'))
-model.add(tf.keras.layers.Dropout(0.2))
-
-# 第二个全连接层
-model.add(tf.keras.layers.Dense(128))
-model.add(tf.keras.layers.Activation('relu'))
-model.add(tf.keras.layers.Dropout(0.2))
-
-# 第三个全连接层
-model.add(tf.keras.layers.Dense(1))
-model.add(tf.keras.layers.Activation('sigmoid'))
-
-# 编译模型
-model.compile(loss='binary_crossentropy',
-              optimizer=tf.keras.optimizers.Adam(0.0001),
-              metrics=['accuracy'])
-# 打印出模型的概况信息
-model.summary()
-
-return model
-</code></pre>
-<h1 id="数据预处理">数据预处理</h1>
-<p>train_x, train_y = data_preprocess('D:/learning/python/tensorflow/《TensorFlow从零开始学》配套实验数据/Chapter4/iceberg_cnn/data/train.json', more_data=True)</p>
-<h1 id="初始化模型">初始化模型</h1>
-<p>cnn_model = get_model()</p>
-<h1 id="模型训练">模型训练</h1>
-<p>cnn_model.fit(train_x, train_y, batch_size=25,<br>
-epochs=100, verbose=1, validation_split=0.2)</p>
 ]]></content>
     </entry>
 </feed>
