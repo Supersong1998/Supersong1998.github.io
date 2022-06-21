@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sssdoctor.com</id>
     <title>大大大大宋</title>
-    <updated>2022-06-14T07:48:48.468Z</updated>
+    <updated>2022-06-21T01:06:19.912Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.sssdoctor.com"/>
     <link rel="self" href="https://www.sssdoctor.com/atom.xml"/>
@@ -10,6 +10,27 @@
     <logo>https://www.sssdoctor.com/images/avatar.png</logo>
     <icon>https://www.sssdoctor.com/favicon.ico</icon>
     <rights>All rights reserved 2022, 大大大大宋</rights>
+    <entry>
+        <title type="html"><![CDATA[Adams进阶2——柔性体建模]]></title>
+        <id>https://www.sssdoctor.com/post/adams-jin-jie-2-rou-xing-ti-jian-mo/</id>
+        <link href="https://www.sssdoctor.com/post/adams-jin-jie-2-rou-xing-ti-jian-mo/">
+        </link>
+        <updated>2022-06-20T12:56:54.000Z</updated>
+        <summary type="html"><![CDATA[<p>Adams柔性体建模分为三种方法包括：离散柔性杆、adams view创建柔性体（简单法、拉伸法、外形法、导入网格法）、mnf格式创建柔性体（刚形体替换柔性、直接替换、柔性体替换柔性体）。需要注意外联点一般设置为在ground上，同时手工替换选项的设置与是否替换原有构件选项有关。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Adams柔性体建模分为三种方法包括：离散柔性杆、adams view创建柔性体（简单法、拉伸法、外形法、导入网格法）、mnf格式创建柔性体（刚形体替换柔性、直接替换、柔性体替换柔性体）。需要注意外联点一般设置为在ground上，同时手工替换选项的设置与是否替换原有构件选项有关。</p>
+<!-- more -->
+<p><img src="https://www.sssdoctor.com/post-images/1655730100615.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655730105178.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655730109437.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655730115068.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655730118777.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655730121862.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655730135001.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655730232312.png" alt="" loading="lazy"><br>
+<img src="https://www.sssdoctor.com/post-images/1655730235945.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ADAMS进阶2——刚体建模]]></title>
         <id>https://www.sssdoctor.com/post/adams-jin-jie-2-gang-ti-jian-mo/</id>
@@ -498,108 +519,6 @@ Step3 查看结果：在计算结果上不能直接添加构造集合的云图�
 <h1 id="8-边界条件">8. 边界条件</h1>
 <p>载荷与约束也被称为边界条件。<br>
 参考：<a href="https://zhuanlan.zhihu.com/p/395234485">https://zhuanlan.zhihu.com/p/395234485</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Ansys Workbench Mechanical—后处理]]></title>
-        <id>https://www.sssdoctor.com/post/ansys-workbench-mechanical-hou-chu-li/</id>
-        <link href="https://www.sssdoctor.com/post/ansys-workbench-mechanical-hou-chu-li/">
-        </link>
-        <updated>2022-04-08T13:01:48.000Z</updated>
-        <summary type="html"><![CDATA[<p>Workbench结果后处理功能很强大，能得到用户所需的多种结果，如变形、应力应变、接触工具、疲劳工具等，本文以静力分析为例讲解结果后处理。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>Workbench结果后处理功能很强大，能得到用户所需的多种结果，如变形、应力应变、接触工具、疲劳工具等，本文以静力分析为例讲解结果后处理。</p>
-<!-- more -->
-<h1 id="1变形deformation">1.变形Deformation</h1>
-<p>变形命令集在Solution工具条的Deformation中。<br>
-变形结果对点、线、面、体均适用。<br>
-总变形是一个标量，可使用矢量方式显示方向：计算后点击Result工具条的方向显示图标即可设置方向显示。<br>
-<img src="https://www.sssdoctor.com/post-images/1649764302533.jpg" alt="" loading="lazy"><br>
-方向变形包括Ux、Uy、Uz三个方向的变形，可<strong>显示指定坐标下的变形，如在用户设定的圆柱坐标下的径向、周向、轴向变形</strong>。</p>
-<h1 id="2应力和应变">2.应力和应变</h1>
-<h2 id="21-强度理论">2.1 强度理论</h2>
-<h3 id="211-应力状态">2.1.1 应力状态</h3>
-<p>在某一坐标系中，描述一点的应力状态需要6个应力分量，即三组正应力<br>
-σx、σy、σz，及3组切应力τxy、τyz、τzx。<br>
-对上述点旋转一定角度，一定能找到某个角度，使每一面的切应力τ=0，而只有三个主应力，而这三个主应力中最大的为第一主应力σ1，中间的为第二主应力σ2，最小的为第三主应力σ3。(同样，一定能找到某个角度，使每一面的正应力σ=0，而只有三个切应力。)<br>
-<img src="https://www.sssdoctor.com/post-images/1649764374578.jpg" alt="" loading="lazy"><br>
-注意，<strong>若某一向主应力&lt;0，说明此方向是压缩应力，三向均为负数，则表示三向受压</strong>。<br>
-当某一向主应力为0时，称为二向应力状态，比如<strong>水塔、油管、皮球等可简化为二向应力状态</strong>。<br>
-当某两向主应力为0时，称为单向应力状态，比如<strong>杆梁受拉状态</strong>。</p>
-<h3 id="212-应力应变图">2.1.2 应力应变图</h3>
-<p>塑形材料为试件拉断时的伸长率＞5%的材料，如钢、铝合金、黄铜等，塑形材料在拉伸时应力与应变关系如下图。<br>
-<img src="https://www.sssdoctor.com/post-images/1649764457909.jpg" alt="" loading="lazy"><br>
-当应力超过屈服强度σs时将发生塑形变形，当应力超过强度极限σb时将发生缩颈直至断裂。<br>
-<strong>塑形材料的失效多以屈服强度σs作为判定标准</strong>。<br>
-对于没有明显屈服阶段的材料如T10A，一般将产生0.2%塑性应变时的应力作为名义屈服极限，表示σ0.2。<br>
-脆性材料为试件拉断时的伸长率≤5%的材料，如灰铸铁、玻璃、陶瓷等,<strong>脆性材料的失效多以强度极限σb作为判定标准</strong>。</p>
-<h3 id="213-四大强度理论">2.1.3 四大强度理论</h3>
-<p>在《材料力学》中，介绍了4种常用的强度理论：<br>
-<strong>第一强度理论</strong>：最大拉应力理论，认为当最大拉应力 σ1≥σb时，材料发生断裂。<br>
-<strong>第二强度理论</strong>：最大伸长线应变理论，认为当最大伸长线应变是引起断裂的主要原因，即材料断裂条件为 σ1-μ(σ2+σ3)≥σb（μ为泊松比）。<br>
-<strong>第三强度理论</strong>：最大切应力理论，认为当最大切应力 τmax=(σ1-σ3)/2≥σs/2时，材料发生屈服，即塑形材料不失效条件为σ1-σ3≤σs。<br>
-补充：莫尓强度理论为第三强度理论的扩充，它是以实验资料作为基础得出的，并不像4种强度理论是以假说为基础，考虑了材料抗拉和抗压强度不相等的情况，可用于塑形材料，也可用于脆性材料。当材料的扛拉和抗压强度相等时，莫尓强度理论与第三强度理论相同。<br>
-<strong>第四强度理论</strong>：畸变能密度理论（冯米斯Von-Mises等效应力理论），认为畸变能密度是引起屈服的主要原因。即塑形材料不失效条件为σVon≤σs。<br>
-四种强度理论在Ansys-Workbench中的应用见下表：<br>
-<img src="https://www.sssdoctor.com/post-images/1649765845627.jpg" alt="" loading="lazy"></p>
-<h2 id="22-workbench中应力与应变的应用">2.2 Workbench中应力与应变的应用</h2>
-<p>应变命令集在Solution工具条的Strain中，应力命令集在Stress中。<br>
-由于应力与应变成正比关系：σ=E*ε（E是材料的弹性模量），所以下文主要以应力作讲解，读者可推广到应变结果的应用。<br>
-<img src="https://www.sssdoctor.com/post-images/1649768715445.jpg" alt="" loading="lazy"><br>
-<strong>等效应力Equivalent (von-Mises)</strong><br>
-等效应力/应变又称冯米斯(von-Mises)等效应力/应变，是塑形材料计算时最常用的结果。计算结果需满足第四强度理论σVon≤σs。<br>
-<strong>第一主应力Maximum Principal</strong><br>
-第一主应力又称最大主应力，是脆形材料计算时常用的结果。计算结果需满足第一强度理论σ1≤σb。<br>
-第二主应力σ2与第三主应力σ3分别对应Middle Principal和Minimum Principal，在此不再赘述。<br>
-<strong>最大剪应力Maximum Shear与应力强度Intensity</strong><br>
-最大剪应力与应力强度其实是等效概念，都是第三强度理论所需计算的对象，应力强度为最大剪切应力的2倍，即Intensity=2×Maximum Shear。<br>
-实际应用中更多使用应力强度，因为此时只需将计算强度与σs对比，即满足第三强度理论<br>
-Intensity=σ1-σ3≤σs<br>
-如果使用最大剪应力来校核，则需要满足Maximum Shear=(σ1-σ3)/2≤σs/2<br>
-<strong>主应力矢量Vector Principal</strong><br>
-主应力矢量可以3D显示3个主应力的方向，正值朝外，负值朝内。该显示有助于描述结构某点所承受的最大正应力的方向。<br>
-<strong>应力误差Error</strong><br>
-应力误差用于识别高误差区域，表示该区域需要网格细化，以获得更准确的结果，但是对于非线性结果可能不准确，且仅适用于各向同性材料。<br>
-<strong>等效塑形应变Equivalent Plastic</strong><br>
-等效塑形应变用于测量结构的永久应变，材料应力应变超过比例极限后，应力与应变呈现非线性关系，塑形行为表现为应力超过屈服强度后发生永久不可恢复的应变。由于比例极限与屈服强度很接近，Ansys计算中将它们合为一点。如果要使用本选项得到塑形应力，需要先设置塑形材料的非线性属性。</p>
-<h1 id="3工具">3.工具</h1>
-<p>工具选项在Solution工具条的Tools里面，包括应力工具、疲劳工具、接触工具、螺栓工具等。<br>
-<img src="https://www.sssdoctor.com/post-images/1649768790085.jpg" alt="" loading="lazy"></p>
-<h2 id="31-应力工具">3.1 应力工具</h2>
-<p>应力工具主要用于<strong>计算安全系数、安全余量与应力比值</strong>，安全余量=安全系数-1，应力比值=1/安全系数。选择应力工具Stress Tool后，会在分析树中生成Stress Tool项目，可对其进行细节设置。<br>
-<img src="https://www.sssdoctor.com/post-images/1649768890063.jpg" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1649768953182.jpg" alt="" loading="lazy"></p>
-<h2 id="32-疲劳工具">3.2 疲劳工具</h2>
-<p>疲劳工具提供以<strong>应力寿命和应变寿命为基础的疲劳计算寿</strong>命，可以计算<strong>恒幅值或变幅值载荷，比例或非比例载荷</strong>。</p>
-<h2 id="33-接触工具">3.3 接触工具</h2>
-<p>选择接触工具Contact Tool后，会在分析树中生成Contact Tool项目，并在工具栏出现Contact Tool工具条。<br>
-<img src="https://www.sssdoctor.com/post-images/1649769064232.jpg" alt="" loading="lazy"><br>
-<strong>摩擦应力</strong>：显示摩擦引起的切向应力。<br>
-<strong>压力</strong>：显示法向接触压力。<br>
-<strong>滑移距离</strong>：显示表面相对滑动的距离。<br>
-<strong>穿透</strong>：显示穿透深度。<br>
-<strong>间隙</strong>：显示在弹球Pinball半径内的缝隙值大小。<br>
-<strong>接触状态</strong>：提供是否接触的信息，Over Constrained表示过约束，Far表示在弹球范围外，Near表示在弹球范围内，Sliding表示有相对滑移，Sticking表示粘结在一起。</p>
-<h1 id="4探测结果probe">4.探测结果Probe</h1>
-<p>探测显示用于显示某一点、线、面、体的结果，仅介绍常用选项。<br>
-4.1 变形、应变和应力<br>
-探测结果所能计算的变形、应变与应力类型与上文介绍的相同，不同之处在于：<br>
-1，对象选择中没有All body选项，只能选择点、线、面、体或网格单元，可以同时选择多个对象。<br>
-2，结果类型是在细节设置窗口选择。<br>
-3，不能显示云图结果，只在信息窗口以图表的形式显示计算的最大值。<br>
-4.2 反力与反力矩<br>
-求取反力与反力矩是工程应用中经常会遇到的问题，Workbench可以求取边界条件（含弱弹簧）、接触、网格接触、梁/弹簧连接等处的约反力与反力矩。<br>
-注意，求取连接或接触处的反力与反力矩时，需要打开分析设置中的Output Controls——Nodal Forces。<br>
-实例2，模型右端固定，左端施加力与力矩，求取下列模型约束处的反力与反力矩。<br>
-本例只需要自己添加Probe中的反力与反力矩，在细节设置中将Location Method(定位方法)设置为Boundary Condition(边界条件)，然后再Boundary Condition下拉菜单中选中我们定义的固定约束。结果如下<br>
-5 图形显示工具<br>
-在分析树中选中某一计算结果，在工具栏将出现图形显示工具。<br>
-1，比例显示、显示方式、色条显示、外形显示<br>
-这几种显示工具是我们常用的，其中的含义很简单，无需解释，在此不赘述。<br>
-2，矢量显示<br>
-当选择矢量显示后，工具栏将出现矢量显示工具条。<br>
-3，最大值、最小值、探针<br>
-选择最大值与最小值时，程序会自动在图形此处标记，但是应力奇异需要用户自己判断，所以很多时候不能直接使用最大值，而是需要我们手动探测。</p>
 ]]></content>
     </entry>
 </feed>
