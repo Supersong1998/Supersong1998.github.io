@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sssdoctor.com</id>
     <title>大大大大宋</title>
-    <updated>2022-06-21T12:28:18.145Z</updated>
+    <updated>2022-06-22T07:52:47.802Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.sssdoctor.com"/>
     <link rel="self" href="https://www.sssdoctor.com/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://www.sssdoctor.com/images/avatar.png</logo>
     <icon>https://www.sssdoctor.com/favicon.ico</icon>
     <rights>All rights reserved 2022, 大大大大宋</rights>
+    <entry>
+        <title type="html"><![CDATA[Adams进阶2——参数化设计及优化分析]]></title>
+        <id>https://www.sssdoctor.com/post/adams-jin-jie-2-can-shu-hua-she-ji-ji-you-hua-fen-xi/</id>
+        <link href="https://www.sssdoctor.com/post/adams-jin-jie-2-can-shu-hua-she-ji-ji-you-hua-fen-xi/">
+        </link>
+        <updated>2022-06-22T06:44:00.000Z</updated>
+        <content type="html"><![CDATA[<p>adams参数化设计及优化分析的计算仅支持脚本仿真，参数化设计实际上使得设计参数可以在一定范围内浮动，仅通过修改设计变量即可修改设计参数。优化分析的过程是在一定约束的限制下，研究设计参数的取值使得目标取值最优，在优化分析的部分中包含了目标函数，约束，优化评估（设计研究、实验设计，优化分析）等的基本设置。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Adams进阶2——柔性体建模]]></title>
         <id>https://www.sssdoctor.com/post/adams-jin-jie-2-rou-xing-ti-jian-mo/</id>
@@ -389,136 +398,6 @@ Bolt Thread能够利用简化圆柱模拟螺栓连接，一般设置过程包括
 <h3 id="253目标面几何修正target-geometry-correction">2.5.3目标面几何修正Target Geometry Correction</h3>
 <p>用户只能选择圆面光滑功能。<br>
 搬运自<a href="https://zhuanlan.zhihu.com/p/394729188">https://zhuanlan.zhihu.com/p/394729188</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Ansys Workbench Mechanical—前处理]]></title>
-        <id>https://www.sssdoctor.com/post/ansys-workbench-mechanical-qian-chu-li/</id>
-        <link href="https://www.sssdoctor.com/post/ansys-workbench-mechanical-qian-chu-li/">
-        </link>
-        <updated>2022-04-11T00:45:58.000Z</updated>
-        <summary type="html"><![CDATA[<p>Mechanical应用是Ansys Workbench的重要组成部分，可进行力学分析、热分析、电磁分析等。Mechanical支持的有限元分析如下：<br>
-**•结构：**静态和瞬态，线性和非线性。<br>
-**•动态特性：**模态、谐波、随机振动、柔性和刚性动力学。<br>
-**•热分析：**稳态和瞬态，温度场和热流等。<br>
-**•磁场：**静磁场分析。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>Mechanical应用是Ansys Workbench的重要组成部分，可进行力学分析、热分析、电磁分析等。Mechanical支持的有限元分析如下：<br>
-**•结构：**静态和瞬态，线性和非线性。<br>
-**•动态特性：**模态、谐波、随机振动、柔性和刚性动力学。<br>
-**•热分析：**稳态和瞬态，温度场和热流等。<br>
-**•磁场：**静磁场分析。</p>
-<!-- more -->
-<h1 id="1-mechanical用户界面"><strong>1. Mechanical用户界面</strong></h1>
-<h2 id="11-进入mechanical">1.1 进入Mechanical</h2>
-<p>在Workbench的项目管理区，双击Model等栏目进入Mechanical环境。<br>
-<img src="https://www.sssdoctor.com/post-images/1649743302125.png" alt="" loading="lazy"></p>
-<h2 id="12-mechanical界面简介">1.2 Mechanical界面简介</h2>
-<p>Mechanical界面主要包括菜单栏、分析树、详细设置窗、图形操作窗、信息窗、状态栏等。<br>
-Mechanical界面鼠标选择方式可实现点选与框选，选择过滤器包括标签、点、线、面</p>
-<h2 id="13-刷新与删除数据">1.3 刷新与删除数据</h2>
-<p>模型导入Mechanical后，程序会自动刷新，但是我们有时候需要手动刷新，只需要点击标题栏File——Refresh All Data。<br>
-刷新数据有时候修改了参数需要删除计算结果数据、网格数据等，只需要在分析树对应的项目上右击——Clear Generated Data。在Static Structural或Solution上操作只会清除计算结果，在Mesh上操作会清除网格数据和计算结果。</p>
-<h1 id="2-定义零件属性"><strong>2. 定义零件属性</strong></h1>
-<p>在分析树中点击Model下的零件，在详细窗口中可以设置零件属性。<strong>一般情况下，赋予材料选项可能需要修改，其他选项使用默认设置即可</strong><br>
-<strong>零件属性</strong><br>
-<img src="https://www.sssdoctor.com/post-images/1649743316467.jpg" alt="" loading="lazy"></p>
-<h2 id="21-刚度行为">2.1 刚度行为</h2>
-<p>•柔体Flexible：默认选项，零件可变形。<br>
-•刚体Rigid：零件不能变形，可以采用集中质量来减少求解时间。对于刚体需要注意3个问题：<br>
-1 连接：刚体支持接触、节点连接、弹簧等类型的连接，刚体只能作为目标体，不能作为接触体；<br>
-2 网格划分：刚体不划分网格，但会在接触面上划分网格以便计算接触；<br>
-3 边界条件：刚体只支持远程位移、远程力和力矩。<br>
-•垫片Gasket：仅用于静力学分析。垫片密封是工程中非常重要和常见的密封手段，垫片材料具有高度的非线性与复杂的卸载性能。</p>
-<h2 id="22-行为">2.2 行为</h2>
-<p>行为<strong>默认为None</strong>，修改为构造体Construction Body后，此零件将不参与任何计算，也不能进行操作，相当于此零件被抑制，但是与抑制不同的是构造体可以显示。</p>
-<h2 id="23-赋予材料">2.3 赋予材料</h2>
-<p>在赋予材料中，可以给几何体指派材料，默认为合金钢，可以点击右侧下拉菜单进入材料库修改，或者选择收藏的材料。</p>
-<h2 id="24-非线性材料效应与热应变效应">2.4 非线性材料效应与热应变效应</h2>
-<p>默认使用材料的非线性效应。如果修改为No，材料的非线性特性将被忽略。此处建议使用默认设置。<br>
-默认使用材料的热应变效应。如果修改为No，材料的热应变特性将被忽略。此处建议使用默认设置。</p>
-<h2 id="25-边界">2.5 边界</h2>
-<p>边界显示了零件的最大尺寸轮廓值。</p>
-<h2 id="26-属性">2.6 属性</h2>
-<p>属性显示了零件的体积、重量、质心坐标、惯性矩等。</p>
-<h2 id="27-统计数据">2.7 统计数据</h2>
-<p>属性显示了零件的节点数量、单元数量等，如果还没有划分网格，节点与单元数显示为0。</p>
-<h1 id="3-model工具">3. Model工具</h1>
-<p>点击分析树的Model后，工具栏会出现Model工具条，下图是其中部分工具：<br>
-<img src="https://www.sssdoctor.com/post-images/1649744727732.png" alt="" loading="lazy"><br>
-以下主要介绍构造几何、远程点、集合，其余功能将在以后的实例中详解。</p>
-<h2 id="31-构造几何">3.1 构造几何</h2>
-<p>构造几何包括路径、剖面、体区，可以在此路径或剖面上显示求解结果。点击Model工具栏的Construction Geometry，便创建了一个构造集合。在分析树中右击创建的Construction Geometry——Insert——Path/Surface/Solid（或在工具栏的Construction Geometry工具条中选取），便能创建路径/剖面/体区。<br>
-Construction Geometry工具条<br>
-<img src="https://www.sssdoctor.com/post-images/1649744736591.png" alt="" loading="lazy"><br>
-3.1.1 定义路径<br>
-路径是由用户定义的空间曲线或直线，可以通过3种方法定义：<br>
-1，起点与终点：在Path Type中选择Two Point，根据选取的坐标不一样，得到的路径也不一样，在笛卡尔坐标下定义的为直线，在圆柱坐标下定义的为螺旋线。<br>
-2，通过模型边线定义：在Path Type中选择Edge。<br>
-3，通过模型与X轴相交定义：在Path Type中选择X Axis Intersection。<br>
-3.1.2 定义剖面<br>
-剖面只能通过坐标系定义，而且为坐标系的XY面。<br>
-3.1.3 定义体区<br>
-剖面只能通过坐标系定义，分别输入体区的两个角顶点的坐标x1、y1、z1和x2、y2、z2，便生成了一个方块区域。<br>
-实例2，求如图受扭矩的圆环在X轴、XY面的位移。<br>
-<img src="https://www.sssdoctor.com/post-images/1649744794119.jpg" alt="" loading="lazy"><br>
-Step1 创建构造集合。点击分析树中的Model，在工具栏出现Model工具条，选择Construction Geometry，便在分析树中创建了构造集合。点击这个构造集合，在工具栏出现Construction Geometry工具条。<br>
-1，创建路径：点击 Construction Geometry工具条中的Path，在细节窗口设置Path Type为X Axis Intersection。<br>
-<img src="https://www.sssdoctor.com/post-images/1649744806962.jpg" alt="" loading="lazy"><br>
-2，创建剖面：点击 Construction Geometry工具条中的Surface，在细节窗口中设置坐标系（如果全局坐标的XY面不是我们想要的，可以事先建立局部坐标系）。<br>
-<img src="https://www.sssdoctor.com/post-images/1649744814711.jpg" alt="" loading="lazy"><br>
-Step2 设置网格和边界条件。设置完成后点击Solve开始计算。<br>
-Step3 查看结果：在计算结果上不能直接添加构造集合的云图，需要通过Worksheet添加。<br>
-创建合位移结果：点击分析树的Soulution，在工具栏中找到工作表Worksheet并点击，跳出工作表。找到合位移USUM右击，选择Create User Defined Result(创建用户自定义结果)。<br>
-<img src="https://www.sssdoctor.com/post-images/1649744832697.jpg" alt="" loading="lazy"><br>
-在Soulution边创建了USUM结果，点击进行细节设置，在Scoping Method中选择 Path，在Path中选择我们设置的路径。同理设置其他结果。<br>
-<img src="https://www.sssdoctor.com/post-images/1649744838859.jpg" alt="" loading="lazy"><br>
-定义结果<br>
-右击分析树Solution——Evaluate All Results（评估所有结果），结果被刷新，显示如下<br>
-结果显示<br>
-<img src="https://www.sssdoctor.com/post-images/1649744845653.jpg" alt="" loading="lazy"></p>
-<h1 id="4-几何工具">4 .几何工具</h1>
-<p>点击分析树中Geometry或下属零件，工具栏便会出现Geometry工具条。</p>
-<h2 id="41-质量点">4.1 质量点</h2>
-<p><strong>Point Mass</strong>是理想的质量点，将零件简化称为一个带质量参数的点，在有惯性载荷的计算中提高了计算速度。需要注意的时，创建的质量点并不会继承原模型的边界条件与接触关系，也不会自动抑制原模型。所以创建质量点前一般先手动抑制原模型，并通过远程点的形式添加与其他模型的接触关系。</p>
-<h2 id="42-分布质量">4.2 分布质量</h2>
-<p><strong>Distributed Mass</strong>设置方法类似于质量点，但是它不是集中质量点，是在一个面或一条边线上的均布质量</p>
-<h2 id="43-表面涂层">4.3 表面涂层</h2>
-<p><strong>Surface Coating</strong>可以定义表面涂层厚度与材料。</p>
-<h1 id="5-坐标系">5 .坐标系</h1>
-<h1 id="6-定义连接">6 .定义连接</h1>
-<p>当几何体存在多个零部件时，需要确定零部件之间的相互关系，在Mechanical中可以创建的连接关系如下：<br>
-•接触Connect<br>
-•网格接触Mesh Connection<br>
-•关节连接Joint<br>
-•梁连接Beam Connection<br>
-•弹簧Spring<br>
-•轴承Bearings<br>
-•点焊spot Weld<br>
-•末端释放End Releaser（应用于梁、壳单元）<br>
-•几何体交互Body Interaction (应用于显示动力学中）<br>
-在Cnnections的选项细节窗口中，Generate Automatic Connection On Refresh（在刷新时自动生成连接）默认为Yes，这一设置在设计分析时很有用。</p>
-<hr>
-<p>Connections选项</p>
-<h2 id="61-网格接触mesh-connection">6.1 网格接触Mesh Connection</h2>
-<p>网格接触可以帮助连接不连续的体之间的网格划分，如以下实例。</p>
-<h2 id="62-关节连接joint">6.2 关节连接Joint</h2>
-<p>Joint核心即为MPC接触形式,采用约束方程定义实体之间或者实体与大地之间的连接关系。<br>
-分为固定Fixed、旋转Revolute 、圆柱Cylindrical 、平移Translational 、 槽Slot 、万向节 Universal 、球Spherical 、 平面Planar、套管Bushing、通用General 、点面连接Point on Curve。</p>
-<h2 id="63-弹簧spring和梁beam接触">6.3 弹簧Spring和梁Beam接触</h2>
-<p>Spring和Beam接触，用来模拟弹簧和梁的连接，以定义相应的接触关系。两者的创建方法相同，以下以创建弹簧接触为例。</p>
-<h2 id="64-轴承bearing">6.4 轴承Bearing</h2>
-<p>轴承接触为一个2D弹性单元，可用来限制旋转部件的相对运动和转动。定义轴承时，需要设置刚度矩阵与阻尼矩阵。</p>
-<h2 id="64-点焊spot-weld">6.4 点焊Spot Weld</h2>
-<p>点焊连接用来连接不同的零件，其作用与绑定接触一样，但是对象只能选择点。点焊在不同零件直接传递载荷。如下图将两个方块4个顶点一对一点焊，在施加底面的固定与横向的拉力，位移结果如下。</p>
-<h1 id="7-网格划分">7. 网格划分</h1>
-<p>网格划分在以往的文章中已经详细解释，但是结构分析中应该注意以下几点：<br>
-1，接触面应提供适当精细的网格，以使接触应力平滑分布。<br>
-2，对应力应变感兴趣的区域，网格应相应加密，对位移感兴趣而对应力应变不感兴趣的区域，网格可以相应粗大。<br>
-3，考虑结构非线性时，网格应适当加密。</p>
-<h1 id="8-边界条件">8. 边界条件</h1>
-<p>载荷与约束也被称为边界条件。<br>
-参考：<a href="https://zhuanlan.zhihu.com/p/395234485">https://zhuanlan.zhihu.com/p/395234485</a></p>
 ]]></content>
     </entry>
 </feed>
