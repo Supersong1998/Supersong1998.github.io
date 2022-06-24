@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sssdoctor.com</id>
     <title>大大大大宋</title>
-    <updated>2022-06-23T07:58:14.785Z</updated>
+    <updated>2022-06-24T06:33:30.161Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.sssdoctor.com"/>
     <link rel="self" href="https://www.sssdoctor.com/atom.xml"/>
@@ -10,6 +10,19 @@
     <logo>https://www.sssdoctor.com/images/avatar.png</logo>
     <icon>https://www.sssdoctor.com/favicon.ico</icon>
     <rights>All rights reserved 2022, 大大大大宋</rights>
+    <entry>
+        <title type="html"><![CDATA[Adams进阶4——施加载荷]]></title>
+        <id>https://www.sssdoctor.com/post/adams-jin-jie-4-shi-jia-zai-he/</id>
+        <link href="https://www.sssdoctor.com/post/adams-jin-jie-4-shi-jia-zai-he/">
+        </link>
+        <updated>2022-06-24T06:11:15.000Z</updated>
+        <summary type="html"><![CDATA[<p>ａｄａｍｓ施加载荷主要分为三种类型，施加外部载荷，添加柔性连接，以及定义接触。外部载荷以力和力矩为主。柔性连接包括阻尼器、弹簧、卷曲弹簧以及力场，柔性梁。接触的定义使得构架之间得接触更贴近于真实情况，若不定义构件的彼此接触，则彼此接触的构件会发生强穿透，并不会产生任何变形。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>ａｄａｍｓ施加载荷主要分为三种类型，施加外部载荷，添加柔性连接，以及定义接触。外部载荷以力和力矩为主。柔性连接包括阻尼器、弹簧、卷曲弹簧以及力场，柔性梁。接触的定义使得构架之间得接触更贴近于真实情况，若不定义构件的彼此接触，则彼此接触的构件会发生强穿透，并不会产生任何变形。</p>
+<!-- more -->
+<figure data-type="image" tabindex="1"><img src="https://www.sssdoctor.com/post-images/1656052387570.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Adams进阶3——运动副与驱动]]></title>
         <id>https://www.sssdoctor.com/post/adams-jin-jie-3-yun-dong-fu-yu-qu-dong/</id>
@@ -228,92 +241,6 @@
 <pre><code>**Avoiding Ambiguity and Vagueness**
 </code></pre>
 <h3 id="avoid-plagiarism">Avoid Plagiarism</h3>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Ansys Workbench Mechanical—求解设置]]></title>
-        <id>https://www.sssdoctor.com/post/ansys-workbench-mechanical-qiu-jie-she-zhi/</id>
-        <link href="https://www.sssdoctor.com/post/ansys-workbench-mechanical-qiu-jie-she-zhi/">
-        </link>
-        <updated>2022-04-12T05:51:16.000Z</updated>
-        <summary type="html"><![CDATA[<p>对于结构静力学中的简单线性问题，不需要对其进行设置，但是对于复杂的分析需要设置一些控制选项。分析设置是在Mechanical分析树的Static Structural下的Anslysis Settings细节设置中。本文主要对载荷步控制、求解器控制、重启控制、非线性控制、输出控制、分析数据管理进行介绍。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>对于结构静力学中的简单线性问题，不需要对其进行设置，但是对于复杂的分析需要设置一些控制选项。分析设置是在Mechanical分析树的Static Structural下的Anslysis Settings细节设置中。本文主要对载荷步控制、求解器控制、重启控制、非线性控制、输出控制、分析数据管理进行介绍。</p>
-<!-- more -->
-<h1 id="1载荷步控制">1.载荷步控制</h1>
-<p>载荷步控制用于指定求解<strong>步数和时间</strong>。在非线性分析时，用于控制时间步长。载荷步控制也用于创建多载荷步，如螺栓预紧载荷。</p>
-<h2 id="11-载荷步与子步">1.1 载荷步与子步</h2>
-<p><strong>载荷步、子步和平衡迭代</strong>是控制加载求解过程的三个载荷时间历程节点。</p>
-<h2 id="111-载荷步">1.1.1 载荷步</h2>
-<p>在线性<strong>静力学分析或稳态分析中</strong>，可以使用<strong>不同的载荷步施加不同的载荷组合</strong>。<br>
-在<strong>瞬态分析</strong>中，可以将<strong>多个载荷步加载到同一加载历程曲线的不同时间点</strong>。<br>
-注意：载荷可以分步，约束不能分步。<br>
-<img src="https://www.sssdoctor.com/post-images/1649811489956.jpg" alt="" loading="lazy"><br>
-实例1，固定矩形条一端，在另一端分3步加载载荷，第一步只加载100N的力，第二步只加载10000Nm的逆时针扭矩，第三步力与扭矩共同作用，求每一步的变形。<br>
-<strong>Step1</strong>，设置零件材料，接触关系，网格划分，过程略。<br>
-<strong>Step2</strong>，分析设置，将载荷步设置为3，其余默认。<br>
-<img src="https://www.sssdoctor.com/post-images/1649811703901.png" alt="" loading="lazy"><br>
-<strong>Step3</strong>，设置边界条件，如下图。<br>
-<img src="https://www.sssdoctor.com/post-images/1649811714977.jpg" alt="" loading="lazy"><br>
-载荷默认都是渐增(斜坡)加载的，用一个载荷步将载荷从0增加到设定值。<br>
-选中分析树中的Force，在信息窗口中出现了Tabular Data表格和Graph图表，代表了Force的加载历程，在第一步中，力从0渐变到100，并在第二三步中保持。<br>
-对于<strong>静力学分析，渐增加载与恒定加载计算无区别</strong>，本例将力与扭矩都改为恒定加载，在表格第一行将数字改为设定值。要想Force在第二步不起作用，只需要点击图表的第二步区域或表格对应行，右击选择<strong>Activate/Deactive at this step!</strong>（在此步激活/取消），此载荷便在第二步中消失。<br>
-同样设置Moment载荷，使它在第一步中不起作用。<br>
-<img src="https://www.sssdoctor.com/post-images/1649811746118.jpg" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1649811754905.jpg" alt="" loading="lazy"><br>
-<strong>Step4</strong>，添加结果，点击分析树的Solution(A6)，在工具栏出现Solution工具条，点击Deformation-Total（合位移），在分析树中便出现了Total Deformation项目，默认是最后结果，但是现在我们需要查看第一步结果。<br>
-在Total Deformation的细节设置中，By改为Result Set（结果位置），Set Number改为1，即表示第一步的结果。当然，也可以设置为Time（时间），然后在下一行Display Time改为1s。同样设置第二三步的结果。<br>
-<img src="https://www.sssdoctor.com/post-images/1649811769652.jpg" alt="" loading="lazy"><br>
-<img src="https://www.sssdoctor.com/post-images/1649811778935.jpg" alt="" loading="lazy"><br>
-<strong>Step5</strong>，计算，结果如下<br>
-<img src="https://www.sssdoctor.com/post-images/1649811786887.jpg" alt="" loading="lazy"></p>
-<h2 id="112-子步">1.1.2 子步</h2>
-<p>子步Substep是一个载荷步中插入若干的点。通常一个子步求解需要若干次迭代，每次迭代都被称为一次平衡迭代。子步对于求解过程的控制非常重要，很多时候需要使用不同的子步数来满足不同的加载和求解需要。子步的主要作用如下：<br>
-1，在非线性静态和稳态分析中，使用子步逐渐施加载荷以提高求解精度，甚至可以使求解结果从不收敛变为收敛。在以后的文章将讲到子步在非线性屈曲中的应用。<br>
-2，在线性或非线性瞬态分析中，使用子步满足时间步长的需要，得到较为精确的解，即满足瞬态时间累计法则。在以后的文章将讲到子步在瞬态分析中的应用。<br>
-3，在谐波响应分析中，使用子步获得响应频率范围内多个频率处的解。在以后的文章将讲到子步在瞬态分析中的应用。<br>
-以下以矩形条一端固定一端加载力为例说明子步的设置方法<br>
-在分析设置中，将自动时间步Auto Time Stepping设置为On，Define By设置为Substep。然后需要设置三个参数<br>
-初始子步Initial substeps ：用于计算初始加载量（即确定初始子步位置）。<br>
-最小子步Minimum Substeps，最大子步 Maximum Substeps用于计算子步之间的增量。三者关系数值关系必须满足：最小子步≤初始子步≤最大子步。大多数情况下，为了方便控制与计算，设置：最小子步=初始子步=最大子步。<br>
-比如给矩形条加载100N的力，载荷步为1，初始子步8，最小子步4，最大子步10。<br>
-则力的初始加载值为 100N/8=25N，子步的数量为4<sub>10（由程序选择），子步之间的增量范围为100N/10</sub>100N/4，即10N~25N。其中最小子步不得大于最大子步，初始子步必须在最小子步和最大子步的数值之间）<br>
-<img src="https://www.sssdoctor.com/post-images/1649811805395.jpg" alt="" loading="lazy"><br>
-计算后可以在图表中看到共生成了5个子步。<br>
-<img src="https://www.sssdoctor.com/post-images/1649811810542.jpg" alt="" loading="lazy"><br>
-1.2 时间<br>
-载荷步和子步中经常会见到时间相关的选项，但是此处的1s不一定表示1s时间。无论载荷类型是否依赖于时间，Workbench都使用时间作为跟踪参数，这样，计算的结果将是与时间相关的函数。<br>
-1，在静态线性分析中，时间取值为常数0，即计算与时间无关，所以在案例1中，我们可以将渐增加载改为恒定加载，而不影响计算结果。<br>
-2，在瞬态分析中，时间作为表示真实时间历程的变量在变化。<br>
-3，在其他分析中，时间仅作为一个计算器，识别求解时所采用的不同载荷步。<br>
-4，时间也可以作为识别载荷步与载荷子步的跟踪器，载荷步是作用在指定的时间间隔内的一系列载荷，载荷子步是载荷步中的时间节点，平衡迭代求取的是子步时间节点上的中间解。<br>
-2 求解器控制<br>
-2.1 求解器类型<br>
-求解器类型有直接求解器Direct和迭代求解器Iterative。我们一般使用程序控制就可以。<br>
-直接求解器可以处理任何情况，主要用于薄面和细长体的模型。<br>
-迭代求解器在处理体积大的模型时很有效。<br>
-<img src="https://www.sssdoctor.com/post-images/1649811819009.jpg" alt="" loading="lazy"><br>
-2.2 弱弹簧<br>
-弱弹簧Weak Springs：在某些时候，希望模型在平衡状态下计算，而不是约束所有方向，此时就会用到若弹簧。比如如下一个几何体，在左右方向受到方向相反大小相等的力，理论上几何体处于平衡状态，不会发生刚体平移，但是在有限元软件中，经过网格离散化后，几何体可能处于微小的不平衡中，而弱弹簧就是用来平衡这种微小不平衡力。<br>
-但是，用户约束所有可能的刚体平移方向才是最好的习惯，比如上图模型，可以采用1/2或1/4的模型，施加对称约束。<br>
-2.3 大变形<br>
-大变形Large Deflection用于几何非线性计算中，关于非线性的概念将在非线性分析一文中详解。大变形关闭时，计算器使用模型的初始刚度矩阵；大变形打开后，计算器将在每次迭代后重新生成刚度矩阵。<br>
-当变形超过5%或转角超过10°时，必须打开大变形开关。<br>
-2.4 惯性释放<br>
-通常在做静力学分析时，需要保证结构无刚体平移，否则求解器不能计算。但是在飞机飞行，轮船航行时要计算机构，需要采用惯性释放在结构上施加一个虚拟的约束反力，来保证合力平衡。惯性释放允许对完全无约束的结构进行静力分析<br>
-3 其他控制<br>
-3.1 重启控制<br>
-重启控制设置静力分析和瞬态分析中的多个重启点，来获得从某时刻重新启动分析所需的数据库。<br>
-3.2 非线性控制<br>
-非线性控制可以修改收敛准则和其他一些求解控制选项，增加了稳定控制和稳定能量结果。<br>
-<img src="https://www.sssdoctor.com/post-images/1649811829050.jpg" alt="" loading="lazy"><br>
-3.3 输出控制<br>
-输出控制允许在结果后处理中得到需要的时间点结果，尤其在非线性分析中，中间载荷的结果也很重要。<br>
-<img src="https://www.sssdoctor.com/post-images/1649811837536.jpg" alt="" loading="lazy"><br>
-3.3 分析数据管理<br>
-分析数据管理用于管理分析数据的储存结果文件，以用于其他的分析系统。<br>
-写在最后，除了在需要时设置载荷步与子步外，其余选项使用默认设置已经足以解决我们工作中的绝大部分需求。<br>
-<img src="https://www.sssdoctor.com/post-images/1649811846365.jpg" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
